@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const FROM = 'C:\\YostarGames\\StellaSora_EN\\StellaSora_Data\\StreamingAssets\\InstallResource';
+const FROM = 'C:\\YostarGames\\StellaSora_EN\\Persistent_Store\\AssetBundles';
 const TO = '.\\unity3d';
 
 const regexes = [
