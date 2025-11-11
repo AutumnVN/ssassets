@@ -1,0 +1,4 @@
+此目录存放的资源，由C#中代码读取，并设置于3D角色模型脚底下，因此最终将资源放在了 Adventure 资源目录中：
+Assets\AssetBundles\Adventure\Indicators\Textures
+
+此目录及 readme.txt 仅为2D资源同步工具方便而建立，不要删。

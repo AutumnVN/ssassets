@@ -1,0 +1,16 @@
+AssetRipper_win_x64/
+unity3d/
+export/Assemblies/
+export/Assets/AssetsBundle/
+export/Assets/EditorSettings/
+export/Assets/Font/
+export/Assets/LightmapParameters/
+export/Assets/Mesh/
+export/Assets/PrefabHierarchyObject/
+export/Assets/ScriptableObjectGroup/
+export/Assets/Shader/
+export/Assets/Sprite/
+export/Assets/Texture2D/
+*.json
+*.glb
+*.ini
