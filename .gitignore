@@ -14,3 +14,4 @@ export/Assets/Texture2D/
 *.json
 *.glb
 *.ini
+*.bytes
