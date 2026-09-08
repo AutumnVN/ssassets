@@ -1,8 +1,8 @@
-import sharp from 'sharp';
-import { existsSync, readFileSync, mkdirSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync } from 'fs';
 import { dirname } from 'path';
+import sharp from 'sharp';
 
-const DATA_URL = 'https://raw.githubusercontent.com/AutumnVN/StellaSoraData/refs/heads/main/character.json';
+const DATA_URL = 'https://raw.githubusercontent.com/AutumnVN/ss-data/refs/heads/main/character.json';
 
 const data = await fetch(DATA_URL).then((res) => res.json());
 
