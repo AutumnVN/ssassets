@@ -1,10 +1,10 @@
-import { existsSync, mkdirSync, rmSync, copyFileSync, readdirSync } from 'fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
 
 const INSTALLRESOURCE = 'C:/YostarGames/StellaSora_EN/StellaSora_Data/StreamingAssets/InstallResource';
 const ASSETBUNDLEs = 'C:/YostarGames/StellaSora_EN/Persistent_Store/AssetBundles';
 const OUT = './download';
 const OUT2 = './download2';
-const REGEX = /^(?:icon-|image-|ui_activity__6).*\.unity3d$/;
+const REGEX = /^(?:icon-|image-|ui_activity).*\.unity3d$/;
 
 if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true });
 if (existsSync(OUT2)) rmSync(OUT2, { recursive: true, force: true });

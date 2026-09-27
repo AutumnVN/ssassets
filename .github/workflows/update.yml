@@ -1,0 +1,98 @@
+name: Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-assets
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  update:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Install dependencies
+        run: pnpm install --prod
+
+      - name: Install MiSans font
+        shell: pwsh
+        run: |
+          $dst = "$env:LOCALAPPDATA\Microsoft\Windows\Fonts\MiSansLatin-Semibold.ttf"
+          New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
+          Copy-Item "$env:GITHUB_WORKSPACE\font\MiSansLatin-Semibold.ttf" $dst -Force
+          New-ItemProperty -Path 'HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts' `
+            -Name 'MiSans Latin SemiBold (TrueType)' -Value $dst -PropertyType String -Force | Out-Null
+
+      - name: Download install resource
+        run: node download.js | tee "${{ runner.temp }}/download.log"
+
+      - name: Restore resource cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ResourceTool/output
+          key: resource-default
+          restore-keys: resource-
+
+      - name: Fetch persistent store
+        working-directory: ResourceTool
+        run: |
+          if [ ! -f ResourceFetcher.exe ]; then
+            echo "::error::ResourceTool/ResourceFetcher.exe is missing, run the 'Build' workflow first"
+            exit 1
+          fi
+          ./ResourceFetcher.exe
+
+      - name: Save resource cache
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: ResourceTool/output
+          key: resource-${{ hashFiles('ResourceTool/output/Manifest/version.json') }}
+
+      - name: Export assets
+        run: |
+          node export.js
+          node merge.js
+
+      - name: Compose potential images
+        run: node sharp.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A export potential
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "update $(grep -m1 'Game latest version:' "${{ runner.temp }}/download.log")"
+            git push
+          fi

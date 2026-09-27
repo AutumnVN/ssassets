@@ -1,0 +1,10 @@
+DEFAULT_REGION = "EN"
+
+[FILE_PATH]
+UNPACK_OUTPUT_DIR = "../download2"
+
+[RESOURCE_REGISTRY]
+BASE_RESOURCE_PATTERNS = [
+    '^ss_win(_add)?\.mani$',
+    '^(?:icon-|image-|ui_activity).*\.unity3d$',
+]
