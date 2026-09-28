@@ -5,7 +5,7 @@ import { createHash } from 'crypto';
 const API = 'https://api-launcher-en.yo-star.com';
 const CDN = 'https://launcher-pkg-ss-en.yo-star.com';
 const OUT = './download';
-const REGEX = /^(?:icon-|image-|ui_activity).*\.unity3d$/;
+const REGEX = /^ui_activity__6.*\.unity3d$/;
 
 const lastestYml = await fetch(`${CDN}/install_pkg/game_launcher/StellaSora_EN/latest.yml`).then((res) => res.text());
 const launcherVersion = lastestYml.match(/version: (.*)/)[1];

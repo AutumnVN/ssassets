@@ -1,24 +1,56 @@
 import { spawnSync } from 'child_process';
-import { existsSync, rmSync } from 'fs';
+import { existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
 
-const FROM = './download';
-const TO = './export';
-const FROM2 = './download2';
-const TO2 = './export2';
+const CONTAINERS = ['./export/assets/assetbundles', './export/assets/assetbundles_en'];
 
-if (existsSync(TO)) rmSync(TO, { recursive: true, force: true });
-if (existsSync(TO2)) rmSync(TO2, { recursive: true, force: true });
+const TARGETS = {
+    store: { types: ['icon', 'image'] },
+    ui: { from: './download', types: ['ui_activity'] },
+};
 
-exportAssets(FROM, TO);
-if (existsSync(FROM2)) exportAssets(FROM2, TO2);
+const mode = process.argv[2];
+const target = TARGETS[mode];
 
-if (existsSync(FROM)) rmSync(FROM, { recursive: true, force: true });
-if (existsSync(FROM2)) rmSync(FROM2, { recursive: true, force: true });
+if (!target) {
+    console.error(`usage: node export.js <${Object.keys(TARGETS).join('|')}>`);
+    process.exit(1);
+}
 
-function exportAssets(from, to) {
-    const res = spawnSync('dotnet', ['./assetStudioMod/AssetStudioModCLI.dll', from, '-t', 'tex2d', '-o', to, '--image-format', 'webp'], { stdio: 'inherit' });
-    if (res.status !== 0) {
-        console.error(`Export failed for ${from} (exit code ${res.status}, signal ${res.signal})`);
-        process.exit(1);
+if (mode === 'store') target.from = findStoreDir();
+
+if (!target.from || !existsSync(target.from)) {
+    console.error(`Export failed: source ${target.from || '(not found)'} does not exist`);
+    process.exit(1);
+}
+
+for (const container of CONTAINERS) {
+    if (!existsSync(container)) continue;
+    for (const type of target.types) {
+        const stale = `${container}/${type}`;
+        if (existsSync(stale)) {
+            rmSync(stale, { recursive: true, force: true });
+            console.log(`Removed stale ${stale}`);
+        }
     }
+}
+
+mkdirSync(CONTAINERS[0], { recursive: true });
+
+console.log(`Exporting ${target.from}`);
+const res = spawnSync('dotnet', ['./assetStudioMod/AssetStudioModCLI.dll', target.from, '-t', 'tex2d', '-o', './export', '--image-format', 'webp'], { stdio: 'inherit' });
+if (res.status !== 0) {
+    console.error(`Export failed for ${target.from} (exit code ${res.status}, signal ${res.signal})`);
+    process.exit(1);
+}
+
+console.log(`Exported ${target.from} -> ./export`);
+
+function findStoreDir() {
+    const base = './ResourceTool/output/Unpack';
+    if (!existsSync(base)) return null;
+    for (const region of ['EN', '']) {
+        const dir = region ? `${base}/${region}` : base;
+        if (existsSync(dir) && readdirSync(dir).some((name) => name.endsWith('.unity3d'))) return dir;
+    }
+    return null;
 }

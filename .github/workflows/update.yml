@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -51,17 +53,14 @@ jobs:
           New-ItemProperty -Path 'HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts' `
             -Name 'MiSans Latin SemiBold (TrueType)' -Value $dst -PropertyType String -Force | Out-Null
 
-      - name: Download install resource
-        run: node download.js
-
-      - name: Restore resource cache
+      - name: Restore cache
         uses: actions/cache/restore@v6
         with:
           path: ResourceTool/output
           key: resource-default
           restore-keys: resource-
 
-      - name: Fetch persistent store
+      - name: Sync persistent store
         working-directory: ResourceTool
         run: |
           if [ ! -f ResourceFetcher.exe ]; then
@@ -70,17 +69,14 @@ jobs:
           fi
           ./ResourceFetcher.exe
 
-      - name: Save resource cache
-        continue-on-error: true
-        uses: actions/cache/save@v6
-        with:
-          path: ResourceTool/output
-          key: resource-${{ hashFiles('ResourceTool/output/Manifest/version.json') }}
+      - name: Sync install resource
+        run: node download.js
 
-      - name: Export assets
-        run: |
-          node export.js
-          node merge.js
+      - name: Export persistent store
+        run: node export.js store
+
+      - name: Export install resource
+        run: node export.js ui
 
       - name: Compose potential images
         run: node sharp.js
@@ -91,10 +87,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A export potential
           VERSION_JSON="ResourceTool/output/Manifest/version.json"
-          if [ ! -f "$VERSION_JSON" ]; then
-            echo "::error::$VERSION_JSON not found, cannot determine game version"
-            exit 1
-          fi
           GAME_VER=$(node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));console.log(v.EN.game_ver)" "$VERSION_JSON")
           echo "game version: $GAME_VER"
           if git diff --cached --quiet; then
@@ -109,3 +101,10 @@ jobs:
               echo "No deploy hook URL configured"
             fi
           fi
+
+      - name: Save cache
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: ResourceTool/output
+          key: resource-${{ hashFiles('ResourceTool/output/Manifest/version.json') }}
