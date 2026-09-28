@@ -3,7 +3,7 @@ name: Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
@@ -69,23 +69,46 @@ jobs:
           fi
           ./ResourceFetcher.exe
 
+      - name: Check for changes
+        id: check
+        run: |
+          FINGERPRINT=$(find ResourceTool/output/Manifest -type f | sort | xargs sha256sum | sha256sum | cut -d' ' -f1)
+          echo "fingerprint: $FINGERPRINT"
+          if [ -f .ci-fingerprint ] && [ "$(cat .ci-fingerprint)" = "$FINGERPRINT" ]; then
+            echo "No resource changes since the last run"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Resources changed, or this is the first run"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Sync install resource
+        if: steps.check.outputs.changed == 'true'
         run: node download.js
 
       - name: Export persistent store
+        if: steps.check.outputs.changed == 'true'
         run: node export.js store
 
       - name: Export install resource
+        if: steps.check.outputs.changed == 'true'
         run: node export.js ui
 
       - name: Compose potential images
+        if: steps.check.outputs.changed == 'true'
         run: node sharp.js
 
+      - name: Record fingerprint
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          find ResourceTool/output/Manifest -type f | sort | xargs sha256sum | sha256sum | cut -d' ' -f1 > .ci-fingerprint
+
       - name: Commit and push
+        if: steps.check.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A export potential
+          git add -A export potential .ci-fingerprint
           VERSION_JSON="ResourceTool/output/Manifest/version.json"
           GAME_VER=$(node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));console.log(v.EN.game_ver)" "$VERSION_JSON")
           echo "game version: $GAME_VER"

@@ -3,6 +3,8 @@ import { existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
 
 const CONTAINERS = ['./export/assets/assetbundles', './export/assets/assetbundles_en'];
 
+const UNSTABLE = /_#\d+(\.[^.]+)$/;
+
 const TARGETS = {
     store: { types: ['icon', 'image'] },
     ui: { from: './download', types: ['ui_activity'] },
@@ -44,6 +46,32 @@ if (res.status !== 0) {
 }
 
 console.log(`Exported ${target.from} -> ./export`);
+
+for (const type of target.types) {
+    for (const container of CONTAINERS) {
+        const dropped = dropUnstable(`${container}/${type}`);
+        if (dropped) console.log(`Dropped ${dropped} duplicate id file(s) from ${container}/${type}`);
+    }
+}
+
+function dropUnstable(dir) {
+    if (!existsSync(dir)) return 0;
+    let dropped = 0;
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const full = `${dir}/${entry.name}`;
+        if (entry.isDirectory()) {
+            dropped += dropUnstable(full);
+        } else if (UNSTABLE.test(entry.name)) {
+            if (existsSync(full.replace(UNSTABLE, '$1'))) {
+                rmSync(full);
+                dropped++;
+            } else {
+                console.log(`Kept ${entry.name}, no stable counterpart`);
+            }
+        }
+    }
+    return dropped;
+}
 
 function findStoreDir() {
     const base = './ResourceTool/output/Unpack';
