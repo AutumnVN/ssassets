@@ -1,404 +1,3296 @@
 {
-  "1000003": false,
-  "8210101": false,
-  "8212002": false,
-  "10340001": false,
-  "11432002": false,
-  "11432041": false,
-  "80103023": false,
-  "80107031": false,
-  "80110041": false,
-  "80111021": false,
-  "80111022": false,
-  "80111023": false,
-  "80112016": false,
-  "80114013": false,
-  "80114023": false,
-  "80114024": false,
-  "80114025": false,
-  "80114026": false,
-  "80123014": false,
-  "80123022": false,
-  "80123023": false,
-  "80127021": false,
-  "80127022": false,
-  "80127023": false,
-  "80127024": false,
-  "80132015": false,
-  "80132019": false,
-  "80132020": false,
-  "80134024": false,
-  "80135011": false,
-  "80135012": false,
-  "80135014": false,
-  "80135021": false,
-  "80135022": false,
-  "80137017": false,
-  "80137018": false,
-  "80137019": false,
-  "80139016": false,
-  "80140024": false,
-  "80140026": false,
-  "80142016": false,
-  "80142017": false,
-  "80143022": false,
-  "80143040": false,
-  "80143050": false,
-  "80150017": false,
-  "80150018": false,
-  "80156021": false,
-  "80156022": false,
-  "80156023": false,
-  "80156024": false,
-  "80156025": false,
-  "80157011": false,
-  "80157021": false,
-  "80157022": false,
-  "80157024": false,
-  "80157025": false,
-  "80157026": false,
-  "80160021": false,
-  "103000001": false,
-  "103304001": false,
-  "103525001": false,
-  "107000001": false,
-  "107310601": false,
-  "107322301": false,
-  "107322501": false,
-  "107400002": false,
-  "108521001": false,
-  "110300004": false,
-  "110300006": false,
-  "110400001": false,
-  "110400002": false,
-  "110900004": false,
-  "110900006": false,
-  "111000001": false,
-  "111320001": false,
-  "111400001": false,
-  "111502001": false,
-  "111502002": false,
-  "111504001": false,
-  "111511001": false,
-  "111523001": false,
-  "111524001": false,
-  "111529001": false,
-  "111541001": false,
-  "112100000": false,
-  "112100010": false,
-  "113000001": false,
-  "113310401": false,
-  "113310901": false,
-  "113311001": false,
-  "113322901": false,
-  "113323001": false,
-  "113400021": false,
-  "113400032": false,
-  "113400033": false,
-  "113404301": false,
-  "113501101": false,
-  "113501201": false,
-  "113501301": false,
-  "114000001": false,
-  "114310002": false,
-  "114310003": false,
-  "114400001": false,
-  "114400002": false,
-  "114501001": false,
-  "114504001": false,
-  "114504002": false,
-  "114504003": false,
-  "114506001": false,
-  "114521001": false,
-  "114521002": false,
-  "114521003": false,
-  "114525001": false,
-  "114528001": false,
-  "115000001": false,
-  "115110301": false,
-  "115122202": false,
-  "115211301": false,
-  "115308002": false,
-  "115310201": false,
-  "115312301": false,
-  "115322701": false,
-  "115322702": false,
-  "115323001": false,
-  "115506001": false,
-  "116000001": false,
-  "116320001": false,
-  "116320002": false,
-  "116400001": false,
-  "116400002": false,
-  "117000001": false,
-  "117320001": false,
-  "117512001": false,
-  "117560011": false,
-  "118000011": false,
-  "118000017": false,
-  "119000001": false,
-  "119501001": false,
-  "119503001": false,
-  "120000001": false,
-  "120524001": false,
-  "123100003": false,
-  "123300001": false,
-  "123310002": false,
-  "123310003": false,
-  "123310004": false,
-  "123320001": false,
-  "123320002": false,
-  "125000001": false,
-  "125322401": false,
-  "125322701": false,
-  "125400004": false,
-  "125400005": false,
-  "126400002": false,
-  "126400003": false,
-  "126400004": false,
-  "126542001": false,
-  "126543001": false,
-  "127310001": false,
-  "127320002": false,
-  "127501001": false,
-  "127502005": false,
-  "127503001": false,
-  "127522001": false,
-  "127530001": false,
-  "130000001": false,
-  "130320004": false,
-  "130320006": false,
-  "130400001": false,
-  "130400002": false,
-  "130523001": false,
-  "130524001": false,
-  "132000001": false,
-  "132100005": false,
-  "132310203": false,
-  "132310302": false,
-  "132310401": false,
-  "132310801": false,
-  "132320002": false,
-  "132400001": false,
-  "132400002": false,
-  "132400003": false,
-  "132522001": false,
-  "133000001": false,
-  "133320001": false,
-  "133320003": false,
-  "133400002": false,
-  "133504001": false,
-  "133524001": false,
-  "133530001": false,
-  "134000001": false,
-  "134100009": false,
-  "134320001": false,
-  "134509001": false,
-  "134980011": false,
-  "135100001": false,
-  "135100002": false,
-  "135100003": false,
-  "135100004": false,
-  "135400001": false,
-  "135400002": false,
-  "135900004": false,
-  "135900005": false,
-  "135900006": false,
-  "137000001": false,
-  "137100006": false,
-  "137100007": false,
-  "137100008": false,
-  "137300002": false,
-  "137300003": false,
-  "137300010": false,
-  "137300012": false,
-  "137300013": false,
-  "137900001": false,
-  "139000002": false,
-  "139310001": false,
-  "139320002": false,
-  "139400001": false,
-  "139502001": false,
-  "139504001": false,
-  "139524001": false,
-  "139530001": false,
-  "140000001": false,
-  "140310002": false,
-  "140400001": false,
-  "140400002": false,
-  "140503001": false,
-  "140508001": false,
-  "140508002": false,
-  "141400001": false,
-  "141442001": false,
-  "141443001": false,
-  "141503001": false,
-  "141506001": false,
-  "141980011": false,
-  "142300004": false,
-  "142300005": false,
-  "142300006": false,
-  "142300007": false,
-  "143000001": false,
-  "143100002": false,
-  "143300002": false,
-  "143300003": false,
-  "143300005": false,
-  "143310004": false,
-  "143310005": false,
-  "143310007": false,
-  "143310008": false,
-  "143400001": false,
-  "143400002": false,
-  "144000001": false,
-  "144310001": false,
-  "144310002": false,
-  "144310301": false,
-  "144310411": false,
-  "144310412": false,
-  "144310413": false,
-  "144310701": false,
-  "144320001": false,
-  "144320012": false,
-  "144322201": false,
-  "144322311": false,
-  "144322401": false,
-  "145300001": false,
-  "145300006": true,
-  "145300009": false,
-  "145300011": false,
-  "145300012": true,
-  "145400001": false,
-  "145400002": false,
-  "145400004": false,
-  "147100004": false,
-  "147300003": false,
-  "147300004": false,
-  "147300008": false,
-  "147400001": false,
-  "147400002": false,
-  "149000001": false,
-  "149320002": false,
-  "149323101": false,
-  "149330101": false,
-  "150000001": false,
-  "150100007": false,
-  "150310101": false,
-  "150310202": false,
-  "150310203": false,
-  "150310601": false,
-  "150311101": false,
-  "150320001": false,
-  "150320003": false,
-  "150322101": false,
-  "150322301": false,
-  "150322302": false,
-  "150322501": false,
-  "150400001": false,
-  "150400002": false,
-  "150400003": false,
-  "150404101": false,
-  "155000001": false,
-  "155400001": false,
-  "156320002": false,
-  "156320004": false,
-  "156320005": false,
-  "156320006": false,
-  "157100001": false,
-  "157300001": false,
-  "157300002": false,
-  "157300003": false,
-  "157300004": false,
-  "157300006": false,
-  "157300007": false,
-  "157300008": false,
-  "157300015": false,
-  "157300016": false,
-  "157400002": false,
-  "158400003": false,
-  "158400005": false,
-  "158504001": false,
-  "158506001": true,
-  "158511002": false,
-  "159000001": false,
-  "159310001": false,
-  "159310301": false,
-  "159310401": false,
-  "159310402": false,
-  "159320001": false,
-  "159320002": false,
-  "159321101": false,
-  "159322101": false,
-  "159400001": false,
-  "159400002": false,
-  "160320002": true,
-  "160502001": false,
-  "160504001": false,
-  "160507001": false,
-  "160510001": false,
-  "160530001": false,
-  "160530002": false,
-  "162000001": false,
-  "162310008": false,
-  "162310010": false,
-  "162320004": false,
-  "162320006": false,
-  "162400004": false,
-  "162400007": false,
-  "999400001": false,
-  "1000103002": false,
-  "1000107007": false,
-  "1000108004": false,
-  "1000111003": false,
-  "1000111004": false,
-  "1000114003": false,
-  "1000114004": false,
-  "1000115003": false,
-  "1000115004": false,
-  "1000115005": false,
-  "1000116003": false,
-  "1000118008": false,
-  "1000120003": false,
-  "1000120004": false,
-  "1000125007": false,
-  "1000127005": false,
-  "1000130006": false,
-  "1000132005": false,
-  "1000132009": false,
-  "1000133003": false,
-  "1000133004": false,
-  "1000134004": false,
-  "1000137006": false,
-  "1000137007": false,
-  "1000139011": false,
-  "1000139015": false,
-  "1000140005": false,
-  "1000140006": false,
-  "1000144008": false,
-  "1000144009": false,
-  "1000144010": false,
-  "1000145004": false,
-  "1000145005": false,
-  "1000145006": true,
-  "1000145007": false,
-  "1000149008": false,
-  "1000150005": false,
-  "1000150006": false,
-  "1000155001": false,
-  "1000156004": false,
-  "1000160003": false,
-  "1000160004": false,
-  "1000162005": false,
-  "1000162014": false,
-  "1011701021": false,
-  "1011701022": false,
-  "1013501011": false,
-  "1013501012": false,
-  "1013501014": false,
-  "1013501031": false,
-  "1014101032": false,
-  "1015701011": false,
-  "1015701012": false,
-  "1015701021": false,
-  "1015701022": false
+  "1000003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.30000001192092896,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 2,
+    "triggers": []
+  },
+  "8210101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.05000000074505806,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "8212002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 2,
+    "triggers": [
+      "triggerStay"
+    ]
+  },
+  "10340001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 10,
+    "hitDelay": 0.5,
+    "hitInterval": 0.5,
+    "hits": 19,
+    "triggers": []
+  },
+  "11432002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 6,
+    "hits": 1,
+    "triggers": []
+  },
+  "11432041": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 6,
+    "hits": 1,
+    "triggers": []
+  },
+  "80103023": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.5999999046325684,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 6,
+    "triggers": []
+  },
+  "80107031": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 7,
+    "triggers": []
+  },
+  "80110041": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80111021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.5,
+    "hits": 10,
+    "triggers": []
+  },
+  "80111022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5.099999904632568,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 10,
+    "hits": 1,
+    "triggers": []
+  },
+  "80111023": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.33000001311302185,
+    "hits": 15,
+    "triggers": []
+  },
+  "80112016": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 6,
+    "triggers": []
+  },
+  "80114013": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "80114023": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 9,
+    "hitDelay": 0.5,
+    "hitInterval": 2,
+    "hits": 5,
+    "triggers": []
+  },
+  "80114024": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 9,
+    "hitDelay": 0.5,
+    "hitInterval": 2,
+    "hits": 5,
+    "triggers": []
+  },
+  "80114025": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 9,
+    "hitDelay": 0.5,
+    "hitInterval": 2,
+    "hits": 5,
+    "triggers": []
+  },
+  "80114026": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 9,
+    "hitDelay": 0.5,
+    "hitInterval": 2,
+    "hits": 5,
+    "triggers": []
+  },
+  "80123014": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80123022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80123023": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.15000000596046448,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80127021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "80127022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80127023": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80127024": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 10,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 20,
+    "triggers": []
+  },
+  "80132015": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.2000000476837158,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 7,
+    "triggers": []
+  },
+  "80132019": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "80132020": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "80134024": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 99,
+    "hitDelay": 0,
+    "hitInterval": 0.25,
+    "hits": 396,
+    "triggers": []
+  },
+  "80135011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80135012": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80135014": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80135021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80135022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6.599999904632568,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 6,
+    "triggers": []
+  },
+  "80137017": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80137018": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.699999988079071,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80137019": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.699999988079071,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80139016": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.15000000596046448,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "80140024": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80140026": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80142016": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80142017": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80143022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80143040": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80143050": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 16,
+    "triggers": []
+  },
+  "80150017": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 10,
+    "hitDelay": 0.5,
+    "hitInterval": 0.5,
+    "hits": 19,
+    "triggers": []
+  },
+  "80150018": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "80156021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "80156022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 10,
+    "triggers": []
+  },
+  "80156023": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "80156024": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "80156025": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "80157011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80157021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80157022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5899999737739563,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80157024": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "80157025": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0,
+    "hitInterval": 0.6000000238418579,
+    "hits": 3,
+    "triggers": []
+  },
+  "80157026": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "80160021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "103000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "103304001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "103525001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.5,
+    "hitDelay": 0,
+    "hitInterval": 0.25,
+    "hits": 10,
+    "triggers": []
+  },
+  "107000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "107310601": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "107322301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "107322501": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "107400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 7,
+    "triggers": []
+  },
+  "108521001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 7,
+    "triggers": []
+  },
+  "110300004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "110300006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "110400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "110400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "110900004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "110900006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "111000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "111320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.25,
+    "hits": 16,
+    "triggers": []
+  },
+  "111400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 12,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0.4000000059604645,
+    "hits": 30,
+    "triggers": []
+  },
+  "111502001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "111502002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.6000000238418579,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "111504001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.9000000953674316,
+    "hitDelay": 1,
+    "hitInterval": 0.5,
+    "hits": 4,
+    "triggers": []
+  },
+  "111511001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "111523001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 10,
+    "hits": 1,
+    "triggers": []
+  },
+  "111524001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 1,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "111529001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "111541001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.5,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "112100000": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.4000000059604645,
+    "hits": 3,
+    "triggers": []
+  },
+  "112100010": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 5,
+    "triggers": []
+  },
+  "113000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "113310401": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113310901": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113311001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 11,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 10,
+    "triggers": []
+  },
+  "113322901": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113323001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113400021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113400032": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113400033": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.699999988079071,
+    "hitInterval": 0.30000001192092896,
+    "hits": 11,
+    "triggers": []
+  },
+  "113404301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113501101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 11,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 10,
+    "triggers": []
+  },
+  "113501201": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "113501301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "114000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114310002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 14.5,
+    "hitDelay": 0.5,
+    "hitInterval": 1,
+    "hits": 14,
+    "triggers": []
+  },
+  "114310003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.600000023841858,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 8,
+    "triggers": []
+  },
+  "114400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114501001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114504001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 14.5,
+    "hitDelay": 0.5,
+    "hitInterval": 1,
+    "hits": 14,
+    "triggers": []
+  },
+  "114504002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 14.5,
+    "hitDelay": 0.5,
+    "hitInterval": 1,
+    "hits": 14,
+    "triggers": []
+  },
+  "114504003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 14.5,
+    "hitDelay": 0.5,
+    "hitInterval": 1,
+    "hits": 14,
+    "triggers": []
+  },
+  "114506001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114521001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114521002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114521003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "114525001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8.399999618530273,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0.4000000059604645,
+    "hits": 21,
+    "triggers": []
+  },
+  "114528001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "115000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.25,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "115110301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "115122202": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "115211301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.6000000238418579,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "115308002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "115310201": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.200000047683716,
+    "hitDelay": 3,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "115312301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.200000047683716,
+    "hitDelay": 3,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "115322701": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.6000000238418579,
+    "hitDelay": 0,
+    "hitInterval": 0.07500000298023224,
+    "hits": 8,
+    "triggers": []
+  },
+  "115322702": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.6000000238418579,
+    "hitDelay": 0,
+    "hitInterval": 0.07500000298023224,
+    "hits": 8,
+    "triggers": []
+  },
+  "115323001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "115506001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.299999952316284,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.4000000059604645,
+    "hits": 6,
+    "triggers": []
+  },
+  "116000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "116320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.5999999046325684,
+    "hitDelay": 0.5,
+    "hitInterval": 0.23000000417232513,
+    "hits": 10,
+    "triggers": []
+  },
+  "116320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.6000000238418579,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "116400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.119999885559082,
+    "hitDelay": 0,
+    "hitInterval": 0.46000000834465027,
+    "hits": 5,
+    "triggers": []
+  },
+  "116400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.8999999761581421,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "117000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.25,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "117320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0.30000001192092896,
+    "hits": 26,
+    "triggers": []
+  },
+  "117512001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "117524001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8.300000190734863,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 3,
+    "hits": 3,
+    "triggers": []
+  },
+  "117560011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0.5,
+    "hits": 10,
+    "triggers": []
+  },
+  "118000011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 12,
+    "triggers": []
+  },
+  "118000017": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 12,
+    "triggers": []
+  },
+  "119000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.800000011920929,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "119501001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "119503001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "120000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.800000011920929,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "120524001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.11999999731779099,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "123100003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "123300001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "123310002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "123310003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "123310004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.15000000596046448,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "123320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 99,
+    "hits": 1,
+    "triggers": [
+      "triggerStay"
+    ]
+  },
+  "123320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 99,
+    "hitDelay": 0.05000000074505806,
+    "hitInterval": 1,
+    "hits": 99,
+    "triggers": [
+      "triggerStay"
+    ]
+  },
+  "125000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "125310901": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.4000000059604645,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "125322401": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "125322701": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.200000047683716,
+    "hitDelay": 2,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "125400004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "125400005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.699999988079071,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "126400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 8,
+    "triggers": []
+  },
+  "126400003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.800000011920929,
+    "hitDelay": 0.05999999865889549,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "126400004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.800000011920929,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "126542001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "126543001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 1.5,
+    "hitInterval": 1,
+    "hits": 7,
+    "triggers": []
+  },
+  "127310001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.15000000596046448,
+    "hitDelay": 0,
+    "hitInterval": 0.05000000074505806,
+    "hits": 4,
+    "triggers": []
+  },
+  "127320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 6,
+    "triggers": []
+  },
+  "127501001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "127502005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.15000000596046448,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "127503001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "127522001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 999,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "127530001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130320004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130320006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "130400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4.5,
+    "hitDelay": 1,
+    "hitInterval": 1.7999999523162842,
+    "hits": 2,
+    "triggers": []
+  },
+  "130504002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.5,
+    "hits": 8,
+    "triggers": []
+  },
+  "130510001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130523001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130524001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.4000000059604645,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "130524002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.05000000074505806,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132100005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.2000000476837158,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 7,
+    "triggers": []
+  },
+  "132310203": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132310302": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.5,
+    "hitInterval": 0.5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132310401": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132310801": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5.599999904632568,
+    "hitDelay": 1.5,
+    "hitInterval": 0.18000000715255737,
+    "hits": 23,
+    "triggers": []
+  },
+  "132400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6.5,
+    "hitDelay": 5,
+    "hitInterval": 1,
+    "hits": 2,
+    "triggers": []
+  },
+  "132400003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6.5,
+    "hitDelay": 6,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "132522001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "133000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.800000011920929,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "133320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "133320003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 10,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 9,
+    "triggers": []
+  },
+  "133400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "133504001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0.10000000149011612,
+    "hits": 20,
+    "triggers": []
+  },
+  "133524001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "133530001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "134000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "134100009": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.0999999046325684,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "134320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0.12999999523162842,
+    "hits": 16,
+    "triggers": []
+  },
+  "134509001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "134980011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 16,
+    "triggers": []
+  },
+  "135100001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135100002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135100003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.3199999928474426,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135100004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135900004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135900005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "135900006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6.599999904632568,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 6,
+    "triggers": []
+  },
+  "137000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.800000011920929,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137100006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137100007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137100008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.699999988079071,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137300002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.699999988079071,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137300003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137300010": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137300012": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137300013": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "137900001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "139000002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139310001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "139320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.07999999821186066,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.07999999821186066,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.05000000074505806,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139502001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.3799999952316284,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139504001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139524001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.6499999761581421,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "139530001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.07999999821186066,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "140000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "140310002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "140400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.799999952316284,
+    "hitDelay": 0.25,
+    "hitInterval": 0.25,
+    "hits": 11,
+    "triggers": []
+  },
+  "140400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "140503001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "140508001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "140508002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "141400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5.199999809265137,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0.30000001192092896,
+    "hits": 17,
+    "triggers": []
+  },
+  "141442001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.5,
+    "hits": 16,
+    "triggers": []
+  },
+  "141443001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 12,
+    "hitDelay": 3,
+    "hitInterval": 2,
+    "hits": 5,
+    "triggers": []
+  },
+  "141503001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 1.2000000476837158,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "141506001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 7,
+    "triggers": []
+  },
+  "141980011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.699999988079071,
+    "hitInterval": 20,
+    "hits": 1,
+    "triggers": []
+  },
+  "142300004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "142300005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "142300006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "142300007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.4000000059604645,
+    "hits": 3,
+    "triggers": []
+  },
+  "143100002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143300002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143300003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 8,
+    "triggers": []
+  },
+  "143300005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143310004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.20000000298023224,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143310005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.20000000298023224,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143310007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 16,
+    "triggers": []
+  },
+  "143310008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "143400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "144000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "144310001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.30000001192092896,
+    "hitDelay": 0,
+    "hitInterval": 0.18000000715255737,
+    "hits": 2,
+    "triggers": []
+  },
+  "144310002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.4000000059604645,
+    "hitDelay": 0,
+    "hitInterval": 0.18000000715255737,
+    "hits": 3,
+    "triggers": []
+  },
+  "144310301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.44999998807907104,
+    "hitDelay": 0,
+    "hitInterval": 0.14000000059604645,
+    "hits": 4,
+    "triggers": []
+  },
+  "144310411": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.30000001192092896,
+    "hitDelay": 0,
+    "hitInterval": 0.18000000715255737,
+    "hits": 2,
+    "triggers": []
+  },
+  "144310412": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.4000000059604645,
+    "hitDelay": 0,
+    "hitInterval": 0.18000000715255737,
+    "hits": 3,
+    "triggers": []
+  },
+  "144310413": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.44999998807907104,
+    "hitDelay": 0,
+    "hitInterval": 0.14000000059604645,
+    "hits": 4,
+    "triggers": []
+  },
+  "144310701": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0.15000000596046448,
+    "hitInterval": 0.20000000298023224,
+    "hits": 2,
+    "triggers": []
+  },
+  "144320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.550000011920929,
+    "hitDelay": 0,
+    "hitInterval": 0.15000000596046448,
+    "hits": 4,
+    "triggers": []
+  },
+  "144320012": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.15000000596046448,
+    "hitDelay": 0,
+    "hitInterval": 0.05000000074505806,
+    "hits": 4,
+    "triggers": []
+  },
+  "144322201": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.550000011920929,
+    "hitDelay": 0,
+    "hitInterval": 0.15000000596046448,
+    "hits": 4,
+    "triggers": []
+  },
+  "144322311": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.15000000596046448,
+    "hitDelay": 0,
+    "hitInterval": 0.05000000074505806,
+    "hits": 4,
+    "triggers": []
+  },
+  "144322401": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.10000000149011612,
+    "hitDelay": 0.019999999552965164,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "145300001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "145300002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 1,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "145300006": {
+    "copyBattleDataBeforeAttack": true,
+    "duration": 4,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 8,
+    "triggers": []
+  },
+  "145300009": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "145300011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.4000000059604645,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "145300012": {
+    "copyBattleDataBeforeAttack": true,
+    "duration": 4,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 8,
+    "triggers": []
+  },
+  "145400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "145400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0.30000001192092896,
+    "hits": 7,
+    "triggers": []
+  },
+  "145400004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "147100004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "147300003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "147300004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.619999885559082,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 14,
+    "triggers": []
+  },
+  "147300008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.8500000238418579,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "147400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.11999999731779099,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "147400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "149000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "149320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "149323101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "149330101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "150000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150100007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.6000000238418579,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0.10000000149011612,
+    "hits": 6,
+    "triggers": []
+  },
+  "150310101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.0999999046325684,
+    "hitDelay": 0,
+    "hitInterval": 0.10000000149011612,
+    "hits": 31,
+    "triggers": []
+  },
+  "150310202": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150310203": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150310601": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 1.2000000476837158,
+    "hitInterval": 0.5,
+    "hits": 8,
+    "triggers": []
+  },
+  "150311101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150320003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0.30000001192092896,
+    "hits": 13,
+    "triggers": []
+  },
+  "150322101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0.30000001192092896,
+    "hits": 3,
+    "triggers": []
+  },
+  "150322301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150322302": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0.30000001192092896,
+    "hits": 3,
+    "triggers": []
+  },
+  "150322501": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0.30000001192092896,
+    "hits": 20,
+    "triggers": []
+  },
+  "150400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.0999999046325684,
+    "hitDelay": 0.5,
+    "hitInterval": 0.5,
+    "hits": 6,
+    "triggers": []
+  },
+  "150400003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.0999999046325684,
+    "hitDelay": 3,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "150404101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 10,
+    "hitDelay": 0.5,
+    "hitInterval": 0.5,
+    "hits": 19,
+    "triggers": []
+  },
+  "155000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "155400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.2000000476837158,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "156320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0,
+    "hitInterval": 0.30000001192092896,
+    "hits": 10,
+    "triggers": []
+  },
+  "156320004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "156320005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "156320006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157100001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5899999737739563,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 8,
+    "triggers": []
+  },
+  "157300004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.10000000149011612,
+    "hits": 10,
+    "triggers": []
+  },
+  "157300015": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157300016": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "157400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "158400003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.200000047683716,
+    "hitDelay": 2,
+    "hitInterval": 0.25,
+    "hits": 5,
+    "triggers": []
+  },
+  "158400005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.200000047683716,
+    "hitDelay": 2,
+    "hitInterval": 0.25,
+    "hits": 5,
+    "triggers": []
+  },
+  "158504001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.4000000059604645,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "158506001": {
+    "copyBattleDataBeforeAttack": true,
+    "duration": 9999,
+    "hitDelay": 0.5,
+    "hitInterval": 1,
+    "hits": 9999,
+    "triggers": []
+  },
+  "158511002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "159000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.7999999523162842,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "159310001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.05000000074505806,
+    "hits": 20,
+    "triggers": []
+  },
+  "159310301": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.30000001192092896,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "159310401": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.019999999552965164,
+    "hits": 51,
+    "triggers": []
+  },
+  "159310402": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.11999999731779099,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "159320001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 1,
+    "hitInterval": 0.800000011920929,
+    "hits": 7,
+    "triggers": []
+  },
+  "159320002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 1,
+    "hitInterval": 0.800000011920929,
+    "hits": 7,
+    "triggers": []
+  },
+  "159321101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "159322101": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.75,
+    "hitDelay": 0.5,
+    "hitInterval": 6,
+    "hits": 1,
+    "triggers": []
+  },
+  "159400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0.019999999552965164,
+    "hits": 51,
+    "triggers": []
+  },
+  "159400002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.7799999713897705,
+    "hitDelay": 0,
+    "hitInterval": 0.09000000357627869,
+    "hits": 9,
+    "triggers": []
+  },
+  "160320002": {
+    "copyBattleDataBeforeAttack": true,
+    "duration": 50,
+    "hitDelay": 0.5,
+    "hitInterval": 1.5,
+    "hits": 33,
+    "triggers": []
+  },
+  "160502001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 20,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 19,
+    "triggers": []
+  },
+  "160504001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.25,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "160507001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "160510001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.25,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "160530001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 1.399999976158142,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "160530002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 1.399999976158142,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "162000001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 1.100000023841858,
+    "hits": 1,
+    "triggers": []
+  },
+  "162310008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "162310010": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 6,
+    "triggers": []
+  },
+  "162320004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "162320006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 6,
+    "triggers": []
+  },
+  "162400004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3.299999952316284,
+    "hitDelay": 0.800000011920929,
+    "hitInterval": 0.3499999940395355,
+    "hits": 8,
+    "triggers": []
+  },
+  "162400007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 6,
+    "triggers": []
+  },
+  "999400001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0,
+    "hitInterval": 0.25,
+    "hits": 20,
+    "triggers": []
+  },
+  "1000103002": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 7.599999904632568,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 16,
+    "triggers": []
+  },
+  "1000107007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 8,
+    "triggers": []
+  },
+  "1000108004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 1,
+    "hitInterval": 1,
+    "hits": 7,
+    "triggers": []
+  },
+  "1000111003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 10,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000111004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 4,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 1,
+    "hits": 4,
+    "triggers": []
+  },
+  "1000114003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 9,
+    "hitDelay": 0.5,
+    "hitInterval": 2,
+    "hits": 5,
+    "triggers": []
+  },
+  "1000114004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000115003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000115004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.6000000238418579,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000115005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.299999952316284,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 0.4000000059604645,
+    "hits": 6,
+    "triggers": []
+  },
+  "1000116003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.5999999046325684,
+    "hitDelay": 0.5,
+    "hitInterval": 0.23000000417232513,
+    "hits": 10,
+    "triggers": []
+  },
+  "1000118008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 6,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 12,
+    "triggers": []
+  },
+  "1000120003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0.800000011920929,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000120004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 1,
+    "hits": 5,
+    "triggers": []
+  },
+  "1000125007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000127005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2.5,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000130006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.4000000059604645,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000132005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.2000000476837158,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 3,
+    "triggers": []
+  },
+  "1000132009": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 5,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000133003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000133004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 4,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000134004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000137006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000137007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000139011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.5,
+    "hitDelay": 0,
+    "hitInterval": 1,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000139013": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.05000000074505806,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000139015": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.15000000596046448,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000140005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.5,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000140006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.5,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000144008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.550000011920929,
+    "hitDelay": 0,
+    "hitInterval": 0.15000000596046448,
+    "hits": 4,
+    "triggers": []
+  },
+  "1000144009": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000144010": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 0.30000001192092896,
+    "hitDelay": 0,
+    "hitInterval": 0.20000000298023224,
+    "hits": 2,
+    "triggers": []
+  },
+  "1000145004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000145005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000145006": {
+    "copyBattleDataBeforeAttack": true,
+    "duration": 6,
+    "hitDelay": 0,
+    "hitInterval": 0.5,
+    "hits": 12,
+    "triggers": []
+  },
+  "1000145007": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.4000000059604645,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000145008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 1,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000149008": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.5,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000150005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000150006": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 3,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000155001": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.2000000476837158,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 2,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000156004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0.30000001192092896,
+    "hits": 7,
+    "triggers": []
+  },
+  "1000160003": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 3,
+    "hitDelay": 0,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000160004": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 12,
+    "hitDelay": 0.5,
+    "hitInterval": 1,
+    "hits": 12,
+    "triggers": []
+  },
+  "1000162005": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1000162014": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.2000000476837158,
+    "hitDelay": 0,
+    "hitInterval": 0.30000001192092896,
+    "hits": 4,
+    "triggers": []
+  },
+  "1011701021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0.5,
+    "hitInterval": 0.5,
+    "hits": 15,
+    "triggers": []
+  },
+  "1011701022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 8,
+    "hitDelay": 0.30000001192092896,
+    "hitInterval": 0.30000001192092896,
+    "hits": 26,
+    "triggers": []
+  },
+  "1013501011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1013501012": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1013501014": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0.10000000149011612,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1013501031": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1014101032": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0.20000000298023224,
+    "hitInterval": 5,
+    "hits": 1,
+    "triggers": []
+  },
+  "1015701011": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1015701012": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1015701021": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 1.100000023841858,
+    "hitDelay": 0,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  },
+  "1015701022": {
+    "copyBattleDataBeforeAttack": false,
+    "duration": 2,
+    "hitDelay": 0.5899999737739563,
+    "hitInterval": 0,
+    "hits": 1,
+    "triggers": []
+  }
 }
