@@ -22,7 +22,11 @@ function parseFlag(text, field) {
 
 function parseFP(text, field) {
     const match = text.match(new RegExp(`FP ${field}\\r?\\n\\s*SInt64 _serializedValue = (-?\\d+)`));
-    return match ? Number(match[1]) / 2 ** 32 : undefined;
+    return match ? round(Number(match[1]) / 2 ** 32) : undefined;
+}
+
+function round(value) {
+    return Math.round(value * 1e7) / 1e7;
 }
 
 function getTimerHits(duration, hitDelay, hitInterval, hitImmediately) {
@@ -34,7 +38,9 @@ function getTimerHits(duration, hitDelay, hitInterval, hitImmediately) {
     const firstHit = hitDelay > 0 ? hitDelay : hitImmediately ? 0 : hitInterval;
     if (duration <= firstHit) return 0;
 
-    return Math.ceil((duration - firstHit) / hitInterval);
+    const ratio = Math.round((duration - firstHit) / hitInterval * 1e9) / 1e9;
+
+    return Math.max(1, Math.ceil(ratio));
 }
 
 function getTriggerHits(duration, attack) {
@@ -68,7 +74,8 @@ function getComponentHits(duration, attack) {
 }
 
 function getEntityHits(duration, hitInterval, hitImmediately) {
-    const timer = hitInterval > 0 ? Math.floor(duration / hitInterval) : 0;
+    const ratio = hitInterval > 0 ? Math.round(duration / hitInterval * 1e9) / 1e9 : 0;
+    const timer = hitInterval > 0 ? Math.floor(ratio) : 0;
 
     return (hitImmediately ? 1 : 0) + timer;
 }
