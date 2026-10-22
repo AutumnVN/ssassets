@@ -1,0 +1,147 @@
+name: Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-assets
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  update:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Install dependencies
+        run: pnpm install --prod
+
+      - name: Install MiSans font
+        shell: pwsh
+        run: |
+          $dst = "$env:LOCALAPPDATA\Microsoft\Windows\Fonts\MiSansLatin-Semibold.ttf"
+          New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
+          Copy-Item "$env:GITHUB_WORKSPACE\font\MiSansLatin-Semibold.ttf" $dst -Force
+          New-ItemProperty -Path 'HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts' `
+            -Name 'MiSans Latin SemiBold (TrueType)' -Value $dst -PropertyType String -Force | Out-Null
+
+      - name: Restore cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ResourceTool/output
+          key: resource-default
+          restore-keys: resource-
+
+      - name: Restore exported bundle cache
+        uses: actions/cache/restore@v6
+        with:
+          path: diff-resource
+          key: diff-resource-default
+          restore-keys: diff-resource-
+
+      - name: Sync persistent store
+        working-directory: ResourceTool
+        run: |
+          if [ ! -f ResourceFetcher.exe ]; then
+            echo "::error::ResourceTool/ResourceFetcher.exe is missing, run the 'Build' workflow first"
+            exit 1
+          fi
+          ./ResourceFetcher.exe client
+
+      - name: Remove stale unpacked bundles
+        run: node cleanUnpack.js
+
+      - name: Diff bundles
+        run: node resourceDiff.js
+
+      - name: Check for changes
+        id: check
+        run: |
+          if [ -n "$(ls -A diff_out 2>/dev/null)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No changed bundles"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Export changed bundles
+        if: steps.check.outputs.changed == 'true'
+        run: node export.js diff_out
+
+      - name: Generate area effect data
+        if: steps.check.outputs.changed == 'true'
+        run: node areaEffect.js diff_out
+
+      - name: Compose potential images
+        if: steps.check.outputs.changed == 'true'
+        run: node sharp.js
+
+      - name: Update exported bundle cache
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          mkdir -p diff-resource
+          cp diff-manifest.json diff-resource/manifest.json
+
+      - name: Commit and push
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A export potential areaEffect.json
+          VERSION_JSON="ResourceTool/output/Manifest/win_version.json"
+          GAME_VER=$(node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));console.log(v.EN.game_ver)" "$VERSION_JSON")
+          echo "game version: $GAME_VER"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "update $GAME_VER"
+            git push
+
+            if [ -n "${{ secrets.DEPLOY_HOOK_URL }}" ]; then
+              curl -s -o /dev/null -w "%{http_code}" -d "" "${{ secrets.DEPLOY_HOOK_URL }}"
+            else
+              echo "No deploy hook URL configured"
+            fi
+          fi
+
+      - name: Save exported bundle cache
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: diff-resource
+          key: diff-resource-${{ github.run_id }}
+
+      - name: Save cache
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: ResourceTool/output
+          key: resource-${{ hashFiles('ResourceTool/output/Manifest/win_version.json') }}

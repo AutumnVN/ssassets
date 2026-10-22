@@ -1,0 +1,278 @@
+# ================================================================
+# Application config file
+# Restart to apply changes
+# -s/--set SECTION.KEY=VALUE overrides at runtime
+# ================================================================
+
+# ================================================================
+# Global settings
+# ================================================================
+[GLOBAL]
+DEFAULT_REGION = "EN"
+DEFAULT_PLATFORM = "win"
+
+# ================================================================
+# HTTP client
+# ================================================================
+[NETWORK]
+VERIFY_TLS = false
+TIMEOUT_SECS = 180
+TOTAL_RETRIES = 2
+BACKOFF_BASE_MS = 1000
+POOL_MAX_IDLE = 50
+MIN_RETRY_DELAY_MS = 500
+MAX_RETRY_DELAY_SECS = 30
+
+# ================================================================
+# Request headers
+# ================================================================
+[NETWORK.HEADERS]
+Accept-Encoding = "identity"
+X-Unity-Version = "2022.3.62f2"
+User-Agent = "UnityPlayer/2022.3.62f2 (UnityWebRequest/1.0, libcurl/8.10.1-DEV)"
+
+# ================================================================
+# File extensions
+# ================================================================
+[FILE_EXTENSION]
+MANI = ".mani"
+
+# ================================================================
+# Patch tags: u=delta, n=full file, m=manifest
+# ================================================================
+[PATCH_UPDATE_TAG]
+PATCH_PREFIX = "p_"
+U_SUFFIX = "_u"
+N_SUFFIX = "_n"
+M_SUFFIX = "_m"
+PATCH_TAGS = ["u"]
+
+# ================================================================
+# TASK.CLIENT:  Client routes (platform-bound)
+# ================================================================
+[TASK.CLIENT.ROUTE]
+MANIFEST = "/meta/win.html"
+RESOURCE = "/res/win/"
+
+# ================================================================
+# TASK.CLIENT:  Per-region servers: URL / decrypt KEY
+# ================================================================
+[TASK.CLIENT.SERVERS.CN]
+URL = "https://nova-static.yostar.cn"
+KEY = "Xf&FRcsYm48cJ2A@"
+
+[TASK.CLIENT.SERVERS.EN]
+URL = "https://nova-static.stellasora.global"
+KEY = "ma5Dn2FhC*Xhxy%c"
+
+[TASK.CLIENT.SERVERS.JP]
+URL = "https://nova-static.stellasora.jp"
+KEY = "ZnUFA@S9%4KyoryM"
+
+[TASK.CLIENT.SERVERS.KR]
+URL = "https://nova-static.stellasora.kr"
+KEY = "U9cjHuwGDDx&$drn"
+
+[TASK.CLIENT.SERVERS.TW]
+URL = "https://nova-static.stargazer-games.com"
+KEY = "owGYVDmfHrxi^4pm"
+
+# ================================================================
+# TASK.CLIENT:  Client file names (platform-bound)
+# ================================================================
+[TASK.CLIENT.FILENAME]
+RAW_MANIFEST = "win.html"
+DECRYPTED_MANIFEST = "win.bytes"
+DECODED_MANIFEST = "win_resource_manifest.json"
+PATCH_MANIFEST = "win_patch_manifest.json"
+VERSION = "win_version.json"
+ROOT_MANI = "ss_win.mani"
+FIRST_MANI_PATCH = "p_1_m.ss_win.mani"
+ADD_MANI = "ss_win_add.mani"
+
+# ================================================================
+# TASK.CLIENT:  Client output paths
+# ================================================================
+[TASK.CLIENT.FILEPATH]
+ROOT_OUTPUT = "./output/"
+MANIFEST = "./output/Manifest"
+VERSIONS = "./output/Manifest"
+PATCH = "./output/Metadata"
+UNPACK = "./output/Unpack"
+
+# ================================================================
+# TASK.CLIENT:  Download and unpack scope
+# ================================================================
+[TASK.CLIENT.REGISTRY]
+FETCH_FILES = [
+    "lua.arcx",
+    "data.arcx",
+    "lua.json",
+    "data.json",
+    "ss_win.mani",
+    "ss_win_add.mani",
+]
+UNPACK_FILES = [
+    "data.arcx",
+    "lua.arcx",
+]
+RES_PATTERNS = [
+    '^ss_win(_add)?\.mani$',
+    '^(?:icon-|image-).*\.unity3d$',
+    '^ui_activity__6.*\.unity3d$',
+    '^char_\d+(_(?:buff|breakout|combos|combosmonster|config|configs|fx|soldier|towerdefense|weapon|weaponmodel|weapons))?\.unity3d$',
+]
+
+# ================================================================
+# TASK.CLIENT:  Version extract keys
+# ================================================================
+[TASK.CLIENT.EXTRACTKEY]
+DEFAULT = "unknown"
+CLIENT = "CLIENT_VER"
+GAME = "GAME_VER"
+PATCH = "BIN_DIFF_PATCH_VER"
+
+# ================================================================
+# TASK.CLIENT:  Client save flags
+# ================================================================
+[TASK.CLIENT.FLAGS.SAVE]
+RAW_MANIFEST = false
+DECRYPTED_MANIFEST = false
+DECODED_MANIFEST = true
+PATCH_MANIFEST = true
+VERSION_FILE = true
+
+# ================================================================
+# TASK.CLIENT:  Client run flags
+# ================================================================
+[TASK.CLIENT.FLAGS.OP]
+DOWNLOAD_RESOURCE = true
+OVERWRITE_RESOURCE = false
+MERGE_PATCH = true
+EXTRACT_PATCH_MANIFEST = true
+EXTRACT_PATCH_VERSION = true
+FILTER_OUTDATED_PATCH = true
+USE_DEFAULT_REGION = true
+USE_RESOURCE_REGEX = true
+
+# ================================================================
+# TASK.LAUNCHER:  Launcher task
+# ================================================================
+[TASK.LAUNCHER]
+LAUNCHER_VERSION = "1.6.0"
+
+# ================================================================
+# TASK.LAUNCHER:  Launcher routes
+# ================================================================
+[TASK.LAUNCHER.ROUTE]
+CONFIG = "/api/launcher/game/config"
+PARAMS = "/json?version={ver}&file_path={path}"
+
+# ================================================================
+# TASK.LAUNCHER:  Per-region endpoints: TAG / SALT / API / PKG
+# ================================================================
+[TASK.LAUNCHER.SERVERS.CN]
+TAG = "StellaSora_CN"
+SALT = "872550AD59A235662C5B7D5F88CEBE4B"
+API = "https://launcher-api.yostar.net"
+PKG = "https://game-launcher-ss-cn.yostar.net"
+
+[TASK.LAUNCHER.SERVERS.EN]
+TAG = "StellaSora_EN"
+SALT = "DE7108E9B2842FD460F4777702727869"
+API = "https://api-launcher-en.yo-star.com"
+PKG = "https://launcher-pkg-ss-en.yo-star.com"
+
+[TASK.LAUNCHER.SERVERS.JP]
+TAG = "StellaSora_JP"
+SALT = "DE7108E9B2842FD460F4777702727869"
+API = "https://api-launcher-jp.yo-star.com"
+PKG = "https://launcher-pkg-ss-jp.yo-star.com"
+
+[TASK.LAUNCHER.SERVERS.KR]
+TAG = "StellaSora_KR"
+SALT = "DE7108E9B2842FD460F4777702727869"
+API = "https://api-launcher-kr.yo-star.com"
+PKG = "https://launcher-pkg-ss-kr.yo-star.com"
+
+[TASK.LAUNCHER.SERVERS.TW]
+TAG = "StellaSora_TW"
+SALT = "DE7108E9B2842FD460F4777702727869"
+API = "https://api-launcher-tw.stargazer-games.com"
+PKG = "https://launcher-pkg-ss-hk.stargazer-games.com"
+
+# ================================================================
+# TASK.LAUNCHER:  Launcher file names
+# ================================================================
+[TASK.LAUNCHER.FILENAME]
+MANIFEST = "launcher_manifest.json"
+
+# ================================================================
+# TASK.LAUNCHER:  Launcher output paths
+# ================================================================
+[TASK.LAUNCHER.FILEPATH]
+OUTPUT = "./output/Launcher"
+
+# ================================================================
+# TASK.LAUNCHER:  Download scope (required)
+# ================================================================
+[TASK.LAUNCHER.REGISTRY]
+FETCH_FILES = []
+RES_PATTERNS = ['^data\.unity3d$']
+
+# ================================================================
+# TASK.LAUNCHER:  Version extract keys
+# ================================================================
+[TASK.LAUNCHER.EXTRACTKEY]
+LATEST_VERSION = "game_latest_version"
+LATEST_FILEPATH = "game_latest_file_path"
+
+# ================================================================
+# TASK.LAUNCHER:  Launcher save flags
+# ================================================================
+[TASK.LAUNCHER.FLAGS.SAVE]
+RAW_MANIFEST = false
+VERSION_FILE = true
+
+# ================================================================
+# TASK.LAUNCHER:  Launcher run flags
+# ================================================================
+[TASK.LAUNCHER.FLAGS.OP]
+DOWNLOAD_RESOURCE = true
+OVERWRITE_RESOURCE = false
+FILTER_OUTDATED_PATCH = true
+USE_DEFAULT_REGION = true
+USE_RESOURCE_REGEX = false
+
+# ================================================================
+# TASK.UNCENSOR:  Uncensor task
+# ================================================================
+[TASK.UNCENSOR]
+SOURCE_REGION = "JP"
+
+# ================================================================
+# TASK.UNCENSOR:  Uncensor route (platform-bound)
+# ================================================================
+[TASK.UNCENSOR.ROUTE]
+MANIFEST = "res/win/ss_win.mani"
+
+# ================================================================
+# TASK.UNCENSOR:  Uncensor manifest server
+# ================================================================
+[TASK.UNCENSOR.SERVERS.CN]
+URL = "http://na.jvav.net.cn"
+
+# ================================================================
+# TASK.UNCENSOR:  Uncensor file names (platform-bound)
+# ================================================================
+[TASK.UNCENSOR.FILENAME]
+MANIFEST = "ss_win.mani"
+
+# ================================================================
+# TASK.UNCENSOR:  Uncensor output paths
+# ================================================================
+[TASK.UNCENSOR.FILEPATH]
+MANIFEST = "./output/Uncensor/Manifest"
+METADATA = "./output/Uncensor/Metadata"
+RESOURCE = "./output/Uncensor/Resource"
+DEFAULT = "./output/Uncensor/Default"
