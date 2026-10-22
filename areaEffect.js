@@ -1,4 +1,4 @@
-import { spawnSync } from 'child_process';
+﻿import { spawnSync } from 'child_process';
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'fs';
 import { tmpdir } from 'os';
 import { findStoreDir } from './store.js';
@@ -86,6 +86,35 @@ function getFirstHit(hitDelay, hitInterval, hitImmediately) {
     return hitImmediately ? 0 : hitInterval;
 }
 
+function addVariant(map, key, variant, copy) {
+    let entry = map[key];
+
+    if (!entry) {
+        entry = { variants: [] };
+        map[key] = entry;
+    }
+
+    if (copy !== undefined) entry.copyBattleDataBeforeAttack = entry.copyBattleDataBeforeAttack || copy;
+
+    const known = entry.variants.some(other =>
+        other.alias === variant.alias &&
+        other.duration === variant.duration &&
+        other.hitDelay === variant.hitDelay &&
+        other.hitInterval === variant.hitInterval &&
+        other.hits === variant.hits
+    );
+
+    if (!known) entry.variants.push(variant);
+
+    const best = entry.variants.reduce((a, b) => b.hits > a.hits ? b : a);
+
+    entry.duration = best.duration;
+    entry.hitDelay = best.hitDelay;
+    entry.hitInterval = best.hitInterval;
+    entry.hits = best.hits;
+    entry.triggers = best.triggers;
+}
+
 function parseString(text, field) {
     const match = text.match(new RegExp(`${field} = "([^"]*)"`));
     return match ? match[1] : undefined;
@@ -122,6 +151,10 @@ function parseAsset(text) {
             return { kind: 'MonoScript', className: match[1] };
         }
         return {};
+    }
+
+    if (first === 'GameObject Base') {
+        return { kind: 'GameObject', name: parseString(text, 'm_Name') };
     }
 
     if (first === 'MonoBehaviour Base') {
@@ -173,6 +206,7 @@ function extractMap(bundleDir) {
 
         const objects = new Map();
         const classNames = new Map();
+        const gameObjectNames = new Map();
 
         for (const file of files) {
             const name = file.slice(file.lastIndexOf('/') + 1);
@@ -183,6 +217,7 @@ function extractMap(bundleDir) {
             if (!asset.kind) continue;
             objects.set(pathId, asset);
             if (asset.kind === 'MonoScript' && asset.className) classNames.set(pathId, asset.className);
+            if (asset.kind === 'GameObject' && asset.name) gameObjectNames.set(pathId, asset.name);
         }
 
         const entities = new Map();
@@ -212,6 +247,7 @@ function extractMap(bundleDir) {
 
                 specials.push({
                     ids: [hitDamageId],
+                    alias: gameObjectNames.get(asset.gameObject),
                     duration,
                     hitDelay: getFirstHit(0, hitInterval, hitImmediately),
                     hitInterval,
@@ -269,36 +305,29 @@ function extractMap(bundleDir) {
                     const idHits = attack.ids.length > 1
                         ? Math.ceil((componentHits - index) / attack.ids.length)
                         : componentHits;
-                    const previous = map[key];
 
-                    if (!previous || idHits > previous.hits) {
-                        map[key] = {
-                            copyBattleDataBeforeAttack: entity.copy || previous?.copyBattleDataBeforeAttack === true,
-                            duration: entity.duration,
-                            hitDelay: getFirstHit(attack.hitDelay, attack.hitInterval, attack.hitImmediately),
-                            hitInterval: attack.hitInterval,
-                            hits: idHits,
-                            triggers,
-                        };
-                    }
+                    addVariant(map, key, {
+                        alias: gameObjectNames.get(gameObject),
+                        duration: entity.duration,
+                        hitDelay: getFirstHit(attack.hitDelay, attack.hitInterval, attack.hitImmediately),
+                        hitInterval: attack.hitInterval,
+                        hits: idHits,
+                        triggers,
+                    }, entity.copy);
                 });
             }
         }
 
         for (const special of specials) {
             for (const hitDamageId of special.ids) {
-                const key = String(hitDamageId);
-                const previous = map[key];
-
-                if (!previous || special.hits > previous.hits) {
-                    map[key] = {
-                        copyBattleDataBeforeAttack: previous?.copyBattleDataBeforeAttack,
-                        duration: special.duration,
-                        hitDelay: special.hitDelay,
-                        hitInterval: special.hitInterval,
-                        hits: special.hits,
-                    };
-                }
+                addVariant(map, String(hitDamageId), {
+                    alias: special.alias,
+                    duration: special.duration,
+                    hitDelay: special.hitDelay,
+                    hitInterval: special.hitInterval,
+                    hits: special.hits,
+                    triggers: [],
+                });
             }
         }
     }

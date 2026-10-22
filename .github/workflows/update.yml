@@ -3,8 +3,12 @@ name: Update
 on:
   workflow_dispatch:
     inputs:
-      full:
-        description: Rebuild all generated data
+      fullAreaEffect:
+        description: Rebuild all area effect data
+        type: boolean
+        default: false
+      fullBullet:
+        description: Rebuild all bullet data
         type: boolean
         default: false
   schedule:
@@ -102,19 +106,19 @@ jobs:
         run: node export.js diff_out
 
       - name: Generate area effect data
-        if: steps.check.outputs.changed == 'true' && inputs.full != true
+        if: steps.check.outputs.changed == 'true' && inputs.fullAreaEffect != true
         run: node areaEffect.js diff_out
 
       - name: Generate full area effect data
-        if: inputs.full
+        if: inputs.fullAreaEffect
         run: node areaEffect.js
 
       - name: Generate bullet data
-        if: steps.check.outputs.changed == 'true' && inputs.full != true
+        if: steps.check.outputs.changed == 'true' && inputs.fullBullet != true
         run: node bullet.js diff_out
 
       - name: Generate full bullet data
-        if: inputs.full
+        if: inputs.fullBullet
         run: node bullet.js
 
       - name: Compose potential images
@@ -128,7 +132,7 @@ jobs:
           cp diff-manifest.json diff-resource/manifest.json
 
       - name: Commit and push
-        if: steps.check.outputs.changed == 'true' || inputs.full
+        if: steps.check.outputs.changed == 'true' || inputs.fullAreaEffect || inputs.fullBullet
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
