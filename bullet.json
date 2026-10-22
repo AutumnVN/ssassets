@@ -1,0 +1,3263 @@
+{
+  "AreaEffect_10301_P04_Boom": [
+    103304001
+  ],
+  "AreaEffect_10301_Support_P25_Shadow": [
+    103525001
+  ],
+  "AreaEffect_103_FireTag_Boom": [
+    103000001
+  ],
+  "AreaEffect_103_Ultra": [
+    10340001
+  ],
+  "AreaEffect_107_BuffArea": [
+    80107031
+  ],
+  "AreaEffect_107_Common_HeartStone_02": [
+    107000001
+  ],
+  "AreaEffect_107_Main_Skill_P06_Boom": [
+    107310601
+  ],
+  "AreaEffect_107_Support_Skill_P23_Boom": [
+    107322301
+  ],
+  "AreaEffect_107_Support_Skill_P25_Boom": [
+    107322501
+  ],
+  "AreaEffect_107_Ultra_HeartStone_06": [
+    107400002
+  ],
+  "AreaEffect_108_B2P21_Skill_FirePit": [
+    108521001
+  ],
+  "AreaEffect_110_Main_FenShen_DieBoom": [
+    110900004
+  ],
+  "AreaEffect_110_Support_FenShen_DieBoom": [
+    110900006
+  ],
+  "AreaEffect_110_Support_QuanZhang_Boom": [
+    110300004
+  ],
+  "AreaEffect_110_Support_QuanZhang_LoopAOE_1Hit": [
+    110300006
+  ],
+  "AreaEffect_110_Ultra_Atk_1": [
+    110400001
+  ],
+  "AreaEffect_110_Ultra_Atk_2": [
+    110400002
+  ],
+  "AreaEffect_11101_B1P01P02_Skill_IceBolt_Boom": [
+    111502002
+  ],
+  "AreaEffect_11101_B1P02_Skill_IceBolt_Boom": [
+    111502001
+  ],
+  "AreaEffect_11101_B1P04_Skill_IceFalling": [
+    111504001
+  ],
+  "AreaEffect_11101_B2P21P22P25_IceWave_LargeVortexQuick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P21P22_IceWave_LargeVortex": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P21P24P25_IceWave_LargeFollowQuick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P21P24_IceWave_LargeEndHurt": [
+    111524001
+  ],
+  "AreaEffect_11101_B2P21P25_IceWave_LargeQuick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P21_IceWave_Large": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P22P24P25_IceWave_VortexFollowQuick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P22P24_IceWave_VortexFollow": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P22P25_IceWave_VortexQuick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P22_IceWave_Vortex": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P23_Skill_IceWave_Stun": [
+    111523001
+  ],
+  "AreaEffect_11101_B2P24P25_IceWave_FollowQuick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P24_IceWave_EndHurt": [
+    111524001
+  ],
+  "AreaEffect_11101_B2P25_IceWave_Quick": [
+    111320001
+  ],
+  "AreaEffect_11101_B2P29_Skill_IceWave_DeathBoom": [
+    111529001
+  ],
+  "AreaEffect_11101_B2_Skill_IceWave": [
+    111320001
+  ],
+  "AreaEffect_11101_Perk11_IceBoom": [
+    111511001
+  ],
+  "AreaEffect_11101_Ultra_H6_Hit": [
+    111400001
+  ],
+  "AreaEffect_11101_Ultra_P41_IceFall": [
+    111541001
+  ],
+  "AreaEffect_11101_WaterTag1_Boom": [
+    111000001
+  ],
+  "AreaEffect_112_T3": [
+    112100010
+  ],
+  "AreaEffect_112_WindTagTrigger_XuanFeng": [
+    112100000
+  ],
+  "AreaEffect_11301_Skill_Main_P04_Wave": [
+    113310401
+  ],
+  "AreaEffect_11301_Skill_Main_P04_Wave_Ex": [
+    113310401
+  ],
+  "AreaEffect_11301_Skill_Main_P09_Wave": [
+    113310901
+  ],
+  "AreaEffect_11301_Skill_Main_P10_Puddle": [
+    113311001
+  ],
+  "AreaEffect_11301_Skill_Support_P29_Wave": [
+    113322901
+  ],
+  "AreaEffect_11301_Skill_Support_P30_Wave": [
+    113323001
+  ],
+  "AreaEffect_11301_Ultra_FingerDown": [
+    113400021
+  ],
+  "AreaEffect_11301_Ultra_P43_PuddleBoom": [
+    113404301
+  ],
+  "AreaEffect_113_Talent_11_SmallWaterPool": [
+    113501101
+  ],
+  "AreaEffect_113_Talent_12_BigWaterPool": [
+    113501201
+  ],
+  "AreaEffect_113_Talent_13_BigWaterPool": [
+    113501301
+  ],
+  "AreaEffect_113_Ultra_Skill_3": [
+    113400032
+  ],
+  "AreaEffect_113_Ultra_Skill_4": [
+    113400033
+  ],
+  "AreaEffect_113_WaterTag1_Boom": [
+    113000001
+  ],
+  "AreaEffect_114_B2T4_Skill_AOE": [
+    11432041
+  ],
+  "AreaEffect_114_B2_Skill_AOE": [
+    11432002
+  ],
+  "AreaEffect_114_Bomb": [
+    80114013,
+    1000114004
+  ],
+  "AreaEffect_114_FireTag1_Boom": [
+    114000001
+  ],
+  "AreaEffect_114_Main_Skill_Boom": [
+    114310003
+  ],
+  "AreaEffect_114_Main_Skill_Boom_P01_Big": [
+    114501001
+  ],
+  "AreaEffect_114_Main_Skill_Boom_P05": [
+    114506001
+  ],
+  "AreaEffect_114_Main_Skill_Boom_P28_Big": [
+    114528001
+  ],
+  "AreaEffect_114_Main_Skill_Boom_P28_Small": [
+    114528001
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv1": [
+    80114023,
+    114310002
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv1_Quick": [
+    114310002
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv2": [
+    80114024,
+    114504001
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv2_Quick": [
+    114504001
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv3": [
+    80114025,
+    114504002
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv3_Quick": [
+    114504002
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv4": [
+    80114026,
+    114504003
+  ],
+  "AreaEffect_114_Main_Skill_Hit_Lv4_Quick": [
+    114504003
+  ],
+  "AreaEffect_114_Support_Skill_P21_Boom_Lv1": [
+    114521001
+  ],
+  "AreaEffect_114_Support_Skill_P21_Boom_Lv2": [
+    114521002
+  ],
+  "AreaEffect_114_Support_Skill_P21_Boom_Lv3": [
+    114521003
+  ],
+  "AreaEffect_114_Support_Skill_P25_CatEye": [
+    114525001
+  ],
+  "AreaEffect_114_Ultra_Boom": [
+    114400002
+  ],
+  "AreaEffect_114_Ultra_Hit1": [
+    114400001
+  ],
+  "AreaEffect_114_Ultra_Hit2": [
+    114400001
+  ],
+  "AreaEffect_11501_B1T23_Skill_Blade_Up_StrengthenGround": [
+    115312301
+  ],
+  "AreaEffect_11501_B1T2_Skill_Blade_Down_Ground": [
+    115310201
+  ],
+  "AreaEffect_11501_LightTag_Boom": [
+    115000001
+  ],
+  "AreaEffect_11501_LightTag_Boom_H2": [
+    115000001
+  ],
+  "AreaEffect_11501_LimitDodge_Stun": [
+    115211301
+  ],
+  "AreaEffect_11501_Main_Skill_P03_SalvoBoom": [
+    115110301
+  ],
+  "AreaEffect_11501_Main_Skill_P06_Beam": [
+    115506001
+  ],
+  "AreaEffect_11501_Main_Skill_P08_StartBoom": [
+    115308002
+  ],
+  "AreaEffect_11501_Support_Skill_Blade_P24_Ground": [
+    115322701
+  ],
+  "AreaEffect_11501_Support_Skill_Blade_P24_StrengthenGround": [
+    115322702
+  ],
+  "AreaEffect_11501_Support_Skill_P22_Boom": [
+    115122202
+  ],
+  "AreaEffect_11501_Support_Skill_P30_Aoe": [
+    115323001
+  ],
+  "AreaEffect_11601_LandTag1_Stone": [
+    116000001
+  ],
+  "AreaEffect_11601_Skill_Sup_AttachSeedBoom": [
+    116320002
+  ],
+  "AreaEffect_11601_Skill_Sup_AttachSeedBoom_Perk24": [
+    116320002
+  ],
+  "AreaEffect_11601_Skill_Sup_Seed": [
+    116320001
+  ],
+  "AreaEffect_11601_Skill_Sup_Seed_Perk22": [
+    116320001
+  ],
+  "AreaEffect_11601_Skill_Sup_Seed_Perk22_Perk27": [
+    116320001
+  ],
+  "AreaEffect_11601_Skill_Sup_Seed_Perk27": [
+    116320001
+  ],
+  "AreaEffect_11601_Ultra": [
+    116400001
+  ],
+  "AreaEffect_11601_Ultra_Final": [
+    116400002
+  ],
+  "AreaEffect_11601_Ultra_TL": [
+    116400001
+  ],
+  "AreaEffect_117_B1_LightTag_Boom": [
+    117000001
+  ],
+  "AreaEffect_117_B2P21P22_Skill_ElectricCircle_LargeQuick": [
+    117320001
+  ],
+  "AreaEffect_117_B2P21P23_Skill_ElectricCircle_LargeStun": [
+    117320001
+  ],
+  "AreaEffect_117_B2P21P24_Skill_ElectricCircle_LargeBoom": [
+    117524001
+  ],
+  "AreaEffect_117_B2P21_Skill_ElectricCircle_Large": [
+    117320001
+  ],
+  "AreaEffect_117_B2P22P23_Skill_ElectricCircle_QuickStun": [
+    117320001
+  ],
+  "AreaEffect_117_B2P22P24_Skill_ElectricCircle_QuickBoom": [
+    117320001
+  ],
+  "AreaEffect_117_B2P22_Skill_ElectricCircle_Quick": [
+    117320001
+  ],
+  "AreaEffect_117_B2P23P24_Skill_ElectricCircle_StunBoom": [
+    117320001
+  ],
+  "AreaEffect_117_B2P23_Skill_ElectricCircle_Stun": [
+    117320001
+  ],
+  "AreaEffect_117_B2P24_Skill_ElectricCircle_Boom": [
+    117524001
+  ],
+  "AreaEffect_117_B2_Skill_ElectricCircle": [
+    117320001
+  ],
+  "AreaEffect_117_Perk10_ThunderArmor": [
+    117560011
+  ],
+  "AreaEffect_117_Perk12_Repel": [
+    117512001
+  ],
+  "AreaEffect_118_P24_YaoShui": [
+    118000011
+  ],
+  "AreaEffect_118_P8_YaoShui": [
+    118000017
+  ],
+  "AreaEffect_119_P22_AOE": [
+    119503001
+  ],
+  "AreaEffect_119_T1_AOE": [
+    119501001
+  ],
+  "AreaEffect_119_WindMark1_Bloom": [
+    119000001
+  ],
+  "AreaEffect_12001_B2P24_Wreath": [
+    120524001
+  ],
+  "AreaEffect_120_WindMark1_Bloom": [
+    120000001
+  ],
+  "AreaEffect_123_Attack3": [
+    123100003
+  ],
+  "AreaEffect_123_B2_WindWall_StartAtk": [
+    123320001
+  ],
+  "AreaEffect_123_B2_WindWall_Wave_Hit": [
+    123320002
+  ],
+  "AreaEffect_123_FengBoom": [
+    123310004
+  ],
+  "AreaEffect_123_FengBoom_P2": [
+    123310004
+  ],
+  "AreaEffect_123_FengTun_Atk2": [
+    123310002
+  ],
+  "AreaEffect_123_FengTun_P4_JiGuang": [
+    123310002
+  ],
+  "AreaEffect_123_FengTun_T11": [
+    123310003
+  ],
+  "AreaEffect_123_UltraPao_Boom": [
+    123300001
+  ],
+  "AreaEffect_123_UltraPao_BoomH6": [
+    123300001
+  ],
+  "AreaEffect_125_Main_P04P09_Axe": [
+    125310901
+  ],
+  "AreaEffect_125_Main_P09_Axe": [
+    125310901
+  ],
+  "AreaEffect_125_Main_P24_IceAOE": [
+    125322401
+  ],
+  "AreaEffect_125_Main_P27P21_IceFlower_Large": [
+    125322701
+  ],
+  "AreaEffect_125_Main_P27_IceFlower": [
+    125322701
+  ],
+  "AreaEffect_125_Ultra": [
+    125400004
+  ],
+  "AreaEffect_125_Ultra_H6": [
+    125400005
+  ],
+  "AreaEffect_125_WaterTag1_Boom": [
+    125000001
+  ],
+  "AreaEffect_12601_Ultra_Bomb_Big_H6": [
+    126400004
+  ],
+  "AreaEffect_12601_Ultra_Bomb_Small_H6": [
+    126400003
+  ],
+  "AreaEffect_12601_Ultra_PhoenixEgg": [
+    126400002
+  ],
+  "AreaEffect_12601_Ultra_PhoenixEgg_Boom_Perk42": [
+    126542001
+  ],
+  "AreaEffect_12601_Ultra_PhoenixEgg_Perk42": [
+    126400002
+  ],
+  "AreaEffect_12601_Ultra_PhoenixEgg_Perk42Perk43": [
+    126400002,
+    126543001
+  ],
+  "AreaEffect_12601_Ultra_PhoenixEgg_Perk43": [
+    126400002,
+    126543001
+  ],
+  "AreaEffect_12701_B1_Skill_SmashDown_Strength": [
+    127502005
+  ],
+  "AreaEffect_12701_B1_Skill_SpinKick": [
+    127310001
+  ],
+  "AreaEffect_12701_B1_Skill_Wave": [
+    127501001
+  ],
+  "AreaEffect_12701_B1_Skill_Wave_Perk03": [
+    127503001
+  ],
+  "AreaEffect_12701_B2_Skill_WaterArea": [
+    127320002
+  ],
+  "AreaEffect_12701_B2_Skill_WaterArea_Perk24": [
+    127320002
+  ],
+  "AreaEffect_12701_B2_Skill_Wave_Perk22": [
+    127522001
+  ],
+  "AreaEffect_12701_Perk30_Fountain": [
+    127530001
+  ],
+  "AreaEffect_130_Main_Skill_P04_Death_Boom_Aoe": [
+    130504002
+  ],
+  "AreaEffect_130_Main_Skill_P04_Death_Boom_Aoe_Strengthen": [
+    130504002
+  ],
+  "AreaEffect_130_Main_Skill_P10_Shield_Boom": [
+    130510001
+  ],
+  "AreaEffect_130_Main_Skill_P10_Shield_Boom_Strengthen": [
+    130510001
+  ],
+  "AreaEffect_130_Support_Skill_P22_IceRain": [
+    130320004
+  ],
+  "AreaEffect_130_Support_Skill_P23_Water_Big": [
+    130524001
+  ],
+  "AreaEffect_130_Support_Skill_P23_Water_Big_Attack": [
+    130523001
+  ],
+  "AreaEffect_130_Support_Skill_P24P23_Boom_Big": [
+    130524002
+  ],
+  "AreaEffect_130_Support_Skill_P24_Boom": [
+    130524002
+  ],
+  "AreaEffect_130_Support_Skill_Water": [
+    130524001,
+    1000130006
+  ],
+  "AreaEffect_130_Support_Skill_Water_Attack": [
+    130320006
+  ],
+  "AreaEffect_130_Ultra_Attack": [
+    130400001
+  ],
+  "AreaEffect_130_Ultra_H6": [
+    130400002
+  ],
+  "AreaEffect_130_Ultra_Perk41_Attack": [
+    130400001
+  ],
+  "AreaEffect_130_WaterTag1_Boom": [
+    130000001
+  ],
+  "AreaEffect_132_Attack_4": [
+    80132015,
+    132100005
+  ],
+  "AreaEffect_132_LightTag_Boom": [
+    80132019,
+    132000001
+  ],
+  "AreaEffect_132_Main_S1_Burst_P03": [
+    132310302
+  ],
+  "AreaEffect_132_Main_S1_Burst_P08_Stun": [
+    132310801
+  ],
+  "AreaEffect_132_Main_S2_P02_AOE": [
+    132310203
+  ],
+  "AreaEffect_132_Main_S2_P04_AOE": [
+    132310401
+  ],
+  "AreaEffect_132_Main_S3_P02_AOE": [
+    132310203
+  ],
+  "AreaEffect_132_Support_StarBurst": [
+    80132019,
+    132320002
+  ],
+  "AreaEffect_132_Support_StarBurst_P22_Big": [
+    80132020,
+    132522001
+  ],
+  "AreaEffect_132_Ultra": [
+    132400001
+  ],
+  "AreaEffect_132_Ultra_H6": [
+    132400002,
+    132400003
+  ],
+  "AreaEffect_132_Ultra_P42": [
+    132400001
+  ],
+  "AreaEffect_13301_B1P4_Wind": [
+    133504001
+  ],
+  "AreaEffect_13301_B1P4_Wind2": [
+    133504001
+  ],
+  "AreaEffect_13301_B2P23P24_PetalRegionAtk": [
+    133524001
+  ],
+  "AreaEffect_13301_B2P24_PetalRegionAtk": [
+    133524001
+  ],
+  "AreaEffect_13301_B2P30P23_Boom": [
+    133530001
+  ],
+  "AreaEffect_13301_B2P30_Boom": [
+    133530001
+  ],
+  "AreaEffect_13301_PetalRegion": [
+    133320003
+  ],
+  "AreaEffect_13301_PetalRegion_Perk23": [
+    133320003
+  ],
+  "AreaEffect_13301_PetalRegion_Time23": [
+    133320003
+  ],
+  "AreaEffect_13301_Skill2_BouquetBoom": [
+    133320001
+  ],
+  "AreaEffect_13301_T2_AOE": [
+    133400002
+  ],
+  "AreaEffect_133_WindMark1_Bloom": [
+    133000001
+  ],
+  "AreaEffect_13401_Attack_Sector": [
+    134100009
+  ],
+  "AreaEffect_13401_FireTag_Boom": [
+    134000001
+  ],
+  "AreaEffect_13401_Main_Skill_P09_Boom": [
+    134509001
+  ],
+  "AreaEffect_13401_Support_Skill_Ball_Lv2": [
+    134320001
+  ],
+  "AreaEffect_13401_Support_Skill_P30_QuickBall_Lv2": [
+    134320001
+  ],
+  "AreaEffect_13401_T1_FlameClothing": [
+    134980011
+  ],
+  "AreaEffect_135_Atk_1": [
+    80135011,
+    135100001
+  ],
+  "AreaEffect_135_Atk_2": [
+    80135012,
+    135100002
+  ],
+  "AreaEffect_135_Atk_3": [
+    135100003
+  ],
+  "AreaEffect_135_Atk_4": [
+    80135014,
+    135100004
+  ],
+  "AreaEffect_135_DieBoom_T2": [
+    135900004
+  ],
+  "AreaEffect_135_GhostDoor": [
+    80135022,
+    135900006
+  ],
+  "AreaEffect_135_GhostDoor_T23": [
+    80135022,
+    135900006
+  ],
+  "AreaEffect_135_Support_DieBoom": [
+    80135021,
+    135900005
+  ],
+  "AreaEffect_135_Ultra_AtkBox_1": [
+    135400001
+  ],
+  "AreaEffect_135_Ultra_AtkBox_2": [
+    135400001
+  ],
+  "AreaEffect_135_Ultra_AtkBox_3": [
+    135400002
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk": [
+    80137018,
+    137300002,
+    1000137006
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P3": [
+    80137018,
+    137300002
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P3P8": [
+    80137018,
+    137300002
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P3P8_P4": [
+    137300003
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P3_P4": [
+    137300003
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P4": [
+    137300003
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P8": [
+    80137018,
+    137300002
+  ],
+  "AreaEffect_137_MainSkill_Ring_OutAtk_P8_P4": [
+    137300003
+  ],
+  "AreaEffect_137_NrmAtk_Sp_Aoe_Base": [
+    80137019,
+    137100006
+  ],
+  "AreaEffect_137_NrmAtk_Sp_Aoe_Base_P5": [
+    80137019,
+    137100006,
+    137100008
+  ],
+  "AreaEffect_137_NrmAtk_Sp_Aoe_P1": [
+    80137019,
+    137100006
+  ],
+  "AreaEffect_137_NrmAtk_Sp_Aoe_P1_P5": [
+    80137019,
+    137100006,
+    137100008
+  ],
+  "AreaEffect_137_P24_UAV_AtkAoe": [
+    137300013
+  ],
+  "AreaEffect_137_SkillSup_JumpAtk_Boom": [
+    137300010
+  ],
+  "AreaEffect_137_SkillSup_JumpAtk_Boom_P21": [
+    137300012
+  ],
+  "AreaEffect_137_WindMark1_Bloom": [
+    137000001
+  ],
+  "AreaEffect_13901_Main": [
+    139310001
+  ],
+  "AreaEffect_13901_Main_P02_A": [
+    139502001
+  ],
+  "AreaEffect_13901_Main_P02_B": [
+    139502001
+  ],
+  "AreaEffect_13901_Main_P02_C": [
+    139502001
+  ],
+  "AreaEffect_13901_Main_P07_A": [
+    139502001
+  ],
+  "AreaEffect_13901_Main_P07_B": [
+    139502001
+  ],
+  "AreaEffect_13901_Main_P07_C": [
+    139502001
+  ],
+  "AreaEffect_13901_Sup": [
+    80139016,
+    139320002
+  ],
+  "AreaEffect_13901_Sup_P24": [
+    139320002,
+    139524001
+  ],
+  "AreaEffect_13901_Sup_P30": [
+    139320002
+  ],
+  "AreaEffect_13901_Sup_P30P24": [
+    139320002,
+    139524001
+  ],
+  "AreaEffect_13901_Sup_P30P24_ExtraA": [
+    139524001,
+    139530001
+  ],
+  "AreaEffect_13901_Sup_P30P24_ExtraB": [
+    139524001,
+    139530001
+  ],
+  "AreaEffect_13901_Sup_P30_ExtraA": [
+    139530001
+  ],
+  "AreaEffect_13901_Sup_P30_ExtraB": [
+    139530001
+  ],
+  "AreaEffect_13901_Ultra1": [
+    139400001
+  ],
+  "AreaEffect_13901_Ultra2": [
+    139400002
+  ],
+  "AreaEffect_13901_Ultra2_P43": [
+    139400002
+  ],
+  "AreaEffect_13901_Ultra_BO": [
+    8210101
+  ],
+  "AreaEffect_13901_WaterTrigger": [
+    139000002
+  ],
+  "AreaEffect_13901_WaterTrigger_P04": [
+    139504001
+  ],
+  "AreaEffect_14001_LandTag1_Boom": [
+    140000001
+  ],
+  "AreaEffect_14001_Tank_Attack_Boom": [
+    80140024,
+    140310002
+  ],
+  "AreaEffect_14001_Tank_P08": [
+    80140026,
+    140508001
+  ],
+  "AreaEffect_14001_Tank_P08P03": [
+    140508002
+  ],
+  "AreaEffect_14001_Tank_Skill_Boom": [
+    140503001
+  ],
+  "AreaEffect_14001_Ultra_Boom": [
+    140400002
+  ],
+  "AreaEffect_14001_Ultra_Boom_P42": [
+    140400002
+  ],
+  "AreaEffect_14001_Ultra_Hit": [
+    140400001
+  ],
+  "AreaEffect_14001_Ultra_Hit_TL": [
+    140400001
+  ],
+  "AreaEffect_14101_Main_Skill_P03_Boom": [
+    141503001
+  ],
+  "AreaEffect_14101_Main_Skill_P06_FirePit": [
+    141506001
+  ],
+  "AreaEffect_14101_T1_Scroll_Boom": [
+    141980011
+  ],
+  "AreaEffect_14101_Ultra": [
+    141400001
+  ],
+  "AreaEffect_14101_Ultra_P42_FireWind": [
+    141442001
+  ],
+  "AreaEffect_14101_Ultra_P43_DragonBreathe": [
+    141443001
+  ],
+  "AreaEffect_14101_Ultra_T2": [
+    141400001
+  ],
+  "AreaEffect_142_P2_ZhuaHen": [
+    142300004
+  ],
+  "AreaEffect_142_P4_ZhuaHen": [
+    142300005
+  ],
+  "AreaEffect_142_SkillSup_ZhuaJi": [
+    80142016,
+    142300006
+  ],
+  "AreaEffect_142_SkillSup_ZhuaJi_P21": [
+    80142016,
+    142300006
+  ],
+  "AreaEffect_142_SkillSup_ZhuaJi_P24_ZhongJie": [
+    80142017,
+    142300007
+  ],
+  "AreaEffect_142_TD_ZhuaJi_Plus": [
+    80142016
+  ],
+  "AreaEffect_142_TD_ZhuaJi_Super": [
+    80142016
+  ],
+  "AreaEffect_142_TD_ZhuaJi_Super_p": [
+    80142016
+  ],
+  "AreaEffect_143_Atk_JiGuang": [
+    80143022,
+    143100002
+  ],
+  "AreaEffect_143_P10_JiGuang": [
+    143300005
+  ],
+  "AreaEffect_143_P1_LongJuanFeng": [
+    143300003
+  ],
+  "AreaEffect_143_P1_LongJuanFeng_P2": [
+    143300003
+  ],
+  "AreaEffect_143_P21_LongJuanFeng_Atk": [
+    143310004
+  ],
+  "AreaEffect_143_P22_DiLie_Atk": [
+    143310005
+  ],
+  "AreaEffect_143_P25_JiGuang": [
+    143310008
+  ],
+  "AreaEffect_143_P2_LongJuanFeng": [
+    143300003
+  ],
+  "AreaEffect_143_P32_LongJuanFeng": [
+    143310007
+  ],
+  "AreaEffect_143_P3_JiGuang": [
+    143300002
+  ],
+  "AreaEffect_143_Skill_JiGuang": [
+    80143040
+  ],
+  "AreaEffect_143_Skill_LongJuanFeng": [
+    80143050
+  ],
+  "AreaEffect_143_Ultra_WindDomainEndAtk": [
+    143400002
+  ],
+  "AreaEffect_143_Ultra_WindDomainQuickAtk": [
+    143400001
+  ],
+  "AreaEffect_143_WindTagTrigger_QiXuan": [
+    143000001
+  ],
+  "AreaEffect_14401_B1P7_Snake1": [
+    144310701
+  ],
+  "AreaEffect_14401_B1P7_Snake2": [
+    144310701
+  ],
+  "AreaEffect_14401_B1P7_Snake3": [
+    144310701
+  ],
+  "AreaEffect_14401_B1P7_Snake4": [
+    144310701
+  ],
+  "AreaEffect_14401_B1_Base": [
+    144310001
+  ],
+  "AreaEffect_14401_B1_Strength": [
+    144310002
+  ],
+  "AreaEffect_14401_B1_StrengthP3": [
+    144310301
+  ],
+  "AreaEffect_14401_B1_ZBack": [
+    1000003
+  ],
+  "AreaEffect_14401_B2P22_Skill_MomentarySlash": [
+    144322201
+  ],
+  "AreaEffect_14401_B2P23_ShadowAtk": [
+    144322311
+  ],
+  "AreaEffect_14401_B2P24_DelayFlash": [
+    144322401
+  ],
+  "AreaEffect_14401_B2_ShadowAtk": [
+    144320012
+  ],
+  "AreaEffect_14401_B2_Skill_MomentarySlash": [
+    144320001
+  ],
+  "AreaEffect_14401_Shadow_B1_Base": [
+    144310411
+  ],
+  "AreaEffect_14401_Shadow_B1_Strength": [
+    144310412
+  ],
+  "AreaEffect_14401_Shadow_B1_StrengthP3": [
+    144310413
+  ],
+  "AreaEffect_144_WaterTag1_Boom": [
+    144000001
+  ],
+  "AreaEffect_145_AidSniper_1": [
+    145300002
+  ],
+  "AreaEffect_145_AidSniper_2": [
+    145300002
+  ],
+  "AreaEffect_145_AidSniper_3": [
+    145300002
+  ],
+  "AreaEffect_145_AidSniper_4": [
+    145300002
+  ],
+  "AreaEffect_145_BreakOut": [
+    8212002
+  ],
+  "AreaEffect_145_P22_Sniper_1": [
+    145300009
+  ],
+  "AreaEffect_145_P22_Sniper_2": [
+    145300009
+  ],
+  "AreaEffect_145_P22_Sniper_3": [
+    145300009
+  ],
+  "AreaEffect_145_P23_LiuDan": [
+    145300011
+  ],
+  "AreaEffect_145_P23_LiuDan_Sp": [
+    145300011
+  ],
+  "AreaEffect_145_P2_TakeBack": [
+    1000003
+  ],
+  "AreaEffect_145_SkilSup_SteelRain": [
+    145300006
+  ],
+  "AreaEffect_145_SkilSup_SteelRain_P24": [
+    145300012
+  ],
+  "AreaEffect_145_SkillMain_ShotBoom": [
+    145300001
+  ],
+  "AreaEffect_145_Ultra_HuaSanBoom_Atk1": [
+    145400004
+  ],
+  "AreaEffect_145_Ultra_HuaSanBoom_Atk2": [
+    145400001
+  ],
+  "AreaEffect_145_Ultra_RingBoom": [
+    145400002
+  ],
+  "AreaEffect_147_P22_AOE": [
+    147300008
+  ],
+  "AreaEffect_147_P3P4_AOE": [
+    147300003
+  ],
+  "AreaEffect_147_P3_AOE": [
+    147300003
+  ],
+  "AreaEffect_147_T1_AOE": [
+    147100004
+  ],
+  "AreaEffect_147_T2_Ultra_AOE": [
+    147400002
+  ],
+  "AreaEffect_147_Ultra_AOE_1_P8": [
+    147300004
+  ],
+  "AreaEffect_147_Ultra_AOE_2": [
+    147400001
+  ],
+  "AreaEffect_147_Ultra_AOE_2_P8": [
+    147300004
+  ],
+  "AreaEffect_147_Ultra_AOE_Hit": [
+    147400001
+  ],
+  "AreaEffect_14901_B2P30_Skill_Earthquake": [
+    149323101,
+    149330101
+  ],
+  "AreaEffect_14901_B2P30_Skill_Earthquake_Self": [
+    149323101,
+    149330101
+  ],
+  "AreaEffect_14901_B2P30_Skill_Earthquake_Start": [
+    149320002,
+    149330101
+  ],
+  "AreaEffect_14901_B2_Skill_Earthquake": [
+    149323101
+  ],
+  "AreaEffect_14901_B2_Skill_Earthquake_Self": [
+    149323101
+  ],
+  "AreaEffect_14901_B2_Skill_Earthquake_Start": [
+    149320002
+  ],
+  "AreaEffect_149_LandTag1_Stone": [
+    149000001
+  ],
+  "AreaEffect_150_Attack_02": [
+    150100007
+  ],
+  "AreaEffect_150_Attack_05": [
+    150100007
+  ],
+  "AreaEffect_150_LightTag_Boom": [
+    150000001
+  ],
+  "AreaEffect_150_Main_Skill_P01_ElectricGrid": [
+    80150017,
+    150310101
+  ],
+  "AreaEffect_150_Main_Skill_P02_Boom_Big": [
+    150310203
+  ],
+  "AreaEffect_150_Main_Skill_P02_Boom_Small": [
+    80150018,
+    150310202
+  ],
+  "AreaEffect_150_Main_Skill_P04_Laser": [
+    150310101
+  ],
+  "AreaEffect_150_Main_Skill_P06_Pull_Level1": [
+    150310601
+  ],
+  "AreaEffect_150_Main_Skill_P06_Pull_Level2": [
+    150310601
+  ],
+  "AreaEffect_150_Main_Skill_P06_Pull_Level3": [
+    150310601
+  ],
+  "AreaEffect_150_Main_Skill_P11_Boom": [
+    150311101
+  ],
+  "AreaEffect_150_Support_Skill_Boom": [
+    150320001
+  ],
+  "AreaEffect_150_Support_Skill_ChargeLight": [
+    150320003
+  ],
+  "AreaEffect_150_Support_Skill_P21_Jet": [
+    150322101
+  ],
+  "AreaEffect_150_Support_Skill_P23P21_Jet_Big": [
+    150322101
+  ],
+  "AreaEffect_150_Support_Skill_P23P21_Jet_Center": [
+    150322302
+  ],
+  "AreaEffect_150_Support_Skill_P23_Boom_Big": [
+    150320001
+  ],
+  "AreaEffect_150_Support_Skill_P23_Boom_Center": [
+    150322301
+  ],
+  "AreaEffect_150_Support_Skill_P25_LightRain": [
+    150322501
+  ],
+  "AreaEffect_150_Support_Skill_P28_ChargeLight": [
+    150320003
+  ],
+  "AreaEffect_150_Ultra": [
+    150400001
+  ],
+  "AreaEffect_150_Ultra_P41": [
+    150404101
+  ],
+  "AreaEffect_150_Ultra_T2": [
+    150400002,
+    150400003
+  ],
+  "AreaEffect_15501_LightTag_Boom": [
+    155000001
+  ],
+  "AreaEffect_15501_Ultra": [
+    155400001
+  ],
+  "AreaEffect_156_P25_ShotBoom": [
+    156320005
+  ],
+  "AreaEffect_156_P27_PenguinStatueBoom": [
+    156320006
+  ],
+  "AreaEffect_156_Sup_Skill_HeartArrowBoom": [
+    156320004
+  ],
+  "AreaEffect_156_Sup_Skill_HeartArrowBoom_P24": [
+    156320004
+  ],
+  "AreaEffect_156_Sup_Skill_PenguinStatue": [
+    156320002
+  ],
+  "AreaEffect_156_Sup_Skill_PenguinStatue_P21": [
+    156320002
+  ],
+  "AreaEffect_156_Sup_Skill_PenguinStatue_P22": [
+    156320002
+  ],
+  "AreaEffect_156_Sup_Skill_PenguinStatue_P22P21": [
+    156320002
+  ],
+  "AreaEffect_157_P1_FishAtk": [
+    80157025,
+    157300003
+  ],
+  "AreaEffect_157_P24_Boom": [
+    157300015
+  ],
+  "AreaEffect_157_P25_FishBoom": [
+    157300016
+  ],
+  "AreaEffect_157_P2_FishAtk": [
+    80157024,
+    157300006
+  ],
+  "AreaEffect_157_P5_FishAtk": [
+    157300007
+  ],
+  "AreaEffect_157_P8_HuntBreak": [
+    157300008
+  ],
+  "AreaEffect_157_SkillMain_ShotBoom": [
+    80157021,
+    157300001
+  ],
+  "AreaEffect_157_SkillMain_ShotBoom2": [
+    80157022,
+    157300002
+  ],
+  "AreaEffect_15801_Main_Skill_P04P09_Boom": [
+    158504001
+  ],
+  "AreaEffect_15801_Main_Skill_P04_Boom": [
+    158504001
+  ],
+  "AreaEffect_15801_Main_Skill_P06_Fire": [
+    158506001
+  ],
+  "AreaEffect_15801_Main_Skill_P11_Cannon_Boom": [
+    158511002
+  ],
+  "AreaEffect_15801_Ultra_Skill": [
+    158400003
+  ],
+  "AreaEffect_15801_Ultra_Skill_Support": [
+    158400005
+  ],
+  "AreaEffect_15901_LandTag1_Stone": [
+    159000001
+  ],
+  "AreaEffect_15901_SkillMain_Base": [
+    159310001
+  ],
+  "AreaEffect_15901_SkillMain_ExtraHit_Perk03": [
+    159310301
+  ],
+  "AreaEffect_15901_SkillMain_GroundHit_Perk04": [
+    159310402
+  ],
+  "AreaEffect_15901_SkillMain_ImpluseDiffusion_Perk04": [
+    159310401
+  ],
+  "AreaEffect_15901_SkillSup_Infect_Perk23": [
+    159320002
+  ],
+  "AreaEffect_15901_SkillSup_Rose": [
+    159320001
+  ],
+  "AreaEffect_15901_SkillSup_RoseEndExtra_Perk21": [
+    159321101
+  ],
+  "AreaEffect_15901_SkillSup_Rose_Perk22": [
+    159322101
+  ],
+  "AreaEffect_15901_SkillSup_Withered": [
+    159320002
+  ],
+  "AreaEffect_15901_Ultra_Heavy": [
+    159400001
+  ],
+  "AreaEffect_15901_Ultra_Light": [
+    159400002
+  ],
+  "AreaEffect_16001_Main_P02": [
+    160502001
+  ],
+  "AreaEffect_16001_Main_P04": [
+    160504001
+  ],
+  "AreaEffect_16001_Main_P07": [
+    160507001
+  ],
+  "AreaEffect_16001_Main_P07_Big": [
+    160507001
+  ],
+  "AreaEffect_16001_Main_P10": [
+    160510001
+  ],
+  "AreaEffect_16001_SupArea": [
+    160320002
+  ],
+  "AreaEffect_16001_SupArea_T2": [
+    160320002
+  ],
+  "AreaEffect_16001_Sup_P30_Blue": [
+    160530001
+  ],
+  "AreaEffect_16001_Sup_P30_Red": [
+    160530002
+  ],
+  "AreaEffect_16001_TD_Bubble": [
+    80160021
+  ],
+  "AreaEffect_16001_TD_Bubble_P4_1": [
+    80160021
+  ],
+  "AreaEffect_16001_TD_Bubble_P4_2": [
+    80160021
+  ],
+  "AreaEffect_16001_TD_Bubble_P4_3": [
+    80160021
+  ],
+  "AreaEffect_16001_TD_Bubble_P4_4": [
+    80160021
+  ],
+  "AreaEffect_16001_TD_Bubble_P4_5": [
+    80160021
+  ],
+  "AreaEffect_162_LeiDianArea_P21": [
+    162320006
+  ],
+  "AreaEffect_162_LeiDianArea_P42": [
+    162400007
+  ],
+  "AreaEffect_162_LeiDianArea_P8": [
+    162310010
+  ],
+  "AreaEffect_162_LeiDianZhongJian_Fall_P22": [
+    162320004
+  ],
+  "AreaEffect_162_LeiDianZhongJian_Fall_P22P25": [
+    162320004
+  ],
+  "AreaEffect_162_LeiDianZhongJian_Fall_Skil_Main": [
+    162310008
+  ],
+  "AreaEffect_162_LeiDianZhongJian_Fall_Skil_Main_BO": [
+    8210101
+  ],
+  "AreaEffect_162_LeiDianZhongJian_Fall_Skil_Main_BO2": [
+    8210101
+  ],
+  "AreaEffect_162_LightTrigger_Boom": [
+    162000001
+  ],
+  "AreaEffect_162_Ultra_QingJian_Area": [
+    162400004
+  ],
+  "AreaEffect_8010301_P22_Shadow": [
+    80103023
+  ],
+  "AreaEffect_8011101_Skill_IceWave_Base": [
+    80111021
+  ],
+  "AreaEffect_8011101_Skill_IceWave_Large": [
+    80111021
+  ],
+  "AreaEffect_8011101_Skill_IceWave_LargeQuick": [
+    80111023
+  ],
+  "AreaEffect_8011101_Skill_IceWave_Quick": [
+    80111023
+  ],
+  "AreaEffect_8011101_Skill_IceWave_StunArea": [
+    80111022
+  ],
+  "AreaEffect_99901_Ultra": [
+    999400001
+  ],
+  "AreaEffect_Attack3": [
+    80123014
+  ],
+  "AreaEffect_Attack3_Beam": [
+    80123022
+  ],
+  "AreaEffect_Base": [
+    80156021
+  ],
+  "AreaEffect_FengBoom": [
+    80123023
+  ],
+  "AreaEffect_FengBoom_Plus": [
+    80123023
+  ],
+  "AreaEffect_Fountain": [
+    80127021
+  ],
+  "AreaEffect_P1": [
+    80156023
+  ],
+  "AreaEffect_P3": [
+    80156024
+  ],
+  "AreaEffect_P3+1": [
+    80156025
+  ],
+  "AreaEffect_P4": [
+    80156022
+  ],
+  "AreaEffect_Skill_WaterArea": [
+    80127024
+  ],
+  "AreaEffect_Soldier_103_MainSkill_A": [
+    1000103002
+  ],
+  "AreaEffect_Soldier_103_MainSkill_B": [
+    1000103002
+  ],
+  "AreaEffect_Soldier_107_Support": [
+    1000107007
+  ],
+  "AreaEffect_Soldier_108_Support": [
+    1000108004
+  ],
+  "AreaEffect_Soldier_111_SupportSkill": [
+    1000111003
+  ],
+  "AreaEffect_Soldier_111_SupportSkill_N": [
+    1000111004
+  ],
+  "AreaEffect_Soldier_114_MainSkill": [
+    1000114003
+  ],
+  "AreaEffect_Soldier_114_Support": [
+    1000114004
+  ],
+  "AreaEffect_Soldier_11501_Attack_Boom": [
+    1000115003
+  ],
+  "AreaEffect_Soldier_11501_Skill": [
+    1000115004
+  ],
+  "AreaEffect_Soldier_11501_Skill_Loop": [
+    1000115005
+  ],
+  "AreaEffect_Soldier_11601_Support": [
+    1000116003
+  ],
+  "AreaEffect_Soldier_11601_Support_N": [
+    1000116003
+  ],
+  "AreaEffect_Soldier_118_Support_Dot": [
+    1000118008
+  ],
+  "AreaEffect_Soldier_12001_Skill_1": [
+    1000120003
+  ],
+  "AreaEffect_Soldier_12001_Skill_2_1": [
+    1000120003
+  ],
+  "AreaEffect_Soldier_12001_Skill_2_2": [
+    1000120004
+  ],
+  "AreaEffect_Soldier_12501_Aoe": [
+    1000125007
+  ],
+  "AreaEffect_Soldier_12701_Skill_WaveAttack": [
+    1000127005
+  ],
+  "AreaEffect_Soldier_132_Attack_4": [
+    1000132005
+  ],
+  "AreaEffect_Soldier_132_Skill2": [
+    1000132009
+  ],
+  "AreaEffect_Soldier_13301_Skill": [
+    1000133003
+  ],
+  "AreaEffect_Soldier_13301_Support": [
+    1000133004
+  ],
+  "AreaEffect_Soldier_13401_Support_3_1": [
+    1000134004
+  ],
+  "AreaEffect_Soldier_137_Support": [
+    1000137007
+  ],
+  "AreaEffect_Soldier_139_MainSkill": [
+    1000139011
+  ],
+  "AreaEffect_Soldier_139_MainSkill_Ultra": [
+    1000139013
+  ],
+  "AreaEffect_Soldier_139_Sup": [
+    1000139015
+  ],
+  "AreaEffect_Soldier_139_Ultra_PreExplosion": [
+    139400001
+  ],
+  "AreaEffect_Soldier_140_Support_1_1": [
+    1000140005
+  ],
+  "AreaEffect_Soldier_140_Support_2_1": [
+    1000140006
+  ],
+  "AreaEffect_Soldier_14401_Skill_1": [
+    1000144008
+  ],
+  "AreaEffect_Soldier_14401_Skill_2": [
+    1000144009
+  ],
+  "AreaEffect_Soldier_14401_Support": [
+    1000144010
+  ],
+  "AreaEffect_Soldier_14401_Support_Follow": [
+    1000144010
+  ],
+  "AreaEffect_Soldier_145_AidSniper_1": [
+    1000145008
+  ],
+  "AreaEffect_Soldier_145_AidSniper_2": [
+    1000145008
+  ],
+  "AreaEffect_Soldier_145_AidSniper_3": [
+    1000145008
+  ],
+  "AreaEffect_Soldier_145_AidSniper_4": [
+    1000145008
+  ],
+  "AreaEffect_Soldier_145_MainSkill": [
+    1000145005
+  ],
+  "AreaEffect_Soldier_145_MainSkill_BulletBoom": [
+    1000145004
+  ],
+  "AreaEffect_Soldier_145_Support": [
+    1000145006
+  ],
+  "AreaEffect_Soldier_145_Support_Boom": [
+    1000145007
+  ],
+  "AreaEffect_Soldier_145_Support_N": [
+    1000145006
+  ],
+  "AreaEffect_Soldier_149_MainSkill": [
+    1000149008
+  ],
+  "AreaEffect_Soldier_150_Support_A": [
+    1000150005
+  ],
+  "AreaEffect_Soldier_150_Support_B": [
+    1000150006
+  ],
+  "AreaEffect_Soldier_15501_Skill": [
+    1000155001
+  ],
+  "AreaEffect_Soldier_156_Support": [
+    1000156004
+  ],
+  "AreaEffect_Soldier_16001_Skill_1": [
+    1000160003
+  ],
+  "AreaEffect_Soldier_16001_Skill_2": [
+    1000160004
+  ],
+  "AreaEffect_Summon_DeathBoom_Soldier": [
+    1014101032
+  ],
+  "AreaEffect_T2": [
+    80112016
+  ],
+  "AreaEffect_Wave": [
+    80127022
+  ],
+  "AreaEffect_Wave_Plus": [
+    80127023
+  ],
+  "Area_Atk_1_Soldier": [
+    1013501011
+  ],
+  "Area_Atk_2_Soldier": [
+    1013501012
+  ],
+  "Area_Atk_4_Soldier": [
+    1013501014
+  ],
+  "Area_Fire_P1": [
+    80134024
+  ],
+  "Area_MainSkill_ElectricCircle_Soldier": [
+    1011701021
+  ],
+  "Area_MainSkill_ElectricCircle_Soldier_Large": [
+    1011701022
+  ],
+  "Area_MainSkill_ShotBoom2_Soldier": [
+    1015701022
+  ],
+  "Area_MainSkill_ShotBoom_Soldier": [
+    1015701021
+  ],
+  "Area_MainSkill_Soldier": [
+    1000162005
+  ],
+  "Area_MainSkill_SuperThunderArea_Soldier": [
+    1000162014
+  ],
+  "Area_NrmAtkBoom_Soldier": [
+    1015701011
+  ],
+  "Area_NrmAtk_DiaoShe_Soldier": [
+    1015701012
+  ],
+  "Area_Support_DieBoom_Soldier": [
+    1013501031
+  ],
+  "Bullet_103_Attack_1": [
+    103100001
+  ],
+  "Bullet_103_Attack_2": [
+    103100001
+  ],
+  "Bullet_103_Attack_3": [
+    103100001
+  ],
+  "Bullet_107_Shield_ToMonster": [
+    80107021
+  ],
+  "Bullet_107_Shield_ToPlayer": [
+    80107022
+  ],
+  "Bullet_107_Support_Skill_ThrowShield": [
+    107320001
+  ],
+  "Bullet_107_Support_Skill_ThrowShield_P24": [
+    107322401
+  ],
+  "Bullet_108_Attack_1": [
+    108100001
+  ],
+  "Bullet_108_Attack_2": [
+    108100001
+  ],
+  "Bullet_108_Attack_3": [
+    108100001
+  ],
+  "Bullet_108_B1P02_Skill_Attack_Far": [
+    108110001
+  ],
+  "Bullet_108_B1P02_Skill_Attack_Middling": [
+    108110001
+  ],
+  "Bullet_108_B1P02_Skill_Attack_Near": [
+    108110001
+  ],
+  "Bullet_108_B1_Skill_Attack_Far": [
+    108110001
+  ],
+  "Bullet_108_B1_Skill_Attack_Middling": [
+    108110001
+  ],
+  "Bullet_108_B1_Skill_Attack_Near": [
+    108110001
+  ],
+  "Bullet_108_B2_Skill": [
+    108320001
+  ],
+  "Bullet_108_ultra_1": [
+    108400001
+  ],
+  "Bullet_108_ultra_2": [
+    108400001
+  ],
+  "Bullet_108_ultra_Last": [
+    108400002
+  ],
+  "Bullet_108_ultra_P42_Last": [
+    108400002
+  ],
+  "Bullet_108_ultra_T2": [
+    108400003
+  ],
+  "Bullet_110_NrmAtk_4_Shot": [
+    110100004
+  ],
+  "Bullet_11101_Attack_1": [
+    111100001
+  ],
+  "Bullet_11101_Attack_1_P05": [
+    111100001
+  ],
+  "Bullet_11101_Attack_2": [
+    111100002
+  ],
+  "Bullet_11101_Attack_2_P05": [
+    111100002
+  ],
+  "Bullet_11101_Attack_3": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_H2_1": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_H2_2": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_H2_3": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_H2_4": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_H2_5": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_H2_6": [
+    111100003
+  ],
+  "Bullet_11101_Attack_3_P05": [
+    111100003
+  ],
+  "Bullet_11101_Attack_Perk8": [
+    111100003
+  ],
+  "Bullet_11101_B1P01_Skill_IceBolt_Big": [
+    111501001
+  ],
+  "Bullet_11101_B1P03P05_Skill_IceBolt_Small": [
+    111503001
+  ],
+  "Bullet_11101_B1P03_Skill_IceBolt_Small": [
+    111503001
+  ],
+  "Bullet_11101_B1P03_Skill_IceBolt_Small_BO": [
+    8210121
+  ],
+  "Bullet_11101_B1P04_Skill_IceBolt": [
+    111310001
+  ],
+  "Bullet_11101_B1P04_Skill_IceBolt_BO": [
+    8210101
+  ],
+  "Bullet_11101_B1_Skill_IceBolt": [
+    111310001
+  ],
+  "Bullet_112_Attack_P4_JianQi_L": [
+    112100011
+  ],
+  "Bullet_112_Attack_P4_JianQi_R": [
+    112100011
+  ],
+  "Bullet_112_P5_JianQi_Ping": [
+    112310125
+  ],
+  "Bullet_112_P6_JianQi": [
+    112310126
+  ],
+  "Bullet_112_SkillSup_JianQi_Big": [
+    112320002
+  ],
+  "Bullet_112_SkillSup_JianQi_Big_BO": [
+    8210101
+  ],
+  "Bullet_112_SkillSup_JianQi_Big_P22": [
+    112320002
+  ],
+  "Bullet_112_SkillSup_JianQi_Big_P22P26": [
+    112320002
+  ],
+  "Bullet_112_SkillSup_JianQi_Big_P22P26_Empty": [
+    112320003
+  ],
+  "Bullet_112_SkillSup_JianQi_Big_P22_Empty": [
+    112320003
+  ],
+  "Bullet_112_SkillSup_JianQi_Big_P26": [
+    112320002
+  ],
+  "Bullet_112_SkillSup_JianQi_L": [
+    112320001
+  ],
+  "Bullet_112_SkillSup_JianQi_L_BO": [
+    8210101
+  ],
+  "Bullet_112_SkillSup_JianQi_L_P23": [
+    112320001
+  ],
+  "Bullet_112_SkillSup_JianQi_R": [
+    112320001
+  ],
+  "Bullet_112_SkillSup_JianQi_R_BO": [
+    8210101
+  ],
+  "Bullet_112_SkillSup_JianQi_R_P23": [
+    112320001
+  ],
+  "Bullet_112_SkillSup_P23_FenLie_JianQi": [
+    112320004
+  ],
+  "Bullet_112_SkillSup_P23_FenLie_JianQi_BO": [
+    8210101
+  ],
+  "Bullet_11301_Skill_Main_WaterBlade_Large": [
+    113310221
+  ],
+  "Bullet_11301_Skill_Main_WaterBlade_Large_Ex": [
+    113310221
+  ],
+  "Bullet_11301_Skill_Main_WaterBlade_Small_L": [
+    113310211
+  ],
+  "Bullet_11301_Skill_Main_WaterBlade_Small_L_Ex": [
+    113310211
+  ],
+  "Bullet_11301_Skill_Main_WaterBlade_Small_R": [
+    113310211
+  ],
+  "Bullet_11301_Skill_Main_WaterBlade_Small_R_Ex": [
+    113310211
+  ],
+  "Bullet_11301_Skill_Supp_ShuiJian": [
+    113320001
+  ],
+  "Bullet_11301_Skill_Supp_ShuiJian_P21": [
+    113320002
+  ],
+  "Bullet_11301_Skill_Supp_ShuiJian_P23": [
+    113320003
+  ],
+  "Bullet_11301_Skill_Support_WaterPill_1": [
+    113322201
+  ],
+  "Bullet_11301_Skill_Support_WaterPill_2": [
+    113322201
+  ],
+  "Bullet_11301_Skill_Support_WaterPill_3": [
+    113322201
+  ],
+  "Bullet_11301_Skill_Support_WaterPill_4": [
+    113322201
+  ],
+  "Bullet_11301_Skill_Support_WaterPill_5": [
+    113322201
+  ],
+  "Bullet_113_B1_Skill_AzureSlash_S2": [
+    113310021
+  ],
+  "Bullet_113_B2T12_Attack_2_Light": [
+    113121221
+  ],
+  "Bullet_113_B2T2_Attack_2_Light": [
+    113120221
+  ],
+  "Bullet_113_B2T3_Attack_3_Heavy": [
+    113120331
+  ],
+  "Bullet_113_Ultra_Attack": [
+    113400011
+  ],
+  "Bullet_113_Ultra_Attack_Y6": [
+    113400012
+  ],
+  "Bullet_114_Attack": [
+    80114011
+  ],
+  "Bullet_114_Attack_1": [
+    114100001
+  ],
+  "Bullet_114_Attack_Ultra": [
+    114400003
+  ],
+  "Bullet_114_Attack_Ultra_P42": [
+    114400003
+  ],
+  "Bullet_114_Attack_Ultra_P42_Support": [
+    114400004
+  ],
+  "Bullet_114_Attack_Ultra_Support": [
+    114400004
+  ],
+  "Bullet_114_B1_Skill_AimShoot_SolidBullet_Lv1": [
+    114310001
+  ],
+  "Bullet_114_B2_Skill_TripleShoot": [
+    114320001
+  ],
+  "Bullet_114_Bomb": [
+    80114012
+  ],
+  "Bullet_114_Bomb_Bounce": [
+    80114012
+  ],
+  "Bullet_114_Main_Skill_Long_Shoot": [
+    114310002
+  ],
+  "Bullet_114_Main_Skill_Shoot": [
+    114506002
+  ],
+  "Bullet_114_Main_Skill_Shoot_P05_Big": [
+    114506002
+  ],
+  "Bullet_114_Main_Skill_Shoot_P05_Re": [
+    114506002
+  ],
+  "Bullet_114_Support_Skill": [
+    114320001
+  ],
+  "Bullet_114_Support_Skill_P23": [
+    114320001
+  ],
+  "Bullet_114_Support_Skill_P24": [
+    114524001
+  ],
+  "Bullet_114_Support_Skill_P28_Ball_Big": [
+    114506002
+  ],
+  "Bullet_114_Support_Skill_P28_Ball_Small": [
+    114506002
+  ],
+  "Bullet_11501_Attack_1": [
+    115100001
+  ],
+  "Bullet_11501_Attack_2": [
+    115100002
+  ],
+  "Bullet_11501_Attack_3": [
+    115100003
+  ],
+  "Bullet_11501_Main_Skill_P08_Start_Hurt": [
+    115308001
+  ],
+  "Bullet_11501_Support_Skill_Blade_1_Up_Right": [
+    115120001
+  ],
+  "Bullet_11501_Support_Skill_Blade_1_Up_Right_Strengthen": [
+    115122101
+  ],
+  "Bullet_11501_Support_Skill_Fly_Blade_Base": [
+    115120005
+  ],
+  "Bullet_11501_Support_Skill_Fly_Blade_P22_Strengthen": [
+    115120005
+  ],
+  "Bullet_11501_Support_Skill_P26P21_Boom_Strengthen": [
+    115322602
+  ],
+  "Bullet_11501_Support_Skill_P26_Boom": [
+    115322601
+  ],
+  "Bullet_11501_Ultra": [
+    115400001
+  ],
+  "Bullet_11601_MainSkill_Seed": [
+    116310001
+  ],
+  "Bullet_11601_MainSkill_Seed_PeaShooter": [
+    116502001
+  ],
+  "Bullet_11601_MainSkill_Seed_Perk01": [
+    116310001
+  ],
+  "Bullet_11601_NormalBullet": [
+    116100001
+  ],
+  "Bullet_11601_NormalBullet_MainSkill": [
+    116100001
+  ],
+  "Bullet_11601_NormalBullet_Perk03": [
+    116503001
+  ],
+  "Bullet_11601_Skill_Sup_Seed_Perk30": [
+    116530001
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv1_1": [
+    80117018,
+    117502001
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv1_2": [
+    80117019,
+    117502001
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv2_1": [
+    117502002
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv2_2": [
+    117502002
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv3_1": [
+    117502003
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv3_2": [
+    117502003
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv4_1": [
+    117502004
+  ],
+  "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv4_2": [
+    117502004
+  ],
+  "Bullet_11701_B1_Skill_Thunder_AoE_1": [
+    117310001
+  ],
+  "Bullet_11701_B1_Skill_Thunder_AoE_2": [
+    117310001
+  ],
+  "Bullet_11701_B2P21P24_Skill_LargeBoom": [
+    117312401
+  ],
+  "Bullet_11701_B2P24_Skill_Boom": [
+    80117020,
+    117310401
+  ],
+  "Bullet_11701_Main_Skill_Thunder_P05_AOE": [
+    117505001
+  ],
+  "Bullet_117_Ultra": [
+    1000001
+  ],
+  "Bullet_117_Ultra_H6": [
+    117400001
+  ],
+  "Bullet_117_Ultra_H6_2": [
+    117400002
+  ],
+  "Bullet_117_Ultra_H6_42": [
+    117400001
+  ],
+  "Bullet_117_Ultra_H6_42_2": [
+    117400002
+  ],
+  "Bullet_118_FeiLian_H1": [
+    118000002
+  ],
+  "Bullet_118_FeiLian_P21P22": [
+    118000010
+  ],
+  "Bullet_118_FeiLian_P3P4": [
+    118000007
+  ],
+  "Bullet_11901_Atk1": [
+    119100001
+  ],
+  "Bullet_11901_Atk2": [
+    119100002
+  ],
+  "Bullet_11901_Atk3": [
+    119100003
+  ],
+  "Bullet_11901_Atk_T2": [
+    119502001
+  ],
+  "Bullet_11901_FenShen_Atk1": [
+    119900001
+  ],
+  "Bullet_11901_FenShen_Atk2": [
+    119900002
+  ],
+  "Bullet_11901_FenShen_Atk3": [
+    119900003
+  ],
+  "Bullet_11901_FenShen_Skill_T27": [
+    119527001
+  ],
+  "Bullet_11901_FenShen_Skill_T30": [
+    119530001
+  ],
+  "Bullet_11901_Skill1_BulltA": [
+    119310001
+  ],
+  "Bullet_11901_Skill1_T10_BulltA": [
+    119510001
+  ],
+  "Bullet_11901_Skill1_T3T4_BulltA": [
+    119310001
+  ],
+  "Bullet_11901_Skill1_T3_BulltA": [
+    119310001
+  ],
+  "Bullet_11901_Skill1_T4_BulltA": [
+    119310001
+  ],
+  "Bullet_11901_Skill2_SmallFeiBiao": [
+    119320001
+  ],
+  "Bullet_11901_Skill2_SmallFeiBiao_T23": [
+    119320001
+  ],
+  "Bullet_12001_Attack_1": [
+    80120011,
+    120100001
+  ],
+  "Bullet_12001_Attack_1_P4": [
+    120100011
+  ],
+  "Bullet_12001_Attack_2": [
+    80120012,
+    120100002
+  ],
+  "Bullet_12001_Attack_2_P4": [
+    120100012
+  ],
+  "Bullet_12001_Attack_3": [
+    80120013,
+    120100003
+  ],
+  "Bullet_12001_Attack_3_P4": [
+    120100013
+  ],
+  "Bullet_12001_Attack_4": [
+    80120014,
+    120100004
+  ],
+  "Bullet_12001_Attack_4_P4": [
+    120100014
+  ],
+  "Bullet_12001_Attack_5": [
+    80120015,
+    120100005
+  ],
+  "Bullet_12001_Attack_5_P4": [
+    120100015
+  ],
+  "Bullet_12001_B1P7_Skill_Garland_BigMid": [
+    80120016,
+    120501001
+  ],
+  "Bullet_12001_B1P7_Skill_Garland_BigMid_P1&3": [
+    80120016
+  ],
+  "Bullet_12001_B1P7_Skill_Garland_BigNear": [
+    80120018,
+    120310001
+  ],
+  "Bullet_12001_B1P7_Skill_Garland_BigNear_P1&4": [
+    80120018
+  ],
+  "Bullet_12001_B1T12_Skill_Garland_FastFar": [
+    120310001
+  ],
+  "Bullet_12001_B1T13_Skill_Garland_BigFar": [
+    120310001
+  ],
+  "Bullet_12001_B1T23_Skill_Garland_FastBigMid": [
+    120311301
+  ],
+  "Bullet_12001_B1T23_Skill_Garland_FastBigNear": [
+    120310301
+  ],
+  "Bullet_12001_B1T2_Skill_Garland_FastMid": [
+    120310101
+  ],
+  "Bullet_12001_B1T2_Skill_Garland_FastNear": [
+    120310001
+  ],
+  "Bullet_12001_B1_Skill_Garland_Mid": [
+    80120016,
+    120501001
+  ],
+  "Bullet_12001_B1_Skill_Garland_Near": [
+    80120017,
+    120310001
+  ],
+  "Bullet_12001_B2P21P22_Skill_Corolla_Strength": [
+    120320001
+  ],
+  "Bullet_12001_B2P21_Skill_Corolla_Strength": [
+    120320001
+  ],
+  "Bullet_12001_B2P22_Skill_Corolla": [
+    120320001
+  ],
+  "Bullet_12001_B2P24P23_Wreath": [
+    120000002
+  ],
+  "Bullet_12001_B2P24_Wreath": [
+    120000002
+  ],
+  "Bullet_12001_B2_Skill_Corolla": [
+    120320001
+  ],
+  "Bullet_12001_B2_Skill_Projectile": [
+    1000001
+  ],
+  "Bullet_123_FengTun_Atk1": [
+    123310001
+  ],
+  "Bullet_123_UltraPao": [
+    1000001
+  ],
+  "Bullet_12601_Attack_1": [
+    80126011,
+    126100001
+  ],
+  "Bullet_12601_Attack_1_Perk10": [
+    126100001
+  ],
+  "Bullet_12601_Attack_2": [
+    80126012,
+    126100002
+  ],
+  "Bullet_12601_Attack_2_Perk10": [
+    126100002
+  ],
+  "Bullet_12601_Attack_3": [
+    80126013,
+    126100003
+  ],
+  "Bullet_12601_Attack_3_Perk10": [
+    126100003
+  ],
+  "Bullet_12601_Fen_Attack_1": [
+    126100004
+  ],
+  "Bullet_12601_Fen_Attack_1_Perk10": [
+    126100004
+  ],
+  "Bullet_12601_Fen_Attack_2": [
+    126100005
+  ],
+  "Bullet_12601_Fen_Attack_2_Perk10": [
+    126100005
+  ],
+  "Bullet_12601_Fen_Attack_3": [
+    126100006
+  ],
+  "Bullet_12601_Fen_Attack_3_Perk10": [
+    126100006
+  ],
+  "Bullet_12601_Skill1P01P02_MagicHat_Return": [
+    126501001
+  ],
+  "Bullet_12601_Skill1P01_MagicHat": [
+    126501001
+  ],
+  "Bullet_12601_Skill1P02_MagicHat_Return": [
+    126310001
+  ],
+  "Bullet_12601_Skill1_MagicHat": [
+    126310001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire": [
+    126320001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_1": [
+    80126014,
+    126320001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_2": [
+    80126014,
+    126320001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_3": [
+    80126014,
+    126320001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_4": [
+    80126014,
+    126320001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_5": [
+    80126014,
+    126320001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk22": [
+    80126014,
+    126522001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk22_Self": [
+    80126014,
+    126522001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk24_1": [
+    126524001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk24_2": [
+    126524001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk27_1": [
+    126527001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk27_2": [
+    126527001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk30_1": [
+    126530001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk30_2": [
+    126530001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk30_3": [
+    126530001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk30_4": [
+    126530001
+  ],
+  "Bullet_12601_Skill2_ButterflyFire_Perk30_5": [
+    126530001
+  ],
+  "Bullet_12601_Ultra_Phoenix": [
+    126400001
+  ],
+  "Bullet_12601_Ultra_Phoenix_Perk43": [
+    126400001
+  ],
+  "Bullet_127_Ultra_Branch": [
+    127400002
+  ],
+  "Bullet_127_Ultra_JianQi": [
+    127400001
+  ],
+  "Bullet_130_Attack": [
+    80130011,
+    130100001
+  ],
+  "Bullet_130_AttackSpecial_1": [
+    80130013
+  ],
+  "Bullet_130_AttackSpecial_2": [
+    80130013
+  ],
+  "Bullet_130_AttackSpecial_3": [
+    80130013
+  ],
+  "Bullet_130_AttackSpecial_4": [
+    80130013
+  ],
+  "Bullet_130_B1P02_Attack_1": [
+    130502001
+  ],
+  "Bullet_130_B1P02_Attack_2": [
+    130502001
+  ],
+  "Bullet_130_B1P02_Attack_3": [
+    130502001
+  ],
+  "Bullet_130_B1P02_Attack_4": [
+    130502001
+  ],
+  "Bullet_130_B1_Attack": [
+    130310003
+  ],
+  "Bullet_130_B1_Attack_P05": [
+    130505001
+  ],
+  "Bullet_130_B1_Attack_Perk11": [
+    130511001
+  ],
+  "Bullet_130_B2P21_Attack": [
+    130521001
+  ],
+  "Bullet_130_B2P21_Attack_1": [
+    130521001
+  ],
+  "Bullet_130_B2P21_Attack_2": [
+    130521001
+  ],
+  "Bullet_130_B2P21_Attack_3": [
+    130521002
+  ],
+  "Bullet_130_B2P23_Attack": [
+    130523001
+  ],
+  "Bullet_130_B2P30_Attack_1": [
+    130524002
+  ],
+  "Bullet_130_B2P30_Attack_1_Big": [
+    130524002
+  ],
+  "Bullet_130_B2P30_Attack_2": [
+    130524002
+  ],
+  "Bullet_130_B2P30_Attack_2_Big": [
+    130524002
+  ],
+  "Bullet_130_B2P30_Attack_3": [
+    130524002
+  ],
+  "Bullet_130_B2P30_Attack_3_Big": [
+    130524002
+  ],
+  "Bullet_130_B2P30_Attack_4": [
+    130524001
+  ],
+  "Bullet_130_B2P30_Attack_5": [
+    130524001
+  ],
+  "Bullet_130_B2_Attack_1": [
+    130320001
+  ],
+  "Bullet_130_B2_Attack_2": [
+    130320002
+  ],
+  "Bullet_130_B2_Attack_3": [
+    130320003
+  ],
+  "Bullet_130_B2_Attack_4": [
+    130320004
+  ],
+  "Bullet_130_Skill_BigAttack": [
+    80130012
+  ],
+  "Bullet_132_Attack_4": [
+    80132015,
+    132100005
+  ],
+  "Bullet_132_Support_P23": [
+    1000001
+  ],
+  "Bullet_132_Support_P28_1": [
+    132528001
+  ],
+  "Bullet_132_Support_P28_2": [
+    132528001
+  ],
+  "Bullet_132_Support_P28_3": [
+    132528001
+  ],
+  "Bullet_132_Support_P28_4": [
+    132528001
+  ],
+  "Bullet_13301_Attack_1": [
+    80133011,
+    133100001
+  ],
+  "Bullet_13301_Attack_2": [
+    80133012,
+    133100002
+  ],
+  "Bullet_13301_Attack_3_Bezier1": [
+    80133013,
+    133100003
+  ],
+  "Bullet_13301_Attack_3_Bezier2": [
+    80133013,
+    133100003
+  ],
+  "Bullet_13301_Attack_3_Bezier3": [
+    80133013,
+    133100003
+  ],
+  "Bullet_13301_Skill2_Bouquet": [
+    1000001
+  ],
+  "Bullet_13301_Skill2_Bouquet_Perk23": [
+    1000001
+  ],
+  "Bullet_13301_Skill2_Petal": [
+    133320002
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21": [
+    133521001
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21_Bezier1": [
+    133521001
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21_Bezier2": [
+    133521001
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21_Bezier3": [
+    133521001
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21_Bezier4": [
+    133521001
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21_Bezier5": [
+    133521001
+  ],
+  "Bullet_13301_Skill2_Petal_Perk21_Bezier6": [
+    133521001
+  ],
+  "Bullet_13301_Ultra_TornadoRotatex2": [
+    133400001
+  ],
+  "Bullet_13301_Ultra_TornadoRotatex3": [
+    133400001
+  ],
+  "Bullet_13401_Ultra": [
+    134400001
+  ],
+  "Bullet_13401_Ultra_T2": [
+    134980021
+  ],
+  "Bullet_135_Skil_Main_Call_Bullt": [
+    1000002,
+    80135023
+  ],
+  "Bullet_137_P2_ShouLei": [
+    1000001
+  ],
+  "Bullet_137_P2_ShouLei_Boom": [
+    80137017,
+    137100007
+  ],
+  "Bullet_137_UAV_Atk1": [
+    137300011
+  ],
+  "Bullet_137_UAV_Atk1_P28": [
+    137300011
+  ],
+  "Bullet_137_UAV_BirthFly": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_1": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_2": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_3": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_4": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_5": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_6": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_7": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_8": [
+    1000001
+  ],
+  "Bullet_137_UltraAtk_Bullet_Boom1": [
+    137900001
+  ],
+  "Bullet_137_UltraAtk_Bullet_Boom2": [
+    137900001
+  ],
+  "Bullet_137_UltraAtk_Bullet_Boom3": [
+    137900001
+  ],
+  "Bullet_137_UltraAtk_Bullet_Boom4": [
+    137900001
+  ],
+  "Bullet_13901_Sup_P21": [
+    80139017,
+    139521001
+  ],
+  "Bullet_13901_Sup_P21_l30": [
+    80139017,
+    139521001
+  ],
+  "Bullet_13901_Sup_P21_l90": [
+    80139017,
+    139521001
+  ],
+  "Bullet_13901_Sup_P21_l90_BO": [
+    8210101
+  ],
+  "Bullet_13901_Sup_P21_r30": [
+    80139017,
+    139521001
+  ],
+  "Bullet_140_Attack": [
+    80140011
+  ],
+  "Bullet_140_Attack_1": [
+    140100001
+  ],
+  "Bullet_140_Attack_2": [
+    140100002
+  ],
+  "Bullet_140_Attack_3": [
+    140100003
+  ],
+  "Bullet_140_Attack_Support": [
+    140523001
+  ],
+  "Bullet_140_Attack_Support_P28": [
+    140523001
+  ],
+  "Bullet_140_Cannon_Attack": [
+    80140021,
+    140310003
+  ],
+  "Bullet_140_Cannon_Attack_P01": [
+    80140022,
+    140501001
+  ],
+  "Bullet_140_P11_Boom": [
+    140511001
+  ],
+  "Bullet_140_Support_Skill_Boom": [
+    140320002
+  ],
+  "Bullet_140_Support_Skill_P22_Rush": [
+    140522001
+  ],
+  "Bullet_140_Support_Skill_P24_Boom": [
+    140524001
+  ],
+  "Bullet_140_Support_Skill_P25_Boom": [
+    140525001
+  ],
+  "Bullet_140_Tank_Attack": [
+    80140023,
+    140310001
+  ],
+  "Bullet_140_Tank_P09": [
+    140509001
+  ],
+  "Bullet_140_Tank_Skill": [
+    140310001
+  ],
+  "Bullet_14101_Support_Skill_Throw": [
+    141320001
+  ],
+  "Bullet_14101_Support_Skill_Throw_P23_Buff": [
+    1000002
+  ],
+  "Bullet_14101_Support_Skill_Throw_P23_Tiger": [
+    141320001
+  ],
+  "Bullet_143_Atk_Jian6": [
+    80143015,
+    143100008
+  ],
+  "Bullet_143_Atk_Normal": [
+    80143021,
+    143100001
+  ],
+  "Bullet_143_SkillMain_Base": [
+    80143035,
+    143300002
+  ],
+  "Bullet_14401_B1P7_Skill_Snake": [
+    144310701
+  ],
+  "Bullet_145_NrmAtk_1": [
+    145100001
+  ],
+  "Bullet_145_NrmAtk_2": [
+    145100002
+  ],
+  "Bullet_145_NrmAtk_3": [
+    145100003
+  ],
+  "Bullet_145_P4_SplitBullet": [
+    145300004
+  ],
+  "Bullet_145_SkillMain_Shot": [
+    145300003
+  ],
+  "Bullet_145_SkillMain_Shot_P3": [
+    145300003
+  ],
+  "Bullet_145_Ultra_BreakOut": [
+    8212003
+  ],
+  "Bullet_145_Ultra_BreakOut_1": [
+    8212004
+  ],
+  "Bullet_145_Ultra_HuaSan_In": [
+    1000001
+  ],
+  "Bullet_145_Ultra_HuaSan_Out": [
+    145400003
+  ],
+  "Bullet_145_Ultra_HuaSan_Out_P41_XiYin": [
+    145400003
+  ],
+  "Bullet_147_NrmAtk_Bessel_1": [
+    147100001
+  ],
+  "Bullet_147_NrmAtk_Bessel_2": [
+    147100002
+  ],
+  "Bullet_147_NrmAtk_Bessel_3": [
+    147100003
+  ],
+  "Bullet_147_NrmAtk_Bessel_4": [
+    147100003
+  ],
+  "Bullet_147_NrmAtk_Bessel_5": [
+    147100003
+  ],
+  "Bullet_147_NrmAtk_Bessel_6": [
+    147100003
+  ],
+  "Bullet_147_NrmAtk_Bessel_7": [
+    147100003
+  ],
+  "Bullet_147_Sup_YinBo": [
+    147300007
+  ],
+  "Bullet_147_Sup_YinBo_P23": [
+    147300007
+  ],
+  "Bullet_14901_Ultra": [
+    149400001
+  ],
+  "Bullet_14901_Ultra_P41": [
+    149400002
+  ],
+  "Bullet_156_Atk_1": [
+    156100001
+  ],
+  "Bullet_156_Atk_P4": [
+    156100002
+  ],
+  "Bullet_156_P8_Egg": [
+    156310005
+  ],
+  "Bullet_156_Sup_Skill_HeartArrow": [
+    1000001
+  ],
+  "Bullet_156_Sup_Skill_PenguinStatueCalling_Fly": [
+    1000002
+  ],
+  "Bullet_156_Sup_Skill_Shot_Heart": [
+    156320007
+  ],
+  "Bullet_156_Sup_Skill_Shot_Heart_P28": [
+    156320007
+  ],
+  "Bullet_156_Sup_Skill_Shot_Penguin": [
+    156320001
+  ],
+  "Bullet_157_NrmAtk_1": [
+    1000001
+  ],
+  "Bullet_157_NrmAtk_1_Boom": [
+    80157011,
+    157100001
+  ],
+  "Bullet_157_NrmAtk_1_Boom_Num2": [
+    157100001
+  ],
+  "Bullet_157_NrmAtk_1_Boom_Num3": [
+    157100001
+  ],
+  "Bullet_157_NrmAtk_1_Boom_Num4": [
+    80157011,
+    157100001
+  ],
+  "Bullet_157_NrmAtk_1_Num2": [
+    1000001
+  ],
+  "Bullet_157_NrmAtk_1_Num3": [
+    1000001
+  ],
+  "Bullet_157_NrmAtk_1_Num4": [
+    1000001
+  ],
+  "Bullet_157_NrmAtk_BO_Bullet": [
+    8212005
+  ],
+  "Bullet_157_P3_DiaoShe1": [
+    1000001
+  ],
+  "Bullet_157_P3_DiaoShe2": [
+    1000001
+  ],
+  "Bullet_157_P3_DiaoShe3": [
+    1000001
+  ],
+  "Bullet_157_P3_DiaoShe4": [
+    1000001
+  ],
+  "Bullet_157_P3_DiaoShe5": [
+    1000001
+  ],
+  "Bullet_157_P3_DiaoShe_Boom": [
+    80157026,
+    157300004
+  ],
+  "Bullet_157_P42_ShuiPao": [
+    1000001
+  ],
+  "Bullet_157_P42_ShuiPao_Boom": [
+    157400002
+  ],
+  "Bullet_157_Skill_BO_Bullet": [
+    8212005
+  ],
+  "Bullet_157_Skill_Sup_Fish1": [
+    157300012
+  ],
+  "Bullet_157_Skill_Sup_Fish1_P25": [
+    157300012
+  ],
+  "Bullet_157_Skill_Sup_P21_Fish1": [
+    157300012
+  ],
+  "Bullet_157_Skill_Sup_P21_Fish1_P25": [
+    157300012
+  ],
+  "Bullet_15901_NormalAttack": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk03": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk05Perk03_Grade1": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk05Perk03_Grade2": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk05Perk03_Grade3": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk05_Grade1": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk05_Grade2": [
+    159100001
+  ],
+  "Bullet_15901_NormalAttack_Perk05_Grade3": [
+    159100001
+  ],
+  "Bullet_15901_SkillSup_Rose": [
+    1000001
+  ],
+  "Bullet_15901_SkillSup_Withered": [
+    1000001
+  ],
+  "Bullet_16001_Main_Bubble": [
+    160320003
+  ],
+  "Bullet_16001_NormalAtk_Pao": [
+    80160011,
+    160100001
+  ],
+  "Bullet_16001_NormalAtk_Pao_Big": [
+    80160012,
+    160100002
+  ],
+  "Bullet_16001_NormalAtk_Pao_Big_P7": [
+    160100002
+  ],
+  "Bullet_16001_NormalAtk_Pao_P7": [
+    160100001
+  ],
+  "Bullet_16001_NormalAtk_Yin": [
+    160100006
+  ],
+  "Bullet_16001_NormalAtk_Yin_Final": [
+    160100007
+  ],
+  "Bullet_16001_Sup_Bullet": [
+    160320003
+  ],
+  "Bullet_16001_Sup_P24_Bullet": [
+    160320003
+  ],
+  "Bullet_162_JianQi_BackHeng": [
+    162310006
+  ],
+  "Bullet_162_JianQi_Back_Big": [
+    162310006
+  ],
+  "Bullet_162_JianQi_Back_Heng": [
+    162310006
+  ],
+  "Bullet_162_JianQi_Back_Shu": [
+    162310006
+  ],
+  "Bullet_162_JianQi_Back_You": [
+    162310006
+  ],
+  "Bullet_162_JianQi_Back_Zuo": [
+    162310006
+  ],
+  "Bullet_162_P9_LeiDian": [
+    162310007
+  ],
+  "Bullet_99901_Normal": [
+    999100001
+  ],
+  "Bullet_99901_Skill": [
+    999310001
+  ],
+  "Bullet_Atk": [
+    80156011
+  ],
+  "Bullet_Attack_1": [
+    80111011
+  ],
+  "Bullet_Attack_2": [
+    80111012
+  ],
+  "Bullet_Attack_3": [
+    80111013
+  ],
+  "Bullet_FeiLian_P2": [
+    80118024
+  ],
+  "Bullet_FengTun": [
+    80123021
+  ],
+  "Bullet_JianQi_Left": [
+    80112021
+  ],
+  "Bullet_JianQi_Ping": [
+    80112022
+  ],
+  "Bullet_JianQi_Right": [
+    80112021
+  ],
+  "Bullet_JianQi_Stand": [
+    80112023
+  ],
+  "Bullet_LeiDian_P1": [
+    1000162009
+  ],
+  "Bullet_MainSkill_P1_L_Soldier": [
+    1011301021
+  ],
+  "Bullet_MainSkill_P1_R_Soldier": [
+    1011301021
+  ],
+  "Bullet_NormalAttack": [
+    80103011,
+    1000103001
+  ],
+  "Bullet_NrmAtk_DiaoShe_Soldier": [
+    1000001
+  ],
+  "Bullet_NrmAtk_Soldier": [
+    1000001
+  ],
+  "Bullet_PenguinSummon": [
+    80156026
+  ],
+  "Bullet_Soldier_107_Support_1": [
+    1000107005
+  ],
+  "Bullet_Soldier_107_Support_2": [
+    1000107005
+  ],
+  "Bullet_Soldier_107_Support_ThrowShield": [
+    1000107006
+  ],
+  "Bullet_Soldier_108_Attack_1": [
+    1000108001
+  ],
+  "Bullet_Soldier_108_Attack_2": [
+    1000108001
+  ],
+  "Bullet_Soldier_108_Attack_3": [
+    1000108001
+  ],
+  "Bullet_Soldier_108_Attack_Fire_1": [
+    1000108002
+  ],
+  "Bullet_Soldier_108_Attack_Fire_2": [
+    1000108002
+  ],
+  "Bullet_Soldier_108_Attack_Fire_3": [
+    1000108002
+  ],
+  "Bullet_Soldier_108_Support": [
+    1000108003
+  ],
+  "Bullet_Soldier_111_MainSkill": [
+    1000111002
+  ],
+  "Bullet_Soldier_111_NormalAttack": [
+    1000111001
+  ],
+  "Bullet_Soldier_112_Attack_JianQi_L": [
+    1000112006
+  ],
+  "Bullet_Soldier_112_Attack_JianQi_R": [
+    1000112006
+  ],
+  "Bullet_Soldier_112_MainSkill": [
+    1000112008
+  ],
+  "Bullet_Soldier_114_Attack": [
+    1000114001
+  ],
+  "Bullet_Soldier_114_Attack_UltraFx_N": [
+    1000114002
+  ],
+  "Bullet_Soldier_114_Attack_UltraFx_P": [
+    1000114002
+  ],
+  "Bullet_Soldier_114_Support": [
+    1014101033
+  ],
+  "Bullet_Soldier_114_Support_Bounce": [
+    1014101033
+  ],
+  "Bullet_Soldier_11501_Attack_1": [
+    1000115001
+  ],
+  "Bullet_Soldier_11501_Attack_Special": [
+    1000115002
+  ],
+  "Bullet_Soldier_11601_MainSkill": [
+    1000116002
+  ],
+  "Bullet_Soldier_11601_Normal": [
+    1000116001
+  ],
+  "Bullet_Soldier_118_Support": [
+    1000118007
+  ],
+  "Bullet_Soldier_119_Atk1": [
+    1000119001
+  ],
+  "Bullet_Soldier_119_Atk2": [
+    1000119001
+  ],
+  "Bullet_Soldier_119_Atk3": [
+    1000119001
+  ],
+  "Bullet_Soldier_119_Atk_N": [
+    1000119002
+  ],
+  "Bullet_Soldier_119_MainSkill": [
+    1000119003
+  ],
+  "Bullet_Soldier_119_SupportFeiBiao": [
+    1000119004
+  ],
+  "Bullet_Soldier_12001_Attack": [
+    1000120001
+  ],
+  "Bullet_Soldier_12001_Attack_S": [
+    1000120002
+  ],
+  "Bullet_Soldier_12001_Support": [
+    1000120006
+  ],
+  "Bullet_Soldier_126_Attack_1": [
+    1000126001
+  ],
+  "Bullet_Soldier_126_Attack_2": [
+    1000126001
+  ],
+  "Bullet_Soldier_126_Attack_3": [
+    1000126001
+  ],
+  "Bullet_Soldier_126_MainSkill": [
+    1000126002
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_1": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_2": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_3": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_Debuff_1": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_Debuff_2": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_Debuff_3": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_Debuff_4": [
+    1000126003
+  ],
+  "Bullet_Soldier_126_Support_ButterflyFire_Debuff_5": [
+    1000126003
+  ],
+  "Bullet_Soldier_13001_Attack": [
+    1000130001
+  ],
+  "Bullet_Soldier_13001_Support_1": [
+    1000130004
+  ],
+  "Bullet_Soldier_13001_Support_2": [
+    1000130004
+  ],
+  "Bullet_Soldier_132_Support": [
+    1000132012
+  ],
+  "Bullet_Soldier_13301_Attack": [
+    1000133001
+  ],
+  "Bullet_Soldier_13301_Skill_Bezier1": [
+    1000133002
+  ],
+  "Bullet_Soldier_13301_Skill_Bezier2": [
+    1000133002
+  ],
+  "Bullet_Soldier_13301_Skill_Bezier3": [
+    1000133002
+  ],
+  "Bullet_Soldier_13301_Skill_Bezier4": [
+    1000133002
+  ],
+  "Bullet_Soldier_13301_Skill_Bezier5": [
+    1000133002
+  ],
+  "Bullet_Soldier_13301_SupportBullet": [
+    1000133005
+  ],
+  "Bullet_Soldier_137_Summon_Atk1": [
+    1000137008
+  ],
+  "Bullet_Soldier_137_Summon_Atk2": [
+    1000137009
+  ],
+  "Bullet_Soldier_140_Attack_1": [
+    1000140001
+  ],
+  "Bullet_Soldier_140_Attack_2": [
+    1000140002
+  ],
+  "Bullet_Soldier_140_Attack_3": [
+    1000140003
+  ],
+  "Bullet_Soldier_140_Skill": [
+    1000140004
+  ],
+  "Bullet_Soldier_14101_Support_Skill": [
+    1014101033
+  ],
+  "Bullet_Soldier_145_Atk_1": [
+    1000145001
+  ],
+  "Bullet_Soldier_145_Atk_2": [
+    1000145001
+  ],
+  "Bullet_Soldier_145_Atk_3": [
+    1000145001
+  ],
+  "Bullet_Soldier_145_Atk_N_1": [
+    1000145002
+  ],
+  "Bullet_Soldier_145_Atk_N_2": [
+    1000145002
+  ],
+  "Bullet_Soldier_145_Atk_N_3": [
+    1000145002
+  ],
+  "Bullet_Soldier_145_MainSkill": [
+    1000145003
+  ],
+  "Bullet_Soldier_145_MainSkill_N": [
+    1000145003
+  ],
+  "Bullet_Soldier_15501_Support_1": [
+    1000155002
+  ],
+  "Bullet_Soldier_15501_Support_2": [
+    1000155003
+  ],
+  "Bullet_Soldier_156_Attack": [
+    1000156001
+  ],
+  "Bullet_Soldier_156_Skill": [
+    1000156002
+  ],
+  "Bullet_Soldier_16001_Attack": [
+    1000160001
+  ],
+  "Bullet_Soldier_16001_Attack_Big": [
+    1000160002
+  ],
+  "Bullet_Summon_Attack_Soldier": [
+    1014101031
+  ],
+  "Bullet_Summon_DeathRush_Soldier": [
+    1014101033
+  ],
+  "Bullet_SupSkill_JianQi_Big_P2_Soldier": [
+    1000162013
+  ],
+  "Bullet_SupSkill_JianQi_P1_Heng_Soldier": [
+    1000162010
+  ],
+  "Bullet_SupSkill_JianQi_P1_Shu_Soldier": [
+    1000162010
+  ],
+  "Bullet_SupSkill_JianQi_P1_You_Soldier": [
+    1000162010
+  ],
+  "Bullet_SupSkill_JianQi_P1_Zuo_Soldier": [
+    1000162010
+  ],
+  "Bullet_SupSkill_Soldier": [
+    1011301031,
+    1015701036
+  ],
+  "Bullet_SupSkill_Thunder_Soldier": [
+    1011701031
+  ],
+  "Bullet_Ultra_SwordQi_T2": [
+    112100001
+  ],
+  "Crystal_Ray1": [
+    159310002
+  ],
+  "Crystal_Ray1_Self": [
+    159310201
+  ],
+  "Crystal_Ray2": [
+    159310002
+  ],
+  "Crystal_Ray2_Self": [
+    159310201
+  ],
+  "Crystal_Ray3": [
+    159310002
+  ],
+  "Crystal_Ray3_Self": [
+    159310201
+  ],
+  "FenShen_DieBoom": [
+    80110041
+  ],
+  "MagicPartner_AreaEffect_Soldier_13301_Support": [
+    1000133004
+  ],
+  "MagicPartner_Bullet_Soldier_13301_Skill_Bezier1": [
+    1000133002
+  ],
+  "MagicPartner_Bullet_Soldier_13301_Skill_Bezier2": [
+    1000133002
+  ],
+  "MagicPartner_Bullet_Soldier_13301_Skill_Bezier3": [
+    1000133002
+  ],
+  "MagicPartner_Bullet_Soldier_13301_Skill_Bezier4": [
+    1000133002
+  ],
+  "MagicPartner_Bullet_Soldier_13301_Skill_Bezier5": [
+    1000133002
+  ],
+  "MagicPartner_Bullet_Soldier_13301_SupportBullet": [
+    1000133005
+  ],
+  "bullet_120_atk3.1": [
+    1200103
+  ],
+  "bullet_120_atk3.2": [
+    1200103
+  ],
+  "bullet_120_atk3.3": [
+    1200103
+  ],
+  "bullet_120_atk3.4": [
+    1200103
+  ],
+  "bullet_120_skill0_s": [
+    1200122
+  ],
+  "bullet_120_skill1_s": [
+    1200132
+  ],
+  "bullet_120_skill2_b": [
+    1200142
+  ],
+  "bullet_120_skill2_s": [
+    1200142
+  ],
+  "bullet_120_ultra": [
+    1200151
+  ],
+  "fx_11301_bullet_Skill_1": [
+    1130201
+  ],
+  "fx_11301_bullet_Skill_2": [
+    1130201
+  ],
+  "fx_11301_bullet_Skill_3": [
+    1130201
+  ],
+  "fx_11301_bullet_Skill_4": [
+    1130201
+  ],
+  "fx_11301_bullet_Skill_Branch2_1": [
+    1130221
+  ],
+  "fx_11301_bullet_Skill_Branch2_2": [
+    1130221
+  ],
+  "fx_11301_bullet_Skill_Branch2_3": [
+    1130221
+  ],
+  "fx_11301_bullet_Skill_Branch2_4": [
+    1130221
+  ],
+  "fx_11301_bullet_UltraSkill": [
+    1130401
+  ],
+  "fx_11401_bullet_fire_ultra": [
+    114400001
+  ],
+  "fx_11401_bullet_fire_ultra_boom": [
+    114400001
+  ],
+  "fx_11401_bullet_fire_ultra_boom_super": [
+    114400001
+  ],
+  "fx_11401_bullet_fire_ultra_super": [
+    114400001
+  ]
+}
