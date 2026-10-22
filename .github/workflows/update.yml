@@ -2,6 +2,11 @@ name: Update
 
 on:
   workflow_dispatch:
+    inputs:
+      full:
+        description: Rebuild all generated data
+        type: boolean
+        default: false
   schedule:
     - cron: "0 * * * *"
 
@@ -97,8 +102,20 @@ jobs:
         run: node export.js diff_out
 
       - name: Generate area effect data
-        if: steps.check.outputs.changed == 'true'
+        if: steps.check.outputs.changed == 'true' && inputs.full != true
         run: node areaEffect.js diff_out
+
+      - name: Generate full area effect data
+        if: inputs.full
+        run: node areaEffect.js
+
+      - name: Generate bullet data
+        if: steps.check.outputs.changed == 'true' && inputs.full != true
+        run: node bullet.js diff_out
+
+      - name: Generate full bullet data
+        if: inputs.full
+        run: node bullet.js
 
       - name: Compose potential images
         if: steps.check.outputs.changed == 'true'
@@ -111,11 +128,11 @@ jobs:
           cp diff-manifest.json diff-resource/manifest.json
 
       - name: Commit and push
-        if: steps.check.outputs.changed == 'true'
+        if: steps.check.outputs.changed == 'true' || inputs.full
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A export potential areaEffect.json
+          git add -A export potential areaEffect.json bullet.json
           VERSION_JSON="ResourceTool/output/Manifest/win_version.json"
           GAME_VER=$(node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));console.log(v.EN.game_ver)" "$VERSION_JSON")
           echo "game version: $GAME_VER"
