@@ -20,19 +20,63 @@ function parseFlag(text, field) {
     return value.toLowerCase() === 'true';
 }
 
-function parseFieldNumber(text, field) {
-    const start = text.indexOf(`${field} =`);
-    if (start < 0) return undefined;
-
-    const match = text.slice(start, start + 200).match(/-?\d+(?:\.\d+)?/);
-    return match ? Number(match[0]) : undefined;
+function parseFP(text, field) {
+    const match = text.match(new RegExp(`FP ${field}\\r?\\n\\s*SInt64 _serializedValue = (-?\\d+)`));
+    return match ? Number(match[1]) / 2 ** 32 : undefined;
 }
 
-function getHitCount(duration, hitDelay, hitInterval, hitImmediately) {
+function getTimerHits(duration, hitDelay, hitInterval, hitImmediately) {
+    if (hitInterval <= 0) {
+        if (hitDelay > 0) return duration > hitDelay ? 1 : 0;
+        return hitImmediately ? 1 : 0;
+    }
+
     const firstHit = hitDelay > 0 ? hitDelay : hitImmediately ? 0 : hitInterval;
-    if (duration < firstHit) return 0;
-    if (hitInterval <= 0) return 1;
-    return 1 + Math.floor((duration - firstHit) / hitInterval);
+    if (duration <= firstHit) return 0;
+
+    return Math.ceil((duration - firstHit) / hitInterval);
+}
+
+function getTriggerHits(duration, attack) {
+    if (attack.triggerEnter && attack.finishTriggerEnter) return { hits: 1, ends: true };
+    if (attack.triggerStay && attack.finishTriggerExit) return { hits: 1, ends: true };
+    if (attack.triggerExit && attack.finishTriggerExit) return { hits: 1, ends: true };
+
+    if (attack.triggerStay) {
+        const every = attack.timeTriggerStay;
+
+        return {
+            hits: every <= 0
+                ? (duration > 0 ? 2 : 0)
+                : (duration > every ? Math.ceil(duration / every) : 0),
+            ends: false,
+        };
+    }
+
+    if (attack.triggerEnter || attack.triggerExit) return { hits: 1, ends: false };
+
+    return { hits: 0, ends: false };
+}
+
+function getComponentHits(duration, attack) {
+    const timer = getTimerHits(duration, attack.hitDelay, attack.hitInterval, attack.hitImmediately);
+    const trigger = getTriggerHits(duration, attack);
+
+    if (trigger.ends) return Math.max(timer, trigger.hits);
+
+    return Math.max(timer, trigger.hits, timer >= 1 && trigger.hits >= 1 ? 2 : 0);
+}
+
+function getEntityHits(duration, hitInterval, hitImmediately) {
+    const timer = hitInterval > 0 ? Math.floor(duration / hitInterval) : 0;
+
+    return (hitImmediately ? 1 : 0) + timer;
+}
+
+function getFirstHit(hitDelay, hitInterval, hitImmediately) {
+    if (hitDelay > 0) return hitDelay;
+
+    return hitImmediately ? 0 : hitInterval;
 }
 
 function parseString(text, field) {
@@ -136,6 +180,7 @@ function extractMap(bundleDir) {
 
         const entities = new Map();
         const attacks = [];
+        const specials = [];
 
         for (const asset of objects.values()) {
             if (asset.kind !== 'MonoBehaviour') continue;
@@ -148,30 +193,41 @@ function extractMap(bundleDir) {
                 if (copy === undefined) continue;
                 entities.set(asset.gameObject, {
                     copy,
-                    duration: parseFieldNumber(asset.text, 'duration') ?? 1,
+                    duration: parseFP(asset.text, 'duration') ?? 1,
+                });
+            } else if (className === 'LineAreaWeaponEntity' || className === 'SpikeweedEneity') {
+                const hitDamageId = parseNum(asset.text, /\bhitDamageId = (-?\d+)/);
+                if (!hitDamageId || hitDamageId <= 0) continue;
+
+                const duration = parseFP(asset.text, 'duration') ?? 1;
+                const hitInterval = parseFP(asset.text, 'hitInterval') ?? 1;
+                const hitImmediately = parseFlag(asset.text, 'hitImmediately') ?? false;
+
+                specials.push({
+                    ids: [hitDamageId],
+                    duration,
+                    hitDelay: getFirstHit(0, hitInterval, hitImmediately),
+                    hitInterval,
+                    hits: getEntityHits(duration, hitInterval, hitImmediately),
                 });
             } else if (className === 'AreaEffect_AttackComponent' || className.startsWith('AreaEffect_AttackComponent_')) {
-                const ids = [
-                    parseNum(asset.text, /hitDamageId = (-?\d+)/),
-                    ...parseArrayInts(asset.text, 'hitDamageIdList'),
-                ].filter(id => id > 0);
+                const list = parseArrayInts(asset.text, 'hitDamageIdList');
+                const single = parseNum(asset.text, /\bhitDamageId = (-?\d+)/);
+                const ids = list.length ? list : single > 0 ? [single] : [];
                 if (!ids.length) continue;
 
                 attacks.push({
                     gameObject: asset.gameObject,
                     ids,
-                    hitDelay: parseFieldNumber(asset.text, 'hitDelay') ?? 0,
-                    hitInterval: parseFieldNumber(asset.text, 'hitInterval') ?? 1,
+                    hitDelay: parseFP(asset.text, 'hitDelay') ?? 0,
+                    hitInterval: parseFP(asset.text, 'hitInterval') ?? 1,
                     hitImmediately: parseFlag(asset.text, 'hitImmediately') ?? true,
-                    hasTrigger: (parseFlag(asset.text, 'triggerEnter') ?? false) ||
-                        (parseFlag(asset.text, 'triggerStay') ?? false) ||
-                        (parseFlag(asset.text, 'triggerExit') ?? false),
-                    finishesOnHit: ((parseFlag(asset.text, 'triggerEnter') ?? false) &&
-                            (parseFlag(asset.text, 'finish_TriggerEnter') ?? false)) ||
-                        ((parseFlag(asset.text, 'triggerStay') ?? false) &&
-                            (parseFlag(asset.text, 'finish_TriggerStay') ?? false)) ||
-                        ((parseFlag(asset.text, 'triggerExit') ?? false) &&
-                            (parseFlag(asset.text, 'finish_TriggerExit') ?? false)),
+                    timeTriggerStay: parseFP(asset.text, 'time_TriggerStay') ?? 1,
+                    triggerEnter: parseFlag(asset.text, 'triggerEnter') ?? false,
+                    triggerStay: parseFlag(asset.text, 'triggerStay') ?? false,
+                    triggerExit: parseFlag(asset.text, 'triggerExit') ?? false,
+                    finishTriggerEnter: parseFlag(asset.text, 'finish_TriggerEnter') ?? false,
+                    finishTriggerExit: parseFlag(asset.text, 'finish_TriggerExit') ?? false,
                 });
             }
         }
@@ -191,28 +247,50 @@ function extractMap(bundleDir) {
             }
             resolved += entityAttacks.length;
 
-            let hits = 0;
-            let persistent = false;
-
             for (const attack of entityAttacks) {
-                const timeHits = getHitCount(entity.duration, attack.hitDelay, attack.hitInterval, attack.hitImmediately);
-                hits += timeHits;
+                const componentHits = getComponentHits(entity.duration, attack);
+                const triggers = [
+                    attack.triggerEnter ? 'triggerEnter' : null,
+                    attack.triggerStay ? 'triggerStay' : null,
+                    attack.triggerExit ? 'triggerExit' : null,
+                    attack.finishTriggerEnter ? 'finish_TriggerEnter' : null,
+                    attack.finishTriggerExit ? 'finish_TriggerExit' : null,
+                ].filter(Boolean);
 
-                if (!attack.hasTrigger) continue;
-                if (attack.finishesOnHit) hits++;
-                else persistent = true;
-            }
-
-            const oneShot = !persistent && hits <= 1;
-
-            for (const attack of entityAttacks) {
-                for (const hitDamageId of attack.ids) {
+                attack.ids.forEach((hitDamageId, index) => {
                     const key = String(hitDamageId);
-                    if (!map[key]) {
-                        map[key] = { copyBattleDataBeforeAttack: entity.copy, oneShot };
-                    } else {
-                        map[key].oneShot = map[key].oneShot && oneShot;
+                    const idHits = attack.ids.length > 1
+                        ? Math.ceil((componentHits - index) / attack.ids.length)
+                        : componentHits;
+                    const previous = map[key];
+
+                    if (!previous || idHits > previous.hits) {
+                        map[key] = {
+                            copyBattleDataBeforeAttack: entity.copy || previous?.copyBattleDataBeforeAttack === true,
+                            duration: entity.duration,
+                            hitDelay: getFirstHit(attack.hitDelay, attack.hitInterval, attack.hitImmediately),
+                            hitInterval: attack.hitInterval,
+                            hits: idHits,
+                            triggers,
+                        };
                     }
+                });
+            }
+        }
+
+        for (const special of specials) {
+            for (const hitDamageId of special.ids) {
+                const key = String(hitDamageId);
+                const previous = map[key];
+
+                if (!previous || special.hits > previous.hits) {
+                    map[key] = {
+                        copyBattleDataBeforeAttack: previous?.copyBattleDataBeforeAttack,
+                        duration: special.duration,
+                        hitDelay: special.hitDelay,
+                        hitInterval: special.hitInterval,
+                        hits: special.hits,
+                    };
                 }
             }
         }
@@ -223,15 +301,12 @@ function extractMap(bundleDir) {
     console.log(`areaEffect: ${resolved} attack component(s) matched an AreaEffectEntity, ${unresolved} unresolved`);
 
     const output = {};
-    const ignored = [];
 
     for (const id of Object.keys(map).sort((a, b) => a - b)) {
-        const entry = map[id];
-        if (entry.oneShot) ignored.push(id);
-        else output[id] = entry.copyBattleDataBeforeAttack;
+        output[id] = map[id];
     }
 
-    return { map: output, ignored };
+    return { map: output };
 }
 
 const source = process.argv[2] ?? findStoreDir();
@@ -241,10 +316,15 @@ if (!source) {
     process.exit(1);
 }
 
-const { map, ignored } = extractMap(source);
+const { map } = extractMap(source);
 const existing = existsSync(OUTPUT) ? JSON.parse(readFileSync(OUTPUT, 'utf8')) : {};
-const merged = { ...existing, ...map };
-for (const id of ignored) delete merged[id];
+const merged = {};
+
+for (const [id, value] of Object.entries(existing)) {
+    merged[id] = typeof value === 'boolean' ? { copyBattleDataBeforeAttack: value, hits: 2 } : value;
+}
+
+Object.assign(merged, map);
 
 if (!Object.keys(merged).length) {
     console.error('Area effect export failed: no area effect hitDamage ids found');
