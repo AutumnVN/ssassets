@@ -3,12 +3,8 @@ name: Update
 on:
   workflow_dispatch:
     inputs:
-      fullAreaEffect:
-        description: Rebuild all area effect data
-        type: boolean
-        default: false
-      fullBullet:
-        description: Rebuild all bullet data
+      fullHitSource:
+        description: Rebuild all hit source data
         type: boolean
         default: false
   schedule:
@@ -104,25 +100,24 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Check hit source data
+        id: hitSource
+        run: |
+          if [ ! -f hitSource.json ]; then
+            echo "missing=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Export changed bundles
         if: steps.check.outputs.changed == 'true'
         run: node export.js diff_out
 
-      - name: Generate area effect data
-        if: steps.check.outputs.changed == 'true' && inputs.fullAreaEffect != true
-        run: node areaEffect.js diff_out
+      - name: Generate hit source data
+        if: steps.check.outputs.changed == 'true' && inputs.fullHitSource != true && steps.hitSource.outputs.missing != 'true'
+        run: node hitSource.js diff_out
 
-      - name: Generate full area effect data
-        if: inputs.fullAreaEffect
-        run: node areaEffect.js
-
-      - name: Generate bullet data
-        if: steps.check.outputs.changed == 'true' && inputs.fullBullet != true
-        run: node bullet.js diff_out
-
-      - name: Generate full bullet data
-        if: inputs.fullBullet
-        run: node bullet.js
+      - name: Generate full hit source data
+        if: inputs.fullHitSource == true || steps.hitSource.outputs.missing == 'true'
+        run: node hitSource.js
 
       - name: Compose potential images
         if: steps.check.outputs.changed == 'true'
@@ -135,11 +130,11 @@ jobs:
           cp diff-manifest.json diff-resource/manifest.json
 
       - name: Commit and push
-        if: steps.check.outputs.changed == 'true' || inputs.fullAreaEffect || inputs.fullBullet
+        if: steps.check.outputs.changed == 'true' || inputs.fullHitSource == true || steps.hitSource.outputs.missing == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A export potential areaEffect.json bullet.json
+          git add -A
           VERSION_JSON="ResourceTool/output/Manifest/win_version.json"
           GAME_VER=$(node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));console.log(v.EN.game_ver)" "$VERSION_JSON")
           echo "game version: $GAME_VER"

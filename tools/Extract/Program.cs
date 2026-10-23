@@ -7,11 +7,29 @@ using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using AssetStudio;
 
-const string AreaEffectOutput = "./areaEffect.json";
-const string BulletOutput = "./bullet.json";
+const string HitSourceOutput = "./hitSource.json";
 
 var bundlePattern = new Regex(@"^char_\d+(_(?:buff|breakout|combos|combosmonster|config|configs|fx|soldier|towerdefense|weapon|weaponmodel|weapons))?\.unity3d$", RegexOptions.Compiled);
-var bulletClasses = new HashSet<string>(StringComparer.Ordinal) { "AdventureBullet", "AdventureBomb" };
+var bulletClasses = new HashSet<string>(StringComparer.Ordinal)
+{
+    "AdventureBullet",
+    "AdventureBomb",
+    "AdventureProjectile",
+    "AdventureTimeBomb",
+    "AdventureBezierBullet",
+    "AdventureBrokenLineBullet",
+    "AdventureLaser",
+    "AdventureAreaLaser",
+    "AdventureVariableSizeBullet",
+    "AdventureVerticalProjectile",
+};
+var weaponClasses = new HashSet<string>(bulletClasses, StringComparer.Ordinal)
+{
+    "AdventureBoomerang",
+    "AdventureFlyShield",
+    "AdventureRotateWeapon",
+    "AdventureWindBlade",
+};
 var featureClasses = new HashSet<string>(StringComparer.Ordinal)
 {
     "WeaponFeatureTraceTarget",
@@ -47,14 +65,11 @@ if (bundles.Count == 0)
     return 1;
 }
 
-if (mode is "areaEffect" or "all")
+if (mode is "hitSource" or "all")
 {
-    WriteAreaEffect(ExtractAreaEffects(bundles, shapes));
-}
-
-if (mode is "bullet" or "all")
-{
-    WriteBullet(ExtractBullets(bundles, bulletClasses, featureClasses, shapes));
+    var areaSources = ExtractAreaEffects(bundles, shapes);
+    var weaponSources = ExtractWeapons(bundles, weaponClasses, bulletClasses, featureClasses, shapes);
+    WriteHitSource(MergeSources(areaSources, weaponSources));
 }
 
 return 0;
@@ -71,9 +86,9 @@ static string? FindStoreDir()
     return null;
 }
 
-static Dictionary<int, AreaEntry> ExtractAreaEffects(List<string> bundles, string[] shapes)
+static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles, string[] shapes)
 {
-    var map = new Dictionary<int, AreaEntry>();
+    var map = new Dictionary<int, List<HitSource>>();
     var resolved = 0;
     var unresolved = 0;
 
@@ -87,7 +102,7 @@ static Dictionary<int, AreaEntry> ExtractAreaEffects(List<string> bundles, strin
         }
         catch (Exception exception)
         {
-            Console.Error.WriteLine($"areaEffect: failed {Path.GetFileName(bundle)}: {exception.Message}");
+            Console.Error.WriteLine($"hitSource: failed {Path.GetFileName(bundle)}: {exception.Message}");
             continue;
         }
 
@@ -135,14 +150,16 @@ static Dictionary<int, AreaEntry> ExtractAreaEffects(List<string> bundles, strin
                     var duration = ReadFloat(type, "duration") ?? 1;
                     var hitInterval = ReadFloat(type, "hitInterval") ?? 1;
                     var hitImmediately = ReadBool(type, "hitImmediately") ?? false;
+                    var firstHit = GetFirstHit(0, hitInterval, hitImmediately);
 
                     specials.Add(new Special(
                         new List<int> { (int)hitDamageId.Value },
                         GetGameObjectName(mb, names),
+                        className,
                         duration,
-                        GetFirstHit(0, hitInterval, hitImmediately),
+                        firstHit,
                         hitInterval,
-                        GetEntityHits(duration, hitInterval, hitImmediately)));
+                        GetSourceHits(duration, firstHit, hitInterval)));
                 }
                 else if (className == "AreaEffect_AttackComponent" || className.StartsWith("AreaEffect_AttackComponent_", StringComparison.Ordinal))
                 {
@@ -197,7 +214,6 @@ static Dictionary<int, AreaEntry> ExtractAreaEffects(List<string> bundles, strin
 
             foreach (var attack in entityAttacks)
             {
-                var componentHits = GetComponentHits(entity.Duration, attack);
                 var triggers = new List<string>();
 
                 if (attack.TriggerEnter) triggers.Add("triggerEnter");
@@ -206,20 +222,31 @@ static Dictionary<int, AreaEntry> ExtractAreaEffects(List<string> bundles, strin
                 if (attack.FinishTriggerEnter) triggers.Add("finish_TriggerEnter");
                 if (attack.FinishTriggerExit) triggers.Add("finish_TriggerExit");
 
+                var componentHits = triggers.Count == 0
+                    ? GetSourceHits(entity.Duration, GetFirstHit(attack.HitDelay, attack.HitInterval, attack.HitImmediately), attack.HitInterval)
+                    : GetComponentHits(entity.Duration, attack);
+
                 for (var index = 0; index < attack.Ids.Count; index++)
                 {
                     var idHits = attack.Ids.Count > 1
                         ? (int)Math.Ceiling((double)(componentHits - index) / attack.Ids.Count)
                         : componentHits;
 
-                    AddVariant(map, attack.Ids[index], new Variant(
-                        entity.Name,
-                        entity.Duration,
-                        GetFirstHit(attack.HitDelay, attack.HitInterval, attack.HitImmediately),
-                        attack.HitInterval,
-                        idHits,
-                        new List<string>(triggers),
-                        entity.HitBox), entity.Copy);
+                    var source = new HitSource
+                    {
+                        Class = "AreaEffectEntity",
+                        Snapshot = !entity.Copy,
+                        Name = entity.Name,
+                        Alias = entity.Name,
+                        Duration = entity.Duration,
+                        HitDelay = GetFirstHit(attack.HitDelay, attack.HitInterval, attack.HitImmediately),
+                        HitInterval = attack.HitInterval,
+                        Hits = idHits,
+                        Triggers = new List<string>(triggers),
+                    };
+
+                    ApplyShape(source, entity.HitBox);
+                    AddSource(map, attack.Ids[index], source);
                 }
             }
         }
@@ -228,27 +255,31 @@ static Dictionary<int, AreaEntry> ExtractAreaEffects(List<string> bundles, strin
         {
             foreach (var id in special.Ids)
             {
-                AddVariant(map, id, new Variant(
-                    special.Name,
-                    special.Duration,
-                    special.HitDelay,
-                    special.HitInterval,
-                    special.Hits,
-                    new List<string>(),
-                    null), null);
+                AddSource(map, id, new HitSource
+                {
+                    Class = special.Class,
+                    Snapshot = false,
+                    Name = special.Name,
+                    Alias = special.Name,
+                    Duration = special.Duration,
+                    HitDelay = special.HitDelay,
+                    HitInterval = special.HitInterval,
+                    Hits = special.Hits,
+                    Triggers = new List<string>(),
+                });
             }
         }
 
         manager.Clear();
     }
 
-    Console.WriteLine($"areaEffect: {resolved} attack component(s) matched an AreaEffectEntity, {unresolved} unresolved");
+    Console.WriteLine($"hitSource: {resolved} attack component(s) matched an AreaEffectEntity, {unresolved} unresolved");
     return map;
 }
 
-static Dictionary<string, BulletEntry> ExtractBullets(List<string> bundles, HashSet<string> bulletClasses, HashSet<string> featureClasses, string[] shapes)
+static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, HashSet<string> weaponClasses, HashSet<string> bulletClasses, HashSet<string> featureClasses, string[] shapes)
 {
-    var map = new Dictionary<string, BulletEntry>(StringComparer.Ordinal);
+    var map = new Dictionary<int, List<HitSource>>();
     var resolved = 0;
     var unresolved = 0;
 
@@ -262,11 +293,11 @@ static Dictionary<string, BulletEntry> ExtractBullets(List<string> bundles, Hash
         }
         catch (Exception exception)
         {
-            Console.Error.WriteLine($"bullet: failed {Path.GetFileName(bundle)}: {exception.Message}");
+            Console.Error.WriteLine($"hitSource: failed {Path.GetFileName(bundle)}: {exception.Message}");
             continue;
         }
 
-        var prefabs = new Dictionary<string, BulletPrefab>(StringComparer.Ordinal);
+        var prefabs = new Dictionary<string, WeaponPrefab>(StringComparer.Ordinal);
 
         foreach (var file in manager.AssetsFileList)
         {
@@ -286,13 +317,13 @@ static Dictionary<string, BulletEntry> ExtractBullets(List<string> bundles, Hash
                 var className = GetClassName(mb, scripts);
                 if (className == null) continue;
 
-                var isBullet = bulletClasses.Contains(className);
-                if (!isBullet && !featureClasses.Contains(className)) continue;
+                var isWeapon = weaponClasses.Contains(className);
+                if (!isWeapon && !featureClasses.Contains(className)) continue;
 
                 var name = GetGameObjectName(mb, names);
                 if (name == null)
                 {
-                    if (isBullet) unresolved++;
+                    if (isWeapon) unresolved++;
                     continue;
                 }
 
@@ -301,14 +332,14 @@ static Dictionary<string, BulletEntry> ExtractBullets(List<string> bundles, Hash
 
                 if (!prefabs.TryGetValue(name, out var prefab))
                 {
-                    prefab = new BulletPrefab();
+                    prefab = new WeaponPrefab();
                     prefabs[name] = prefab;
                 }
 
-                if (isBullet)
+                if (isWeapon)
                 {
                     prefab.Ids = ParseBulletIds(type);
-                    prefab.Stats = ParseBulletStats(type, shapes);
+                    prefab.Source = ParseWeaponSource(className, type, bulletClasses, shapes);
                 }
                 else
                 {
@@ -320,166 +351,163 @@ static Dictionary<string, BulletEntry> ExtractBullets(List<string> bundles, Hash
         foreach (var (name, prefab) in prefabs)
         {
             if (prefab.Ids == null || prefab.Ids.Count == 0) continue;
-            if (prefab.Stats == null) continue;
+            if (prefab.Source == null) continue;
 
             resolved++;
 
-            if (!map.TryGetValue(name, out var entry))
-            {
-                entry = new BulletEntry();
-                map[name] = entry;
-            }
+            prefab.Source.Name = name;
+            ApplyFeatures(prefab.Source, prefab.Features);
 
-            entry.Hits.UnionWith(prefab.Ids);
-
-            var stats = prefab.Stats;
-
-            if (stats.Speed.HasValue && stats.Speed.Value != 0) entry.Speed = stats.Speed;
-            if (stats.Lifetime.HasValue && stats.Lifetime.Value != 0) entry.Lifetime = stats.Lifetime;
-            if (stats.Acceleration.HasValue && stats.Acceleration.Value != 0) entry.Acceleration = stats.Acceleration;
-
-            entry.Shape = stats.Shape;
-
-            if (stats.Shape == "circle" && stats.Radius.HasValue && stats.Radius.Value != 0) entry.Radius = stats.Radius;
-
-            if (prefab.Features.TryGetValue("WeaponFeatureTraceTarget", out var trace)) entry.Homing = BuildHoming(trace);
-
-            if (prefab.Features.ContainsKey("WeaponFeaturePenetratingActor") || prefab.Features.ContainsKey("WeaponFeaturePenetratingObstacle")) entry.Pierce = true;
-
-            if (prefab.Features.TryGetValue("WeaponFeatureSplitWhenFinish", out var split))
-            {
-                var splitCount = ReadInt(split, "splitBulletCount");
-                if (splitCount.HasValue && splitCount.Value > 0) entry.SplitCount = (int)splitCount.Value;
-            }
+            foreach (var hit in prefab.Ids) AddSource(map, hit, prefab.Source);
         }
 
         manager.Clear();
     }
 
-    Console.WriteLine($"bullet: {resolved} damage source(s) matched a GameObject, {unresolved} unresolved");
+    Console.WriteLine($"hitSource: {resolved} weapon source(s) matched a GameObject, {unresolved} unresolved");
     return map;
 }
 
-static void WriteAreaEffect(Dictionary<int, AreaEntry> map)
+static void WriteHitSource(Dictionary<int, List<HitSource>> map)
 {
-    var existing = ReadJsonObject(AreaEffectOutput);
-    var merged = new JsonObject();
+    var newKeys = new HashSet<string>(StringComparer.Ordinal);
 
-    if (existing != null)
+    foreach (var sources in map.Values)
     {
-        foreach (var (key, value) in existing)
+        foreach (var source in sources) newKeys.Add(SourceKey(source.ToJson()));
+    }
+
+    var merged = new Dictionary<int, List<JsonObject>>();
+
+    if (File.Exists(HitSourceOutput))
+    {
+        try
         {
-            if (value is JsonValue jsonValue && jsonValue.TryGetValue<bool>(out var copy))
+            if (JsonNode.Parse(File.ReadAllText(HitSourceOutput)) is JsonObject existing)
             {
-                merged[key] = new JsonObject
+                foreach (var (key, value) in existing)
                 {
-                    ["copyBattleDataBeforeAttack"] = copy,
-                    ["hits"] = 2,
-                };
+                    if (!int.TryParse(key, NumberStyles.Integer, CultureInfo.InvariantCulture, out var id)) continue;
+                    if (value is not JsonObject entry || entry["sources"] is not JsonArray existingSources) continue;
+
+                    var sources = new List<JsonObject>();
+
+                    foreach (var node in existingSources)
+                    {
+                        if (node is not JsonObject source) continue;
+                        if (newKeys.Contains(SourceKey(source))) continue;
+
+                        sources.Add(source.DeepClone().AsObject());
+                    }
+
+                    if (sources.Count > 0) merged[id] = sources;
+                }
             }
-            else
-            {
-                merged[key] = value?.DeepClone();
-            }
+        }
+        catch
+        {
         }
     }
 
-    foreach (var (id, entry) in map)
+    foreach (var (id, sources) in map)
     {
-        merged[id.ToString(CultureInfo.InvariantCulture)] = BuildAreaEntry(entry);
+        if (!merged.TryGetValue(id, out var list))
+        {
+            list = new List<JsonObject>();
+            merged[id] = list;
+        }
+
+        var seen = new HashSet<string>(list.Select(source => source.ToJsonString()), StringComparer.Ordinal);
+
+        foreach (var source in sources)
+        {
+            var json = source.ToJson();
+            var key = json.ToJsonString();
+
+            if (!seen.Add(key)) continue;
+
+            list.Add(json);
+        }
     }
 
-    var sorted = new JsonObject();
+    var root = new JsonObject();
 
-    foreach (var key in merged.Select(pair => pair.Key).OrderBy(key => long.Parse(key, CultureInfo.InvariantCulture)))
+    foreach (var id in merged.Keys.OrderBy(id => id))
     {
-        sorted[key] = merged[key]?.DeepClone();
+        var sources = merged[id];
+
+        if (sources.Count == 0) continue;
+
+        var array = new JsonArray();
+
+        foreach (var source in sources) array.Add(source.DeepClone());
+
+        root[id.ToString(CultureInfo.InvariantCulture)] = new JsonObject { ["sources"] = array };
     }
 
-    if (sorted.Count == 0)
+    if (root.Count == 0)
     {
-        Console.Error.WriteLine("Area effect export failed: no area effect hitDamage ids found");
+        Console.Error.WriteLine("Hit source export failed: no hitDamage ids found");
         Environment.Exit(1);
     }
 
-    WriteJson(AreaEffectOutput, sorted);
-    Console.WriteLine($"{sorted.Count} areaEffect hitDamage ids");
+    WriteJson(HitSourceOutput, root);
+    Console.WriteLine($"{root.Count} hitDamage ids");
 }
 
-static void WriteBullet(Dictionary<string, BulletEntry> map)
+static string SourceKey(JsonObject source)
 {
-    var existing = ReadJsonObject(BulletOutput);
-    var merged = new JsonObject();
+    var className = source["class"]?.GetValue<string>() ?? "";
+    var name = source["name"]?.GetValue<string>();
 
-    if (existing != null)
+    return string.IsNullOrEmpty(name) ? source.ToJsonString() : $"{className}|{name}";
+}
+
+static Dictionary<int, List<HitSource>> MergeSources(params Dictionary<int, List<HitSource>>[] maps)
+{
+    var result = new Dictionary<int, List<HitSource>>();
+
+    foreach (var map in maps)
     {
-        foreach (var (name, value) in existing)
+        foreach (var (id, sources) in map)
         {
-            merged[name] = value is JsonArray array
-                ? new JsonObject { ["hits"] = array.DeepClone() }
-                : value?.DeepClone();
-        }
-    }
-
-    foreach (var (name, entry) in map)
-    {
-        if (merged[name] is not JsonObject target)
-        {
-            target = new JsonObject { ["hits"] = new JsonArray() };
-            merged[name] = target;
-        }
-
-        var hits = new SortedSet<int>();
-
-        if (target["hits"] is JsonArray existingHits)
-        {
-            foreach (var node in existingHits)
+            if (!result.TryGetValue(id, out var list))
             {
-                if (node == null) continue;
-                var hit = node.GetValue<int>();
-                if (hit > 0) hits.Add(hit);
+                list = new List<HitSource>();
+                result[id] = list;
             }
+
+            list.AddRange(sources);
         }
-
-        hits.UnionWith(entry.Hits);
-
-        var hitsArray = new JsonArray();
-        foreach (var hit in hits) hitsArray.Add(hit);
-        target["hits"] = hitsArray;
-
-        if (entry.Speed.HasValue) target["speed"] = entry.Speed.Value;
-        if (entry.Lifetime.HasValue) target["lifetime"] = entry.Lifetime.Value;
-        if (entry.Acceleration.HasValue) target["acceleration"] = entry.Acceleration.Value;
-
-        target["shape"] = entry.Shape;
-
-        if (entry.Radius.HasValue) target["radius"] = entry.Radius.Value;
-        if (entry.Homing != null) target["homing"] = entry.Homing.DeepClone();
-        if (entry.Pierce) target["pierce"] = true;
-        if (entry.SplitCount.HasValue) target["splitCount"] = entry.SplitCount.Value;
     }
 
-    var sorted = new JsonObject();
-
-    foreach (var name in merged.Select(pair => pair.Key).OrderBy(name => name, StringComparer.Ordinal))
-    {
-        sorted[name] = merged[name]?.DeepClone();
-    }
-
-    if (sorted.Count == 0)
-    {
-        Console.Error.WriteLine("Bullet export failed: no bullet hitDamage ids found");
-        Environment.Exit(1);
-    }
-
-    WriteJson(BulletOutput, sorted);
-    Console.WriteLine($"{sorted.Count} bullet prefabs");
+    return result;
 }
 
-static JsonObject? ReadJsonObject(string path)
+static void ApplyFeatures(HitSource source, Dictionary<string, OrderedDictionary> features)
 {
-    if (!File.Exists(path)) return null;
-    return JsonNode.Parse(File.ReadAllText(path)) as JsonObject;
+    if (features.TryGetValue("WeaponFeatureTraceTarget", out var trace)) source.Homing = BuildHoming(trace);
+
+    if (features.ContainsKey("WeaponFeaturePenetratingActor") || features.ContainsKey("WeaponFeaturePenetratingObstacle")) source.Pierce = true;
+
+    if (features.TryGetValue("WeaponFeatureSplitWhenFinish", out var split))
+    {
+        var splitCount = ReadInt(split, "splitBulletCount");
+        if (splitCount.HasValue && splitCount.Value > 0) source.SplitCount = (int)splitCount.Value;
+    }
+}
+
+static void AddSource(Dictionary<int, List<HitSource>> map, int id, HitSource source)
+{
+    if (id <= 0) return;
+
+    if (!map.TryGetValue(id, out var list))
+    {
+        list = new List<HitSource>();
+        map[id] = list;
+    }
+
+    list.Add(source);
 }
 
 static void WriteJson(string path, JsonObject root)
@@ -493,62 +521,96 @@ static void WriteJson(string path, JsonObject root)
     File.WriteAllText(path, root.ToJsonString(options).Replace("\r\n", "\n") + "\n");
 }
 
-static JsonObject BuildAreaEntry(AreaEntry entry)
-{
-    var result = new JsonObject();
-    var variants = new JsonArray();
-
-    foreach (var variant in entry.Variants) variants.Add(BuildVariant(variant));
-
-    result["variants"] = variants;
-
-    if (entry.Copy.HasValue) result["copyBattleDataBeforeAttack"] = entry.Copy.Value;
-
-    var best = entry.Best;
-
-    result["duration"] = best.Duration;
-    result["hitDelay"] = best.HitDelay;
-    result["hitInterval"] = best.HitInterval;
-    result["hits"] = best.Hits;
-
-    var triggers = new JsonArray();
-    foreach (var trigger in best.Triggers) triggers.Add(trigger);
-    result["triggers"] = triggers;
-
-    ApplyShape(result, best.Box);
-    return result;
-}
-
-static JsonObject BuildVariant(Variant variant)
-{
-    var result = new JsonObject();
-
-    if (variant.Alias != null) result["alias"] = variant.Alias;
-
-    result["duration"] = variant.Duration;
-    result["hitDelay"] = variant.HitDelay;
-    result["hitInterval"] = variant.HitInterval;
-    result["hits"] = variant.Hits;
-
-    var triggers = new JsonArray();
-    foreach (var trigger in variant.Triggers) triggers.Add(trigger);
-    result["triggers"] = triggers;
-
-    ApplyShape(result, variant.Box);
-    return result;
-}
-
-static void ApplyShape(JsonObject target, HitBox? box)
+static void ApplyShape(HitSource source, HitBox? box)
 {
     if (box == null) return;
 
-    target["shape"] = box.Shape;
-    if (box.Radius.HasValue) target["radius"] = box.Radius.Value;
-    if (box.InnerRadius.HasValue) target["innerRadius"] = box.InnerRadius.Value;
-    if (box.Angle.HasValue) target["angle"] = box.Angle.Value;
-    if (box.Width.HasValue) target["width"] = box.Width.Value;
-    if (box.Length.HasValue) target["length"] = box.Length.Value;
-    if (box.Height.HasValue) target["height"] = box.Height.Value;
+    source.Shape = box.Shape;
+    source.Radius = box.Radius;
+    source.InnerRadius = box.InnerRadius;
+    source.Angle = box.Angle;
+    source.Width = box.Width;
+    source.Length = box.Length;
+    source.Height = box.Height;
+}
+
+static HitSource ParseWeaponSource(string className, OrderedDictionary type, HashSet<string> bulletClasses, string[] shapes)
+{
+    var source = new HitSource
+    {
+        Class = className,
+        Snapshot = bulletClasses.Contains(className),
+        Speed = NonZero(ReadFloat(type, "moveSpeed") ?? ReadFloat(type, "speed")),
+        Lifetime = NonZero(ReadFloat(type, "lifeTime")),
+        Acceleration = NonZero(ReadFloat(type, "acceleratedVelocity")),
+    };
+
+    var shapeIndex = ReadInt(type, "shape");
+    if (!shapeIndex.HasValue && className == "AdventureBomb") shapeIndex = ReadInt(type, "hitBoxShape");
+    if (shapeIndex.HasValue && shapeIndex.Value >= 0 && shapeIndex.Value < shapes.Length) source.Shape = shapes[(int)shapeIndex.Value];
+
+    switch (source.Shape)
+    {
+        case "rectangle":
+            source.Width = NonZero(ReadFloat(type, "damageWidth") ?? ReadFloat(type, "hitBoxWidth") ?? ReadFloat(type, "shape_width"));
+            source.Length = NonZero(ReadFloat(type, "damageHeight") ?? ReadFloat(type, "hitBoxLength") ?? ReadFloat(type, "shape_length"));
+            break;
+        case "fan":
+            source.Radius = NonZero(ReadFloat(type, "fanOuterRadius") ?? ReadFloat(type, "shape_radius") ?? ReadFloat(type, "hitBoxRadius"));
+            source.InnerRadius = NonZero(ReadFloat(type, "fanInnerRadius") ?? ReadFloat(type, "shape_innerRadius") ?? ReadFloat(type, "hitBoxInnerRadius"));
+            source.Angle = NonZero(ReadFloat(type, "fanAngle") ?? ReadFloat(type, "shape_angle") ?? ReadFloat(type, "hitBoxAngle"));
+            break;
+        case "circle":
+            source.Radius = NonZero(ReadFloat(type, "damageRadius") ?? ReadFloat(type, "fanOuterRadius") ?? ReadFloat(type, "shape_radius") ?? ReadFloat(type, "hitBoxRadius") ?? ReadFloat(type, "damageArea"));
+            break;
+        default:
+            {
+                var radius = NonZero(ReadFloat(type, "damageRadius") ?? ReadFloat(type, "damageArea") ?? ReadFloat(type, "hitBoxRadius"));
+
+                if (radius.HasValue)
+                {
+                    source.Shape = "circle";
+                    source.Radius = radius;
+                }
+
+                break;
+            }
+    }
+
+    source.Height = NonZero(ReadFloat(type, "hitBoxHeight"));
+    source.HitInterval = NonZero(ReadFloat(type, "hitTestInterval") ?? ReadFloat(type, "hitInterval"));
+
+    source.Duration = className switch
+    {
+        "AdventureBoomerang" => NonZero(Sum(ReadFloat(type, "maxBeginStageTime"), ReadFloat(type, "maxCatchFailedStageTime"))),
+        "AdventureFlyShield" => NonZero(ReadFloat(type, "maxBeginTime")),
+        "AdventureRotateWeapon" => NonZero(ReadFloat(type, "_duration")),
+        "AdventureWindBlade" => NonZero(Sum(ReadFloat(type, "searchTargetTime"), ReadFloat(type, "endStageTime"))),
+        "AdventureTimeBomb" => NonZero(ReadFloat(type, "delayTime")),
+        "AdventureBezierBullet" => NonZero(ReadFloat(type, "flyTime")),
+        "AdventureBrokenLineBullet" => NonZero(Sum(ReadFloat(type, "forwardLifeTime"), ReadFloat(type, "backwardLifeTime"), ReadFloat(type, "stopDuration"))),
+        _ => null,
+    };
+
+    if (className == "AdventureBomb") source.HitDelay = NonZero(ReadFloat(type, "delayExplosionTime"));
+
+    if (className == "AdventureRotateWeapon" && source.Duration.HasValue && source.HitInterval.HasValue && source.HitInterval.Value > 0)
+    {
+        source.Hits = (int)Math.Ceiling(RoundRatio(source.Duration.Value / source.HitInterval.Value));
+    }
+
+    source.RotateSpeed = NonZero(ReadFloat(type, "rotateSpeed"));
+    source.SearchRadius = NonZero(ReadFloat(type, "searchRadius"));
+    source.TriggerRadius = NonZero(ReadFloat(type, "triggerRadius"));
+    source.CatchRadius = NonZero(ReadFloat(type, "catchRadius"));
+
+    var rebounds = ReadInt(type, "reboundTime") ?? ReadInt(type, "reboundCount");
+    if (rebounds.HasValue && rebounds.Value > 0) source.ReboundCount = (int)rebounds.Value;
+
+    if (className is "AdventureLaser" or "AdventureAreaLaser") source.Length = NonZero(ReadFloat(type, "maxLaserLength"));
+    if (ReadBool(type, "enablePenetratingActor") == true || ReadBool(type, "enablePenetratingObstacle") == true) source.Pierce = true;
+
+    return source;
 }
 
 static JsonObject BuildHoming(OrderedDictionary trace)
@@ -568,36 +630,16 @@ static void AddNumber(JsonObject target, string key, double? value)
     if (value.HasValue && value.Value != 0) target[key] = value.Value;
 }
 
-static void AddVariant(Dictionary<int, AreaEntry> map, int id, Variant variant, bool? copy)
+static double? NonZero(double? value)
 {
-    if (!map.TryGetValue(id, out var entry))
-    {
-        entry = new AreaEntry();
-        map[id] = entry;
-    }
-
-    if (copy.HasValue) entry.Copy = (entry.Copy ?? false) || copy.Value;
-
-    if (!entry.Variants.Any(other => VariantKey(other).Equals(VariantKey(variant)))) entry.Variants.Add(variant);
-
-    entry.Best = entry.Variants.OrderByDescending(candidate => candidate.Hits).First();
+    return value.HasValue && value.Value != 0 ? value : null;
 }
 
-static (string?, double, double, double, int, string?, double?, double?, double?, double?, double?, double?) VariantKey(Variant variant)
+static double? Sum(params double?[] values)
 {
-    return (
-        variant.Alias,
-        variant.Duration,
-        variant.HitDelay,
-        variant.HitInterval,
-        variant.Hits,
-        variant.Box?.Shape,
-        variant.Box?.Radius,
-        variant.Box?.InnerRadius,
-        variant.Box?.Angle,
-        variant.Box?.Width,
-        variant.Box?.Length,
-        variant.Box?.Height);
+    var present = values.Where(value => value.HasValue).Select(value => value!.Value).ToArray();
+
+    return present.Length == 0 ? null : present.Sum();
 }
 
 static int GetComponentHits(double duration, Attack attack)
@@ -648,12 +690,14 @@ static (int Hits, bool Ends) GetTriggerHits(double duration, Attack attack)
     return (0, false);
 }
 
-static int GetEntityHits(double duration, double hitInterval, bool hitImmediately)
+static int GetSourceHits(double duration, double hitDelay, double hitInterval)
 {
-    var ratio = hitInterval > 0 ? RoundRatio(duration / hitInterval) : 0;
-    var timer = hitInterval > 0 ? (int)Math.Floor(ratio) : 0;
+    if (hitInterval <= 0) return hitDelay <= duration ? 1 : 0;
+    if (duration <= hitDelay) return 0;
 
-    return (hitImmediately ? 1 : 0) + timer;
+    var ratio = RoundRatio((duration - hitDelay) / hitInterval);
+
+    return Math.Max(1, (int)Math.Ceiling(ratio));
 }
 
 static double GetFirstHit(double hitDelay, double hitInterval, bool hitImmediately)
@@ -682,19 +726,6 @@ static HitBox ReadHitBox(OrderedDictionary type, string[] shapes)
         shape == "rectangle" ? Round(width) : null,
         shape == "rectangle" ? Round(length) : null,
         Math.Abs(height - 1) > 1e-9 ? Round(height) : null);
-}
-
-static BulletStats ParseBulletStats(OrderedDictionary type, string[] shapes)
-{
-    var shapeIndex = ReadInt(type, "shape") ?? 1;
-    var shape = shapeIndex >= 0 && shapeIndex < shapes.Length ? shapes[(int)shapeIndex] : "circle";
-
-    return new BulletStats(
-        ReadFloat(type, "moveSpeed"),
-        ReadFloat(type, "lifeTime"),
-        ReadFloat(type, "acceleratedVelocity"),
-        shape,
-        shape == "circle" ? ReadFloat(type, "damageRadius") : null);
 }
 
 static List<int> ParseBulletIds(OrderedDictionary type)
@@ -850,37 +881,98 @@ record Attack(
     bool FinishTriggerEnter,
     bool FinishTriggerExit);
 
-record Special(List<int> Ids, string? Name, double Duration, double HitDelay, double HitInterval, int Hits);
-
-record Variant(string? Alias, double Duration, double HitDelay, double HitInterval, int Hits, List<string> Triggers, HitBox? Box);
+record Special(List<int> Ids, string? Name, string Class, double Duration, double HitDelay, double HitInterval, int Hits);
 
 record HitBox(string Shape, double? Radius, double? InnerRadius, double? Angle, double? Width, double? Length, double? Height);
 
-record BulletStats(double? Speed, double? Lifetime, double? Acceleration, string Shape, double? Radius);
-
-class AreaEntry
+class WeaponPrefab
 {
-    public List<Variant> Variants { get; } = new();
-    public bool? Copy { get; set; }
-    public Variant Best { get; set; } = null!;
+    public List<int>? Ids { get; set; }
+    public HitSource? Source { get; set; }
+    public Dictionary<string, OrderedDictionary> Features { get; } = new(StringComparer.Ordinal);
 }
 
-class BulletEntry
+class HitSource
 {
-    public SortedSet<int> Hits { get; } = new();
+    public string Class { get; set; } = "";
+    public bool Snapshot { get; set; }
+    public string? Name { get; set; }
+    public string? Alias { get; set; }
     public double? Speed { get; set; }
     public double? Lifetime { get; set; }
     public double? Acceleration { get; set; }
-    public string Shape { get; set; } = "circle";
+    public string? Shape { get; set; }
     public double? Radius { get; set; }
+    public double? InnerRadius { get; set; }
+    public double? Angle { get; set; }
+    public double? Width { get; set; }
+    public double? Length { get; set; }
+    public double? Height { get; set; }
     public JsonObject? Homing { get; set; }
     public bool Pierce { get; set; }
     public int? SplitCount { get; set; }
-}
+    public double? Duration { get; set; }
+    public double? HitDelay { get; set; }
+    public double? HitInterval { get; set; }
+    public int? Hits { get; set; }
+    public List<string>? Triggers { get; set; }
+    public double? SearchRadius { get; set; }
+    public double? TriggerRadius { get; set; }
+    public double? CatchRadius { get; set; }
+    public int? ReboundCount { get; set; }
+    public double? RotateSpeed { get; set; }
 
-class BulletPrefab
-{
-    public List<int>? Ids { get; set; }
-    public BulletStats? Stats { get; set; }
-    public Dictionary<string, OrderedDictionary> Features { get; } = new(StringComparer.Ordinal);
+    public JsonObject ToJson()
+    {
+        var result = new JsonObject
+        {
+            ["class"] = Class,
+            ["snapshot"] = Snapshot,
+        };
+
+        if (!string.IsNullOrEmpty(Name)) result["name"] = Name;
+        if (!string.IsNullOrEmpty(Alias)) result["alias"] = Alias;
+
+        Add(result, "speed", Speed);
+        Add(result, "lifetime", Lifetime);
+        Add(result, "acceleration", Acceleration);
+
+        if (!string.IsNullOrEmpty(Shape)) result["shape"] = Shape;
+
+        Add(result, "radius", Radius);
+        Add(result, "innerRadius", InnerRadius);
+        Add(result, "angle", Angle);
+        Add(result, "width", Width);
+        Add(result, "length", Length);
+        Add(result, "height", Height);
+
+        if (Homing != null) result["homing"] = Homing.DeepClone();
+        if (Pierce) result["pierce"] = true;
+        if (SplitCount.HasValue) result["splitCount"] = SplitCount.Value;
+
+        Add(result, "duration", Duration);
+        Add(result, "hitDelay", HitDelay);
+        Add(result, "hitInterval", HitInterval);
+        if (Hits.HasValue) result["hits"] = Hits.Value;
+
+        if (Triggers != null)
+        {
+            var triggers = new JsonArray();
+            foreach (var trigger in Triggers) triggers.Add(trigger);
+            result["triggers"] = triggers;
+        }
+
+        Add(result, "searchRadius", SearchRadius);
+        Add(result, "triggerRadius", TriggerRadius);
+        Add(result, "catchRadius", CatchRadius);
+        if (ReboundCount.HasValue) result["reboundCount"] = ReboundCount.Value;
+        Add(result, "rotateSpeed", RotateSpeed);
+
+        return result;
+    }
+
+    private static void Add(JsonObject target, string key, double? value)
+    {
+        if (value.HasValue) target[key] = value.Value;
+    }
 }
