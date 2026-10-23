@@ -7,3 +7,5 @@ out/
 diff_out/
 diff-resource/
 diff-manifest.json
+tools/*/bin/
+tools/*/obj/

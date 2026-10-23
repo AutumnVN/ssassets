@@ -50,6 +50,9 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
+      - name: Build extractor
+        run: dotnet build tools/Extract -c Release
+
       - name: Install dependencies
         run: pnpm install --prod
 
