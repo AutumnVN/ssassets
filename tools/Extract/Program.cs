@@ -40,13 +40,7 @@ var featureClasses = new HashSet<string>(StringComparer.Ordinal)
 var shapes = new[] { "rectangle", "circle", "fan" };
 
 var mode = args.Length > 0 ? args[0] : "all";
-var source = args.Length > 1 ? args[1] : FindStoreDir();
-
-if (source == null)
-{
-    Console.Error.WriteLine("No unpacked store found under ResourceTool/output/Unpack");
-    return 1;
-}
+var source = args.Length > 1 ? args[1] : "./ResourceTool/output/Unpack/EN/win";
 
 if (!Directory.Exists(source))
 {
@@ -73,18 +67,6 @@ if (mode is "hitSource" or "all")
 }
 
 return 0;
-
-static string? FindStoreDir()
-{
-    const string baseDir = "./ResourceTool/output/Unpack";
-
-    foreach (var dir in new[] { $"{baseDir}/EN/win", $"{baseDir}/EN", $"{baseDir}/win", baseDir })
-    {
-        if (Directory.Exists(dir) && Directory.EnumerateFiles(dir, "*.unity3d").Any()) return dir;
-    }
-
-    return null;
-}
 
 static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles, string[] shapes)
 {

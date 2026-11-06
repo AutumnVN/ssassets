@@ -3,6 +3,10 @@ name: Update
 on:
   workflow_dispatch:
     inputs:
+      fullImage:
+        description: Rebuild all exported images
+        type: boolean
+        default: false
       fullHitSource:
         description: Rebuild all hit source data
         type: boolean
@@ -108,8 +112,12 @@ jobs:
           fi
 
       - name: Export changed bundles
-        if: steps.check.outputs.changed == 'true'
+        if: steps.check.outputs.changed == 'true' && inputs.fullImage != true
         run: node export.js diff_out
+
+      - name: Export full image bundles
+        if: inputs.fullImage == true
+        run: node export.js
 
       - name: Generate hit source data
         if: steps.check.outputs.changed == 'true' && inputs.fullHitSource != true && steps.hitSource.outputs.missing != 'true'
@@ -120,7 +128,7 @@ jobs:
         run: node hitSource.js
 
       - name: Compose potential images
-        if: steps.check.outputs.changed == 'true'
+        if: steps.check.outputs.changed == 'true' || inputs.fullImage == true
         run: node sharp.js
 
       - name: Update exported bundle cache
@@ -130,7 +138,7 @@ jobs:
           cp diff-manifest.json diff-resource/manifest.json
 
       - name: Commit and push
-        if: steps.check.outputs.changed == 'true' || inputs.fullHitSource == true || steps.hitSource.outputs.missing == 'true'
+        if: steps.check.outputs.changed == 'true' || inputs.fullHitSource == true || inputs.fullImage == true || steps.hitSource.outputs.missing == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

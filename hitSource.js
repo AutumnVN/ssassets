@@ -1,13 +1,7 @@
 import { spawnSync } from 'child_process';
 import { existsSync } from 'fs';
-import { findStoreDir } from './store.js';
 
-const source = process.argv[2] ?? findStoreDir();
-
-if (!source) {
-    console.error('Hit source export failed: no unpacked store found under ResourceTool/output/Unpack');
-    process.exit(1);
-}
+const source = process.argv[2] ?? './ResourceTool/output/Unpack/EN/win';
 
 const dll = './tools/Extract/bin/Release/net9.0/Extract.dll';
 const args = existsSync(dll)

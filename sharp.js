@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync } from 'fs';
+import { mkdirSync, readFileSync } from 'fs';
 import { dirname } from 'path';
 import sharp from 'sharp';
 
@@ -9,7 +9,7 @@ const data = await fetch(DATA_URL).then((res) => res.json());
 for (const charId in data) {
     for (const potCategory in data[charId].potential) {
         for (const pot of data[charId].potential[potCategory]) {
-            const vestige = pot.rarity === 'core' ? '0_0' : pot.rarity === 'rare' ? '1' : '2';
+            const vestige = { core: '0_0', rare: '1', common: '2' }[pot.rarity];
             const { id, name, icon, corner } = pot;
             const bgPath = `./image/vestige_${vestige}.webp`;
             const iconPath = `./export/assets/assetbundles/icon/potential/${icon}_A.webp`;
@@ -40,16 +40,14 @@ for (const charId in data) {
 
             composites.push({ input: bgBuf, left: 0, top: 0 });
 
-            if (iconPath && existsSync(iconPath)) {
-                const iconBuf = readFileSync(iconPath);
-                const iconMeta = await sharp(iconBuf).metadata();
-                const iconWidth = bgWidth;
-                const iconHeight = Math.round((iconMeta.height / iconMeta.width) * iconWidth);
-                const iconResized = await sharp(iconBuf).resize(iconWidth, iconHeight).toBuffer();
-                composites.push({ input: iconResized, left: 0, top: 0 });
-            }
+            const iconBuf = readFileSync(iconPath);
+            const iconMeta = await sharp(iconBuf).metadata();
+            const iconWidth = bgWidth;
+            const iconHeight = Math.round((iconMeta.height / iconMeta.width) * iconWidth);
+            const iconResized = await sharp(iconBuf).resize(iconWidth, iconHeight).toBuffer();
+            composites.push({ input: iconResized, left: 0, top: 0 });
 
-            if (cornerMaskPath && existsSync(cornerMaskPath)) {
+            if (cornerMaskPath) {
                 const cornerMaskBuf = readFileSync(cornerMaskPath);
                 const cornerMaskMeta = await sharp(cornerMaskBuf).metadata();
                 const cornerMaskWidth = bgWidth;
@@ -68,7 +66,7 @@ for (const charId in data) {
                 composites.push({ input: Buffer.from(rectSvg), left: 0, top: 0 });
             }
 
-            if (cornerPath && existsSync(cornerPath)) {
+            if (cornerPath) {
                 const cornerBuf = readFileSync(cornerPath);
                 const cornerMeta = await sharp(cornerBuf).metadata();
                 const cornerWidth = bgWidth;
@@ -96,9 +94,9 @@ for (const charId in data) {
             let lines = wrapTextToLines(name, fontSize, maxTextWidth);
 
             if (lines.length === 1) {
-                const textWidth = String(name).length * fontSize * 0.55;
+                const textWidth = name.length * fontSize * 0.55;
                 if (textWidth < maxUpscaleWidth) {
-                    const fittedFontSize = (maxUpscaleWidth - 1) / (String(name).length * 0.55);
+                    const fittedFontSize = (maxUpscaleWidth - 1) / (name.length * 0.55);
                     fontSize = Math.min(fittedFontSize, baseFontSize * 4 / 3);
                     lines = wrapTextToLines(name, fontSize, maxTextWidth);
                 }
@@ -146,7 +144,7 @@ for (const charId in data) {
 }
 
 function wrapTextToLines(text, fontSizePx, maxWidthPx) {
-    const words = String(text).split(/\s+/).filter(Boolean);
+    const words = text.split(/\s+/).filter(Boolean);
     const approxCharWidth = fontSizePx * 0.55;
     const lines = [];
     let cur = '';
@@ -165,7 +163,7 @@ function wrapTextToLines(text, fontSizePx, maxWidthPx) {
 }
 
 function escapeXml(str) {
-    return String(str).replace(/[&<>"']/g, (c) => ({
+    return str.replace(/[&<>"']/g, (c) => ({
         '&': '&amp;',
         '<': '&lt;',
         '>': '&gt;',

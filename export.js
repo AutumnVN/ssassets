@@ -2,7 +2,6 @@ import { spawnSync } from 'child_process';
 import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync, copyFileSync } from 'fs';
 import { tmpdir } from 'os';
 import { join, dirname } from 'path';
-import { findStoreDir } from './store.js';
 
 const ROOT = './export';
 const CONTAINERS = ['assets/assetbundles', 'assets/assetbundles_en'];
@@ -15,12 +14,7 @@ const TYPES = [
 
 const UNSTABLE = /_#\d+(\.[^.]+)$/;
 
-const source = process.argv[2] ?? findStoreDir();
-
-if (!source) {
-    console.error('Export failed: no unpacked store found under ResourceTool/output/Unpack');
-    process.exit(1);
-}
+const source = process.argv[2] ?? './ResourceTool/output/Unpack/EN/win';
 
 console.log(`Exporting ${source}`);
 
