@@ -1182,72 +1182,6 @@
       }
     ]
   },
-  "80120011": {
-    "sources": [
-      {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_12001_Attack_1",
-        "speed": 30,
-        "lifetime": 0.6,
-        "shape": "circle",
-        "radius": 0.6
-      }
-    ]
-  },
-  "80120012": {
-    "sources": [
-      {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_12001_Attack_2",
-        "speed": 30,
-        "lifetime": 0.6,
-        "shape": "circle",
-        "radius": 0.6
-      }
-    ]
-  },
-  "80120013": {
-    "sources": [
-      {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_12001_Attack_3",
-        "speed": 30,
-        "lifetime": 0.6,
-        "shape": "circle",
-        "radius": 0.6
-      }
-    ]
-  },
-  "80120014": {
-    "sources": [
-      {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_12001_Attack_4",
-        "speed": 30,
-        "lifetime": 0.6,
-        "shape": "circle",
-        "radius": 0.6
-      }
-    ]
-  },
-  "80120015": {
-    "sources": [
-      {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_12001_Attack_5",
-        "speed": 50,
-        "lifetime": 0.4,
-        "shape": "circle",
-        "radius": 1,
-        "pierce": true
-      }
-    ]
-  },
   "80120016": {
     "sources": [
       {
@@ -1259,40 +1193,6 @@
         "hitInterval": 0.7,
         "hits": 15,
         "rotateSpeed": 190
-      },
-      {
-        "class": "AdventureRotateWeapon",
-        "snapshot": false,
-        "name": "Bullet_12001_B1P7_Skill_Garland_BigMid",
-        "shape": "fan",
-        "duration": 10,
-        "hitInterval": 0.7,
-        "hits": 15,
-        "rotateSpeed": 190
-      },
-      {
-        "class": "AdventureRotateWeapon",
-        "snapshot": false,
-        "name": "Bullet_12001_B1_Skill_Garland_Mid",
-        "shape": "fan",
-        "duration": 7.3000002,
-        "hitInterval": 0.5,
-        "hits": 15,
-        "rotateSpeed": 150
-      }
-    ]
-  },
-  "80120017": {
-    "sources": [
-      {
-        "class": "AdventureRotateWeapon",
-        "snapshot": false,
-        "name": "Bullet_12001_B1_Skill_Garland_Near",
-        "shape": "fan",
-        "duration": 10,
-        "hitInterval": 0.5,
-        "hits": 20,
-        "rotateSpeed": 150
       }
     ]
   },
@@ -1306,16 +1206,6 @@
         "duration": 10,
         "hitInterval": 0.5,
         "hits": 20,
-        "rotateSpeed": 150
-      },
-      {
-        "class": "AdventureRotateWeapon",
-        "snapshot": false,
-        "name": "Bullet_12001_B1P7_Skill_Garland_BigNear",
-        "shape": "fan",
-        "duration": 10,
-        "hitInterval": 0.9,
-        "hits": 12,
         "rotateSpeed": 150
       }
     ]
@@ -13088,6 +12978,474 @@
         "hitDelay": 1.4,
         "hitInterval": 3,
         "hits": 1,
+        "triggers": []
+      }
+    ]
+  },
+  "161000001": {
+    "sources": [
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_LandTag_Stone",
+        "alias": "AreaEffect_161_LandTag_Stone",
+        "shape": "circle",
+        "radius": 2,
+        "duration": 1.8,
+        "hitDelay": 0.1,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      }
+    ]
+  },
+  "161100001": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_1",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      },
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_1_P02",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      }
+    ]
+  },
+  "161100002": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_2_P02",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      },
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_2",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      }
+    ]
+  },
+  "161100003": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_3_P02",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      },
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_3",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      }
+    ]
+  },
+  "161100004": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_1_P01+P02",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      },
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_1_P01",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      }
+    ]
+  },
+  "161100005": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_2_P01+P02",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      },
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_2_P01",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      }
+    ]
+  },
+  "161100006": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_3_P01+P02",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      },
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Attack_3_P01",
+        "speed": 20,
+        "lifetime": 1,
+        "shape": "rectangle",
+        "width": 2.8,
+        "length": 1.7,
+        "pierce": true
+      }
+    ]
+  },
+  "161310001": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_161_Skill_Main",
+        "speed": 30,
+        "lifetime": 0.35,
+        "shape": "rectangle",
+        "width": 5,
+        "length": 1.5,
+        "pierce": true
+      }
+    ]
+  },
+  "161310003": {
+    "sources": [
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Main_P03",
+        "alias": "AreaEffect_161_Summon_Main_P03",
+        "shape": "circle",
+        "radius": 8,
+        "duration": 2,
+        "hitDelay": 0,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      }
+    ]
+  },
+  "161320001": {
+    "sources": [
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P22_Lv2",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P22_Lv2",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P21P22_Lv1",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P21P22_Lv1",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P21",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P21",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P21P22_Lv2",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P21P22_Lv2",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Attack_P23",
+        "alias": "AreaEffect_161_Summon_Sup_Attack_P23",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P22_Lv1",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P22_Lv1",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      }
+    ]
+  },
+  "161320002": {
+    "sources": [
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Summon_Sup_Area_P21P22_Lv2",
+        "alias": "AreaEffect_161_Summon_Sup_Area_P21P22_Lv2",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 30,
+        "hitDelay": 0,
+        "hitInterval": 1,
+        "hits": 30,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Summon_Sup_Area",
+        "alias": "AreaEffect_161_Summon_Sup_Area",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 30,
+        "hitDelay": 0,
+        "hitInterval": 2,
+        "hits": 15,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Summon_Sup_Area_P22_Lv2",
+        "alias": "AreaEffect_161_Summon_Sup_Area_P22_Lv2",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 30,
+        "hitDelay": 0,
+        "hitInterval": 2,
+        "hits": 15,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Summon_Sup_Area_P21P22_Lv1",
+        "alias": "AreaEffect_161_Summon_Sup_Area_P21P22_Lv1",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 30,
+        "hitDelay": 0,
+        "hitInterval": 1,
+        "hits": 30,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Summon_Sup_Area_P22_Lv1",
+        "alias": "AreaEffect_161_Summon_Sup_Area_P22_Lv1",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 30,
+        "hitDelay": 0,
+        "hitInterval": 2,
+        "hits": 15,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Summon_Sup_Area_P21",
+        "alias": "AreaEffect_161_Summon_Sup_Area_P21",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 30,
+        "hitDelay": 0,
+        "hitInterval": 1,
+        "hits": 30,
+        "triggers": []
+      }
+    ]
+  },
+  "161320004": {
+    "sources": [
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P24P22Lv2",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P24P22Lv2",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Attack_P23P24",
+        "alias": "AreaEffect_161_Summon_Sup_Attack_P23P24",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P24P22Lv1",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P24P22Lv1",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": true,
+        "name": "AreaEffect_161_Summon_Sup_Spawn_P24",
+        "alias": "AreaEffect_161_Summon_Sup_Spawn_P24",
+        "shape": "circle",
+        "radius": 6,
+        "duration": 2,
+        "hitDelay": 0.35,
+        "hitInterval": 3,
+        "hits": 1,
+        "triggers": []
+      }
+    ]
+  },
+  "161400001": {
+    "sources": [
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Ultra_P42",
+        "alias": "AreaEffect_161_Ultra_P42",
+        "shape": "circle",
+        "radius": 9,
+        "duration": 20,
+        "hitDelay": 0,
+        "hitInterval": 2,
+        "hits": 10,
+        "triggers": []
+      },
+      {
+        "class": "AreaEffectEntity",
+        "snapshot": false,
+        "name": "AreaEffect_161_Ultra",
+        "alias": "AreaEffect_161_Ultra",
+        "shape": "circle",
+        "radius": 9,
+        "duration": 20,
+        "hitDelay": 0,
+        "hitInterval": 3,
+        "hits": 7,
         "triggers": []
       }
     ]
