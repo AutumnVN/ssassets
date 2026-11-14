@@ -27,7 +27,7 @@ defaults:
 
 jobs:
   update:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -57,13 +57,23 @@ jobs:
         run: pnpm install --prod
 
       - name: Install MiSans font
-        shell: pwsh
         run: |
-          $dst = "$env:LOCALAPPDATA\Microsoft\Windows\Fonts\MiSansLatin-Semibold.ttf"
-          New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
-          Copy-Item "$env:GITHUB_WORKSPACE\font\MiSansLatin-Semibold.ttf" $dst -Force
-          New-ItemProperty -Path 'HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts' `
-            -Name 'MiSans Latin SemiBold (TrueType)' -Value $dst -PropertyType String -Force | Out-Null
+          mkdir -p ~/.local/share/fonts
+          cp font/MiSansLatin-Semibold.ttf ~/.local/share/fonts/
+          fc-cache -f
+          match="$(fc-match -f '%{family}' 'MiSans Latin SemiBold')"
+          echo "resolved font: $match"
+          grep -qi 'MiSans Latin' <<< "$match" \
+            || { echo "::error::MiSans Latin font did not resolve"; exit 1; }
+
+      - name: Download ResourceFetcher
+        run: |
+          FETCHER_VERSION=v0.4.3
+          FETCHER_DIR="$RUNNER_TEMP/resourcefetcher"
+          mkdir -p "$FETCHER_DIR"
+          curl -fsSL "https://github.com/MakoStar/ss-resource-fetcher/releases/download/$FETCHER_VERSION/ResourceFetcher-$FETCHER_VERSION-linux-x64.tar.gz" \
+            | tar -xz -C "$FETCHER_DIR"
+          chmod +x "$FETCHER_DIR/ResourceFetcher"
 
       - name: Restore cache
         uses: actions/cache/restore@v6
@@ -81,12 +91,7 @@ jobs:
 
       - name: Sync persistent store
         working-directory: ResourceTool
-        run: |
-          if [ ! -f ResourceFetcher.exe ]; then
-            echo "::error::ResourceTool/ResourceFetcher.exe is missing, run the 'Build' workflow first"
-            exit 1
-          fi
-          ./ResourceFetcher.exe client
+        run: '"$RUNNER_TEMP/resourcefetcher/ResourceFetcher" client'
 
       - name: Remove stale unpacked bundles
         run: node cleanUnpack.js

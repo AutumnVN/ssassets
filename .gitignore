@@ -3,6 +3,8 @@ download/
 download2/
 export2/
 ResourceTool/output/
+ResourceTool/ResourceFetcher
+ResourceTool/ResourceFetcher.exe
 out/
 diff_out/
 diff-resource/
