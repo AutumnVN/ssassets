@@ -1182,6 +1182,72 @@
       }
     ]
   },
+  "80120011": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_12001_Attack_1",
+        "speed": 30,
+        "lifetime": 0.6,
+        "shape": "circle",
+        "radius": 0.6
+      }
+    ]
+  },
+  "80120012": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_12001_Attack_2",
+        "speed": 30,
+        "lifetime": 0.6,
+        "shape": "circle",
+        "radius": 0.6
+      }
+    ]
+  },
+  "80120013": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_12001_Attack_3",
+        "speed": 30,
+        "lifetime": 0.6,
+        "shape": "circle",
+        "radius": 0.6
+      }
+    ]
+  },
+  "80120014": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_12001_Attack_4",
+        "speed": 30,
+        "lifetime": 0.6,
+        "shape": "circle",
+        "radius": 0.6
+      }
+    ]
+  },
+  "80120015": {
+    "sources": [
+      {
+        "class": "AdventureBullet",
+        "snapshot": true,
+        "name": "Bullet_12001_Attack_5",
+        "speed": 50,
+        "lifetime": 0.4,
+        "shape": "circle",
+        "radius": 1,
+        "pierce": true
+      }
+    ]
+  },
   "80120016": {
     "sources": [
       {
@@ -1193,6 +1259,40 @@
         "hitInterval": 0.7,
         "hits": 15,
         "rotateSpeed": 190
+      },
+      {
+        "class": "AdventureRotateWeapon",
+        "snapshot": false,
+        "name": "Bullet_12001_B1P7_Skill_Garland_BigMid",
+        "shape": "fan",
+        "duration": 10,
+        "hitInterval": 0.7,
+        "hits": 15,
+        "rotateSpeed": 190
+      },
+      {
+        "class": "AdventureRotateWeapon",
+        "snapshot": false,
+        "name": "Bullet_12001_B1_Skill_Garland_Mid",
+        "shape": "fan",
+        "duration": 7.3000002,
+        "hitInterval": 0.5,
+        "hits": 15,
+        "rotateSpeed": 150
+      }
+    ]
+  },
+  "80120017": {
+    "sources": [
+      {
+        "class": "AdventureRotateWeapon",
+        "snapshot": false,
+        "name": "Bullet_12001_B1_Skill_Garland_Near",
+        "shape": "fan",
+        "duration": 10,
+        "hitInterval": 0.5,
+        "hits": 20,
+        "rotateSpeed": 150
       }
     ]
   },
@@ -1206,6 +1306,16 @@
         "duration": 10,
         "hitInterval": 0.5,
         "hits": 20,
+        "rotateSpeed": 150
+      },
+      {
+        "class": "AdventureRotateWeapon",
+        "snapshot": false,
+        "name": "Bullet_12001_B1P7_Skill_Garland_BigNear",
+        "shape": "fan",
+        "duration": 10,
+        "hitInterval": 0.9,
+        "hits": 12,
         "rotateSpeed": 150
       }
     ]
