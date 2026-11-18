@@ -39,6 +39,9 @@ var featureClasses = new HashSet<string>(StringComparer.Ordinal)
 };
 var shapes = new[] { "rectangle", "circle", "fan" };
 
+const double FixedScale = 4294967296.0;
+const long FixedStep = (long)(FixedScale / 30);
+
 var mode = args.Length > 0 ? args[0] : "all";
 var source = args.Length > 1 ? args[1] : "./ResourceTool/output/Unpack/EN/win";
 
@@ -643,11 +646,12 @@ static int GetTimerHits(double duration, double hitDelay, double hitInterval, bo
     }
 
     var firstHit = hitDelay > 0 ? hitDelay : hitImmediately ? 0 : hitInterval;
-    if (duration <= firstHit) return 0;
+    var durationFrames = GetLogicFrames(duration);
+    var firstFrame = GetLogicFrames(firstHit);
 
-    var ratio = RoundRatio((duration - firstHit) / hitInterval);
+    if (firstFrame >= durationFrames) return 0;
 
-    return Math.Max(1, (int)Math.Ceiling(ratio));
+    return 1 + (int)((durationFrames - 1 - firstFrame) / GetLogicFrames(hitInterval));
 }
 
 static (int Hits, bool Ends) GetTriggerHits(double duration, Attack attack)
@@ -660,10 +664,15 @@ static (int Hits, bool Ends) GetTriggerHits(double duration, Attack attack)
     {
         var every = attack.TimeTriggerStay;
 
+        if (every <= 0) return (duration > 0 ? 2 : 0, false);
+
+        var durationFrames = GetLogicFrames(duration);
+        var everyFrames = GetLogicFrames(every);
+
         return (
-            every <= 0
-                ? (duration > 0 ? 2 : 0)
-                : (duration > every ? (int)Math.Ceiling(duration / every) : 0),
+            everyFrames > durationFrames
+                ? 0
+                : (int)(durationFrames / everyFrames),
             false);
     }
 
@@ -674,12 +683,28 @@ static (int Hits, bool Ends) GetTriggerHits(double duration, Attack attack)
 
 static int GetSourceHits(double duration, double hitDelay, double hitInterval)
 {
-    if (hitInterval <= 0) return hitDelay <= duration ? 1 : 0;
-    if (duration <= hitDelay) return 0;
+    var durationFrames = GetLogicFrames(duration);
+    var delayFrames = GetLogicFrames(hitDelay);
 
-    var ratio = RoundRatio((duration - hitDelay) / hitInterval);
+    if (delayFrames >= durationFrames) return 0;
+    if (hitInterval <= 0) return 1;
 
-    return Math.Max(1, (int)Math.Ceiling(ratio));
+    var intervalFrames = GetLogicFrames(hitInterval);
+
+    return 1 + (int)((durationFrames - 1 - delayFrames) / intervalFrames);
+}
+
+static long GetLogicFrames(double seconds)
+{
+    var units = GetFixedUnits(seconds);
+    if (units <= 0) return 0;
+
+    return (units + FixedStep - 1) / FixedStep;
+}
+
+static long GetFixedUnits(double seconds)
+{
+    return (long)Math.Truncate((double)(float)seconds * FixedScale);
 }
 
 static double GetFirstHit(double hitDelay, double hitInterval, bool hitImmediately)
@@ -838,7 +863,7 @@ static bool? ReadBool(OrderedDictionary type, string field)
 
 static double Round(double value)
 {
-    var result = Math.Floor(value * 1e7 + 0.5) / 1e7;
+    var result = Math.Floor(value * 1e6 + 0.5) / 1e6;
     return result == 0 ? 0 : result;
 }
 

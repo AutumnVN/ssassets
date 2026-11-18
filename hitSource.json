@@ -6,7 +6,7 @@
         "snapshot": true,
         "name": "Bullet_117_Ultra",
         "speed": 1,
-        "lifetime": 10.1000004,
+        "lifetime": 10.1,
         "shape": "circle",
         "radius": 30,
         "pierce": true
@@ -685,7 +685,7 @@
         "duration": 10,
         "hitDelay": 0.5,
         "hitInterval": 0.5,
-        "hits": 19,
+        "hits": 18,
         "triggers": []
       }
     ]
@@ -748,10 +748,10 @@
         "alias": "AreaEffect_8010301_P22_Shadow",
         "shape": "circle",
         "radius": 3,
-        "duration": 2.5999999,
+        "duration": 2.6,
         "hitDelay": 0,
         "hitInterval": 0.5,
-        "hits": 6,
+        "hits": 5,
         "triggers": []
       }
     ]
@@ -870,7 +870,7 @@
         "duration": 5,
         "hitDelay": 0.2,
         "hitInterval": 0.5,
-        "hits": 10,
+        "hits": 9,
         "triggers": []
       },
       {
@@ -883,7 +883,7 @@
         "duration": 5,
         "hitDelay": 0.2,
         "hitInterval": 0.5,
-        "hits": 10,
+        "hits": 9,
         "triggers": []
       }
     ]
@@ -897,7 +897,7 @@
         "alias": "AreaEffect_8011101_Skill_IceWave_StunArea",
         "shape": "circle",
         "radius": 4.5,
-        "duration": 5.0999999,
+        "duration": 5.1,
         "hitDelay": 0.2,
         "hitInterval": 10,
         "hits": 1,
@@ -947,7 +947,7 @@
         "duration": 1.1,
         "hitDelay": 0,
         "hitInterval": 0.2,
-        "hits": 6,
+        "hits": 5,
         "triggers": []
       }
     ]
@@ -1218,8 +1218,8 @@
         "name": "AreaEffect_Attack3",
         "alias": "AreaEffect_Attack3",
         "shape": "rectangle",
-        "width": 3.4000001,
-        "length": 5.8000002,
+        "width": 3.4,
+        "length": 5.8,
         "duration": 1,
         "hitDelay": 0.1,
         "hitInterval": 0,
@@ -1463,7 +1463,7 @@
         "duration": 10,
         "hitDelay": 0,
         "hitInterval": 0.5,
-        "hits": 20,
+        "hits": 19,
         "triggers": []
       }
     ]
@@ -1658,7 +1658,7 @@
         "duration": 99,
         "hitDelay": 0,
         "hitInterval": 0.25,
-        "hits": 396,
+        "hits": 372,
         "triggers": []
       }
     ]
@@ -1742,7 +1742,7 @@
         "alias": "AreaEffect_135_GhostDoor_T23",
         "shape": "circle",
         "radius": 6,
-        "duration": 6.5999999,
+        "duration": 6.6,
         "hitDelay": 1,
         "hitInterval": 1,
         "hits": 6,
@@ -1754,8 +1754,8 @@
         "name": "AreaEffect_135_GhostDoor",
         "alias": "AreaEffect_135_GhostDoor",
         "shape": "circle",
-        "radius": 3.5999999,
-        "duration": 6.5999999,
+        "radius": 3.6,
+        "duration": 6.6,
         "hitDelay": 1,
         "hitInterval": 1,
         "hits": 6,
@@ -2264,7 +2264,7 @@
         "duration": 10,
         "hitDelay": 0.5,
         "hitInterval": 0.5,
-        "hits": 19,
+        "hits": 18,
         "triggers": []
       }
     ]
@@ -3295,7 +3295,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -3347,7 +3347,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -3360,7 +3360,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -3386,7 +3386,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -3412,7 +3412,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -3425,7 +3425,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -3438,7 +3438,7 @@
         "duration": 4,
         "hitDelay": 0.2,
         "hitInterval": 0.25,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       }
     ]
@@ -3455,7 +3455,7 @@
         "duration": 12,
         "hitDelay": 0.1,
         "hitInterval": 0.4,
-        "hits": 30,
+        "hits": 28,
         "triggers": []
       }
     ]
@@ -3552,7 +3552,7 @@
         "alias": "AreaEffect_11101_B1P04_Skill_IceFalling",
         "shape": "circle",
         "radius": 2,
-        "duration": 2.9000001,
+        "duration": 2.9,
         "hitDelay": 1,
         "hitInterval": 0.5,
         "hits": 4,
@@ -4301,7 +4301,7 @@
         "duration": 4,
         "hitDelay": 0.7,
         "hitInterval": 0.3,
-        "hits": 11,
+        "hits": 10,
         "triggers": []
       }
     ]
@@ -4517,7 +4517,7 @@
         "duration": 1.6,
         "hitDelay": 0,
         "hitInterval": 0.2,
-        "hits": 8,
+        "hits": 7,
         "triggers": []
       },
       {
@@ -4859,10 +4859,10 @@
         "alias": "AreaEffect_114_Support_Skill_P25_CatEye",
         "shape": "circle",
         "radius": 4,
-        "duration": 8.3999996,
+        "duration": 8.4,
         "hitDelay": 0.1,
         "hitInterval": 0.4,
-        "hits": 21,
+        "hits": 20,
         "triggers": []
       }
     ]
@@ -5158,7 +5158,7 @@
         "duration": 0.6,
         "hitDelay": 0,
         "hitInterval": 0.075,
-        "hits": 8,
+        "hits": 7,
         "triggers": []
       }
     ]
@@ -5175,7 +5175,7 @@
         "duration": 0.6,
         "hitDelay": 0,
         "hitInterval": 0.075,
-        "hits": 8,
+        "hits": 7,
         "triggers": []
       }
     ]
@@ -5223,7 +5223,7 @@
         "duration": 2.3,
         "hitDelay": 0.2,
         "hitInterval": 0.4,
-        "hits": 6,
+        "hits": 5,
         "triggers": []
       }
     ]
@@ -5301,7 +5301,7 @@
         "duration": 2.5,
         "hitDelay": 0.5,
         "hitInterval": 0.33,
-        "hits": 7,
+        "hits": 6,
         "triggers": []
       },
       {
@@ -5311,10 +5311,10 @@
         "alias": "AreaEffect_11601_Skill_Sup_Seed_Perk22",
         "shape": "circle",
         "radius": 5,
-        "duration": 2.5999999,
+        "duration": 2.6,
         "hitDelay": 0.5,
         "hitInterval": 0.23,
-        "hits": 10,
+        "hits": 9,
         "triggers": []
       },
       {
@@ -5324,10 +5324,10 @@
         "alias": "AreaEffect_11601_Skill_Sup_Seed_Perk22_Perk27",
         "shape": "circle",
         "radius": 6.5,
-        "duration": 2.5999999,
+        "duration": 2.6,
         "hitDelay": 0.5,
         "hitInterval": 0.23,
-        "hits": 10,
+        "hits": 9,
         "triggers": []
       },
       {
@@ -5340,7 +5340,7 @@
         "duration": 2.5,
         "hitDelay": 0.5,
         "hitInterval": 0.33,
-        "hits": 7,
+        "hits": 6,
         "triggers": []
       }
     ]
@@ -5384,7 +5384,7 @@
         "alias": "AreaEffect_11601_Ultra",
         "shape": "circle",
         "radius": 6,
-        "duration": 3.4200001,
+        "duration": 3.42,
         "hitDelay": 1.3,
         "hitInterval": 0.46,
         "hits": 5,
@@ -5397,7 +5397,7 @@
         "alias": "AreaEffect_11601_Ultra_TL",
         "shape": "circle",
         "radius": 6,
-        "duration": 2.1199999,
+        "duration": 2.12,
         "hitDelay": 0,
         "hitInterval": 0.46,
         "hits": 5,
@@ -5530,7 +5530,7 @@
         "duration": 8,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 26,
+        "hits": 24,
         "triggers": []
       },
       {
@@ -5556,7 +5556,7 @@
         "duration": 8,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 26,
+        "hits": 24,
         "triggers": []
       },
       {
@@ -5608,7 +5608,7 @@
         "duration": 8,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 26,
+        "hits": 24,
         "triggers": []
       },
       {
@@ -5621,7 +5621,7 @@
         "duration": 8,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 26,
+        "hits": 24,
         "triggers": []
       },
       {
@@ -5646,7 +5646,7 @@
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6",
         "speed": 2,
-        "lifetime": 10.1000004,
+        "lifetime": 10.1,
         "shape": "circle",
         "radius": 30,
         "pierce": true
@@ -5656,7 +5656,7 @@
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6_42",
         "speed": 2,
-        "lifetime": 10.1000004,
+        "lifetime": 10.1,
         "shape": "circle",
         "radius": 30,
         "pierce": true
@@ -5670,7 +5670,7 @@
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6_2",
         "speed": 2,
-        "lifetime": 10.1000004,
+        "lifetime": 10.1,
         "shape": "circle",
         "radius": 4,
         "pierce": true
@@ -5680,7 +5680,7 @@
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6_42_2",
         "speed": 2,
-        "lifetime": 10.1000004,
+        "lifetime": 10.1,
         "shape": "circle",
         "radius": 4,
         "pierce": true
@@ -5796,7 +5796,7 @@
         "alias": "AreaEffect_117_B2P21P24_Skill_ElectricCircle_LargeBoom",
         "shape": "circle",
         "radius": 7.5,
-        "duration": 8.3000002,
+        "duration": 8.3,
         "hitDelay": 0.1,
         "hitInterval": 3,
         "hits": 3,
@@ -5809,7 +5809,7 @@
         "alias": "AreaEffect_117_B2P24_Skill_ElectricCircle_Boom",
         "shape": "circle",
         "radius": 5,
-        "duration": 8.3000002,
+        "duration": 8.3,
         "hitDelay": 0.1,
         "hitInterval": 3,
         "hits": 3,
@@ -6179,7 +6179,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B2P24_Wreath",
         "shape": "fan",
-        "duration": 6.5999999,
+        "duration": 6.6,
         "hitInterval": 10,
         "hits": 1
       },
@@ -6188,7 +6188,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B2P24P23_Wreath",
         "shape": "fan",
-        "duration": 6.5999999,
+        "duration": 6.6,
         "hitInterval": 10,
         "hits": 1
       }
@@ -6333,7 +6333,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B1P7_Skill_Garland_BigNear",
         "shape": "fan",
-        "duration": 7.3000002,
+        "duration": 7.3,
         "hitInterval": 0.5,
         "hits": 15,
         "rotateSpeed": 150
@@ -6353,7 +6353,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B1_Skill_Garland_Near",
         "shape": "fan",
-        "duration": 7.3000002,
+        "duration": 7.3,
         "hitInterval": 0.5,
         "hits": 15,
         "rotateSpeed": 150
@@ -6429,7 +6429,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B2P21P22_Skill_Corolla_Strength",
         "shape": "fan",
-        "duration": 6.1999998,
+        "duration": 6.2,
         "hitInterval": 0.2,
         "hits": 31,
         "rotateSpeed": -240
@@ -6439,7 +6439,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B2_Skill_Corolla",
         "shape": "fan",
-        "duration": 6.1999998,
+        "duration": 6.2,
         "hitInterval": 0.4,
         "hits": 16,
         "rotateSpeed": -240
@@ -6449,7 +6449,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B2P22_Skill_Corolla",
         "shape": "fan",
-        "duration": 6.1999998,
+        "duration": 6.2,
         "hitInterval": 0.4,
         "hits": 16,
         "rotateSpeed": -240
@@ -6459,7 +6459,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B2P21_Skill_Corolla_Strength",
         "shape": "fan",
-        "duration": 6.1999998,
+        "duration": 6.2,
         "hitInterval": 0.2,
         "hits": 31,
         "rotateSpeed": -240
@@ -6473,7 +6473,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B1P7_Skill_Garland_BigMid",
         "shape": "fan",
-        "duration": 7.3000002,
+        "duration": 7.3,
         "hitInterval": 0.5,
         "hits": 15,
         "rotateSpeed": 150
@@ -6483,7 +6483,7 @@
         "snapshot": false,
         "name": "Bullet_12001_B1_Skill_Garland_Mid",
         "shape": "fan",
-        "duration": 7.3000002,
+        "duration": 7.3,
         "hitInterval": 0.5,
         "hits": 15,
         "rotateSpeed": 150
@@ -7157,7 +7157,7 @@
         "speed": 14,
         "lifetime": 8,
         "shape": "circle",
-        "radius": 2.4000001,
+        "radius": 2.4,
         "homing": {
           "range": 20,
           "rotateSpeed": 600,
@@ -7172,7 +7172,7 @@
         "speed": 2,
         "lifetime": 5,
         "shape": "circle",
-        "radius": 2.4000001,
+        "radius": 2.4,
         "pierce": true
       }
     ]
@@ -8142,10 +8142,10 @@
         "alias": "AreaEffect_132_Ultra_P42",
         "shape": "circle",
         "radius": 5,
-        "duration": 5.5999999,
+        "duration": 5.6,
         "hitDelay": 1.5,
         "hitInterval": 0.18,
-        "hits": 23,
+        "hits": 21,
         "triggers": []
       },
       {
@@ -8155,10 +8155,10 @@
         "alias": "AreaEffect_132_Ultra",
         "shape": "circle",
         "radius": 5,
-        "duration": 5.5999999,
+        "duration": 5.6,
         "hitDelay": 1.5,
         "hitInterval": 0.25,
-        "hits": 17,
+        "hits": 16,
         "triggers": []
       }
     ]
@@ -8441,7 +8441,7 @@
         "duration": 2,
         "hitDelay": 0,
         "hitInterval": 0.1,
-        "hits": 20,
+        "hits": 16,
         "triggers": []
       },
       {
@@ -8454,7 +8454,7 @@
         "duration": 2,
         "hitDelay": 0,
         "hitInterval": 0.1,
-        "hits": 20,
+        "hits": 16,
         "triggers": []
       }
     ]
@@ -8566,7 +8566,7 @@
         "shape": "fan",
         "radius": 5,
         "angle": 45,
-        "duration": 2.0999999,
+        "duration": 2.1,
         "hitDelay": 0,
         "hitInterval": 5,
         "hits": 1,
@@ -8596,10 +8596,10 @@
         "alias": "AreaEffect_13401_Support_Skill_Ball_Lv2",
         "shape": "circle",
         "radius": 5,
-        "duration": 2.0999999,
+        "duration": 2.1,
         "hitDelay": 0,
         "hitInterval": 0.2,
-        "hits": 11,
+        "hits": 9,
         "triggers": []
       }
     ]
@@ -8826,7 +8826,7 @@
         "alias": "AreaEffect_135_GhostDoor_T23",
         "shape": "circle",
         "radius": 6,
-        "duration": 6.5999999,
+        "duration": 6.6,
         "hitDelay": 1,
         "hitInterval": 1,
         "hits": 6,
@@ -8838,8 +8838,8 @@
         "name": "AreaEffect_135_GhostDoor",
         "alias": "AreaEffect_135_GhostDoor",
         "shape": "circle",
-        "radius": 3.5999999,
-        "duration": 6.5999999,
+        "radius": 3.6,
+        "duration": 6.6,
         "hitDelay": 1,
         "hitInterval": 1,
         "hits": 6,
@@ -9807,7 +9807,7 @@
         "duration": 2.8,
         "hitDelay": 0.25,
         "hitInterval": 0.25,
-        "hits": 11,
+        "hits": 10,
         "triggers": []
       }
     ]
@@ -10016,10 +10016,10 @@
         "alias": "AreaEffect_14101_Ultra_T2",
         "shape": "circle",
         "radius": 7,
-        "duration": 5.1999998,
+        "duration": 5.2,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 17,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -10029,7 +10029,7 @@
         "alias": "AreaEffect_14101_Ultra",
         "shape": "circle",
         "radius": 5,
-        "duration": 3.9000001,
+        "duration": 3.9,
         "hitDelay": 0.5,
         "hitInterval": 0.5,
         "hits": 7,
@@ -10049,7 +10049,7 @@
         "duration": 8,
         "hitDelay": 0.2,
         "hitInterval": 0.5,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       }
     ]
@@ -10456,7 +10456,7 @@
         "name": "AreaEffect_143_Ultra_WindDomainEndAtk",
         "alias": "AreaEffect_143_Ultra_WindDomainEndAtk",
         "shape": "circle",
-        "radius": 10.6999998,
+        "radius": 10.7,
         "duration": 5,
         "hitDelay": 0,
         "hitInterval": 0,
@@ -10528,7 +10528,7 @@
         "duration": 0.45,
         "hitDelay": 0,
         "hitInterval": 0.14,
-        "hits": 4,
+        "hits": 3,
         "triggers": []
       }
     ]
@@ -10579,7 +10579,7 @@
         "duration": 0.45,
         "hitDelay": 0,
         "hitInterval": 0.14,
-        "hits": 4,
+        "hits": 3,
         "triggers": []
       }
     ]
@@ -11196,10 +11196,10 @@
         "alias": "AreaEffect_147_Ultra_AOE_1_P8",
         "shape": "circle",
         "radius": 6,
-        "duration": 2.6199999,
+        "duration": 2.62,
         "hitDelay": 0,
         "hitInterval": 0.2,
-        "hits": 14,
+        "hits": 12,
         "triggers": []
       }
     ]
@@ -11473,7 +11473,7 @@
         "duration": 0.6,
         "hitDelay": 0.1,
         "hitInterval": 0.1,
-        "hits": 5,
+        "hits": 4,
         "triggers": []
       },
       {
@@ -11501,10 +11501,10 @@
         "shape": "rectangle",
         "width": 2.5,
         "length": 32,
-        "duration": 3.0999999,
+        "duration": 3.1,
         "hitDelay": 0,
         "hitInterval": 0.1,
-        "hits": 31,
+        "hits": 24,
         "triggers": []
       },
       {
@@ -11517,7 +11517,7 @@
         "duration": 10,
         "hitDelay": 0.5,
         "hitInterval": 0.5,
-        "hits": 19,
+        "hits": 18,
         "triggers": []
       }
     ]
@@ -11658,7 +11658,7 @@
         "duration": 4,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 13,
+        "hits": 12,
         "triggers": []
       },
       {
@@ -11671,7 +11671,7 @@
         "duration": 4,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 13,
+        "hits": 12,
         "triggers": []
       }
     ]
@@ -11752,7 +11752,7 @@
         "duration": 6,
         "hitDelay": 0.1,
         "hitInterval": 0.3,
-        "hits": 20,
+        "hits": 18,
         "triggers": []
       }
     ]
@@ -11783,10 +11783,10 @@
         "alias": "AreaEffect_150_Ultra_T2",
         "shape": "circle",
         "radius": 8,
-        "duration": 3.0999999,
+        "duration": 3.1,
         "hitDelay": 0.5,
         "hitInterval": 0.5,
-        "hits": 6,
+        "hits": 5,
         "triggers": []
       }
     ]
@@ -11800,7 +11800,7 @@
         "alias": "AreaEffect_150_Ultra_T2",
         "shape": "circle",
         "radius": 8,
-        "duration": 3.0999999,
+        "duration": 3.1,
         "hitDelay": 3,
         "hitInterval": 5,
         "hits": 1,
@@ -11820,7 +11820,7 @@
         "duration": 10,
         "hitDelay": 0.5,
         "hitInterval": 0.5,
-        "hits": 19,
+        "hits": 18,
         "triggers": []
       }
     ]
@@ -12170,7 +12170,7 @@
         "duration": 1.5,
         "hitDelay": 0,
         "hitInterval": 0.2,
-        "hits": 8,
+        "hits": 7,
         "triggers": []
       }
     ]
@@ -12239,7 +12239,7 @@
         "duration": 1,
         "hitDelay": 0,
         "hitInterval": 0.1,
-        "hits": 10,
+        "hits": 8,
         "triggers": []
       }
     ]
@@ -12415,7 +12415,7 @@
         "duration": 9999,
         "hitDelay": 0.5,
         "hitInterval": 1,
-        "hits": 9999,
+        "hits": 9676,
         "triggers": []
       }
     ]
@@ -12549,7 +12549,7 @@
         "duration": 1,
         "hitDelay": 0,
         "hitInterval": 0.05,
-        "hits": 20,
+        "hits": 16,
         "triggers": []
       }
     ]
@@ -12583,7 +12583,7 @@
         "duration": 1,
         "hitDelay": 0,
         "hitInterval": 0.02,
-        "hits": 50,
+        "hits": 31,
         "triggers": []
       }
     ]
@@ -12617,7 +12617,7 @@
         "duration": 6,
         "hitDelay": 1,
         "hitInterval": 0.8,
-        "hits": 7,
+        "hits": 6,
         "triggers": []
       }
     ]
@@ -12634,7 +12634,7 @@
         "duration": 6,
         "hitDelay": 1,
         "hitInterval": 0.8,
-        "hits": 7,
+        "hits": 6,
         "triggers": []
       },
       {
@@ -12647,7 +12647,7 @@
         "duration": 6,
         "hitDelay": 1,
         "hitInterval": 0.8,
-        "hits": 7,
+        "hits": 6,
         "triggers": []
       }
     ]
@@ -12698,7 +12698,7 @@
         "duration": 1,
         "hitDelay": 0,
         "hitInterval": 0.02,
-        "hits": 50,
+        "hits": 31,
         "triggers": []
       }
     ]
@@ -12711,11 +12711,11 @@
         "name": "AreaEffect_15901_Ultra_Light",
         "alias": "AreaEffect_15901_Ultra_Light",
         "shape": "circle",
-        "radius": 8.1999998,
+        "radius": 8.2,
         "duration": 0.78,
         "hitDelay": 0,
         "hitInterval": 0.09,
-        "hits": 9,
+        "hits": 8,
         "triggers": []
       }
     ]
@@ -13645,7 +13645,7 @@
         "duration": 3.3,
         "hitDelay": 0.8,
         "hitInterval": 0.35,
-        "hits": 8,
+        "hits": 7,
         "triggers": []
       }
     ]
@@ -13710,7 +13710,7 @@
         "duration": 5,
         "hitDelay": 0,
         "hitInterval": 0.25,
-        "hits": 20,
+        "hits": 19,
         "triggers": []
       }
     ]
@@ -13737,10 +13737,10 @@
         "alias": "AreaEffect_Soldier_103_MainSkill_B",
         "shape": "circle",
         "radius": 3,
-        "duration": 7.5999999,
+        "duration": 7.6,
         "hitDelay": 0,
         "hitInterval": 0.5,
-        "hits": 16,
+        "hits": 15,
         "triggers": []
       },
       {
@@ -13750,7 +13750,7 @@
         "alias": "AreaEffect_Soldier_103_MainSkill_A",
         "shape": "circle",
         "radius": 3,
-        "duration": 2.5999999,
+        "duration": 2.6,
         "hitDelay": 0,
         "hitInterval": 1,
         "hits": 3,
@@ -14170,7 +14170,7 @@
         "duration": 2.3,
         "hitDelay": 0.2,
         "hitInterval": 0.4,
-        "hits": 6,
+        "hits": 5,
         "triggers": []
       }
     ]
@@ -14210,10 +14210,10 @@
         "alias": "AreaEffect_Soldier_11601_Support_N",
         "shape": "circle",
         "radius": 6.5,
-        "duration": 2.5999999,
+        "duration": 2.6,
         "hitDelay": 0.5,
         "hitInterval": 0.23,
-        "hits": 10,
+        "hits": 9,
         "triggers": []
       },
       {
@@ -14226,7 +14226,7 @@
         "duration": 2.5,
         "hitDelay": 0.5,
         "hitInterval": 0.33,
-        "hits": 7,
+        "hits": 6,
         "triggers": []
       }
     ]
@@ -15607,7 +15607,7 @@
         "duration": 8,
         "hitDelay": 0.3,
         "hitInterval": 0.3,
-        "hits": 26,
+        "hits": 24,
         "triggers": []
       }
     ]
