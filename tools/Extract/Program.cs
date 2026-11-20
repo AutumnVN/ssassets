@@ -104,6 +104,7 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
         var entities = new Dictionary<(long, long), Entity>();
         var attacks = new List<Attack>();
         var specials = new List<Special>();
+        var unreadable = new HashSet<string>(StringComparer.Ordinal);
 
         foreach (var file in manager.AssetsFileList)
         {
@@ -124,7 +125,13 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
                 if (className == null) continue;
 
                 var type = ReadType(mb);
-                if (type == null) continue;
+
+                if (type == null)
+                {
+                    if (className is "AreaEffectEntity" or "LineAreaWeaponEntity" or "SpikeweedEneity"
+                        || className.StartsWith("AreaEffect_AttackComponent", StringComparison.Ordinal)) unreadable.Add(className);
+                    continue;
+                }
 
                 if (className == "AreaEffectEntity")
                 {
@@ -135,7 +142,8 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
                         copy.Value,
                         ReadFloat(type, "duration") ?? 1,
                         ReadHitBox(type, shapes),
-                        GetGameObjectName(mb, names));
+                        GetGameObjectName(mb, names),
+                        DescribeGameObject(mb));
                 }
                 else if (className is "LineAreaWeaponEntity" or "SpikeweedEneity")
                 {
@@ -154,7 +162,8 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
                         duration,
                         firstHit,
                         hitInterval,
-                        GetSourceHits(duration, firstHit, hitInterval)));
+                        GetSourceHits(duration, firstHit, hitInterval),
+                        DescribeGameObject(mb)));
                 }
                 else if (className == "AreaEffect_AttackComponent" || className.StartsWith("AreaEffect_AttackComponent_", StringComparison.Ordinal))
                 {
@@ -232,6 +241,7 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
                         Class = "AreaEffectEntity",
                         Snapshot = !entity.Copy,
                         Name = entity.Name,
+                        Ref = entity.Ref,
                         Alias = entity.Name,
                         Duration = entity.Duration,
                         HitDelay = GetFirstHit(attack.HitDelay, attack.HitInterval, attack.HitImmediately),
@@ -255,6 +265,7 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
                     Class = special.Class,
                     Snapshot = false,
                     Name = special.Name,
+                    Ref = special.Ref,
                     Alias = special.Name,
                     Duration = special.Duration,
                     HitDelay = special.HitDelay,
@@ -266,6 +277,11 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
         }
 
         manager.Clear();
+
+        if (unreadable.Count > 0)
+        {
+            Console.Error.WriteLine($"hitSource: cannot read {string.Join(", ", unreadable)} in {Path.GetFileName(bundle)}");
+        }
     }
 
     Console.WriteLine($"hitSource: {resolved} attack component(s) matched an AreaEffectEntity, {unresolved} unresolved");
@@ -293,6 +309,7 @@ static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, Has
         }
 
         var prefabs = new Dictionary<string, WeaponPrefab>(StringComparer.Ordinal);
+        var unreadable = new HashSet<string>(StringComparer.Ordinal);
 
         foreach (var file in manager.AssetsFileList)
         {
@@ -323,7 +340,12 @@ static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, Has
                 }
 
                 var type = ReadType(mb);
-                if (type == null) continue;
+
+                if (type == null)
+                {
+                    if (isWeapon) unreadable.Add(className);
+                    continue;
+                }
 
                 if (!prefabs.TryGetValue(name, out var prefab))
                 {
@@ -335,6 +357,7 @@ static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, Has
                 {
                     prefab.Ids = ParseBulletIds(type);
                     prefab.Source = ParseWeaponSource(className, type, bulletClasses, shapes);
+                    prefab.Source.Ref = DescribeGameObject(mb);
                 }
                 else
                 {
@@ -357,6 +380,11 @@ static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, Has
         }
 
         manager.Clear();
+
+        if (unreadable.Count > 0)
+        {
+            Console.Error.WriteLine($"hitSource: cannot read {string.Join(", ", unreadable)} in {Path.GetFileName(bundle)}");
+        }
     }
 
     Console.WriteLine($"hitSource: {resolved} weapon source(s) matched a GameObject, {unresolved} unresolved");
@@ -367,9 +395,9 @@ static void WriteHitSource(Dictionary<int, List<HitSource>> map)
 {
     var newKeys = new HashSet<string>(StringComparer.Ordinal);
 
-    foreach (var sources in map.Values)
+    foreach (var (id, sources) in map)
     {
-        foreach (var source in sources) newKeys.Add(SourceKey(source.ToJson()));
+        foreach (var source in sources) newKeys.Add($"{id}|{SourceKey(source.ToJson())}");
     }
 
     var merged = new Dictionary<int, List<JsonObject>>();
@@ -390,7 +418,7 @@ static void WriteHitSource(Dictionary<int, List<HitSource>> map)
                     foreach (var node in existingSources)
                     {
                         if (node is not JsonObject source) continue;
-                        if (newKeys.Contains(SourceKey(source))) continue;
+                        if (newKeys.Contains($"{id}|{SourceKey(source)}")) continue;
 
                         sources.Add(source.DeepClone().AsObject());
                     }
@@ -579,7 +607,12 @@ static Dictionary<string, JsonObject> ParseComboGroups(AssetsManager manager, st
     foreach (var group in groups)
     {
         var type = ReadType(group);
-        if (type == null) continue;
+
+        if (type == null)
+        {
+            Console.Error.WriteLine($"comboSource: cannot read {group.m_Name} in {Path.GetFileName(group.assetsFile.originalPath)}");
+            continue;
+        }
 
         var json = BuildComboGroup(group, type, clips, shapes, ref resolved, ref unresolved);
         if (json == null) continue;
@@ -1181,6 +1214,7 @@ static void AddGameObjectPPtr(JsonObject target, string key, OrderedDictionary t
     if (reference.TryGet(out var gameObject, assetsFile) && gameObject != null)
     {
         target[key] = gameObject.m_Name;
+        target[$"{key}Ref"] = $"{gameObject.assetsFile.fileName}:{gameObject.m_PathID}";
         return;
     }
 
@@ -1255,6 +1289,20 @@ static string DescribePPtr(SerializedFile? assetsFile, int fileId, long pathId)
         : Path.GetFileName(assetsFile?.originalPath);
 
     return $"{file}:{pathId}";
+}
+
+static string? DescribeGameObject(MonoBehaviour mb)
+{
+    if (!mb.m_GameObject.TryGet(out var gameObject)) return null;
+
+    while (gameObject.m_Transform != null
+        && gameObject.m_Transform.m_Father.TryGet(out var father)
+        && father.m_GameObject.TryGet(out var parent))
+    {
+        gameObject = parent;
+    }
+
+    return $"{gameObject.assetsFile.fileName}:{gameObject.m_PathID}";
 }
 
 static bool IsEmptyPPtr(OrderedDictionary type, string field)
@@ -1766,7 +1814,7 @@ static double RoundRatio(double value)
     return result == 0 ? 0 : result;
 }
 
-record Entity(bool Copy, double Duration, HitBox HitBox, string? Name);
+record Entity(bool Copy, double Duration, HitBox HitBox, string? Name, string? Ref);
 
 record ComboClipAsset(string Name, OrderedDictionary Type);
 
@@ -1783,7 +1831,7 @@ record Attack(
     bool FinishTriggerEnter,
     bool FinishTriggerExit);
 
-record Special(List<int> Ids, string? Name, string Class, double Duration, double HitDelay, double HitInterval, int Hits);
+record Special(List<int> Ids, string? Name, string Class, double Duration, double HitDelay, double HitInterval, int Hits, string? Ref);
 
 record HitBox(string Shape, double? Radius, double? InnerRadius, double? Angle, double? Width, double? Length, double? Height);
 
@@ -1799,6 +1847,7 @@ class HitSource
     public string Class { get; set; } = "";
     public bool Snapshot { get; set; }
     public string? Name { get; set; }
+    public string? Ref { get; set; }
     public string? Alias { get; set; }
     public double? Speed { get; set; }
     public double? Lifetime { get; set; }
@@ -1833,6 +1882,7 @@ class HitSource
         };
 
         if (!string.IsNullOrEmpty(Name)) result["name"] = Name;
+        if (!string.IsNullOrEmpty(Ref)) result["ref"] = Ref;
         if (!string.IsNullOrEmpty(Alias)) result["alias"] = Alias;
 
         Add(result, "speed", Speed);
