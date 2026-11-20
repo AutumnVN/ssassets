@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using AssetStudio;
 
 const string HitSourceOutput = "./hitSource.json";
+const string ComboSourceOutput = "./comboSource.json";
 
 var bundlePattern = new Regex(@"^char_\d+(_(?:buff|breakout|combos|combosmonster|config|configs|fx|soldier|towerdefense|weapon|weaponmodel|weapons))?\.unity3d$", RegexOptions.Compiled);
 var bulletClasses = new HashSet<string>(StringComparer.Ordinal)
@@ -67,6 +68,11 @@ if (mode is "hitSource" or "all")
     var areaSources = ExtractAreaEffects(bundles, shapes);
     var weaponSources = ExtractWeapons(bundles, weaponClasses, bulletClasses, featureClasses, shapes);
     WriteHitSource(MergeSources(areaSources, weaponSources));
+}
+
+if (mode is "comboSource" or "all")
+{
+    WriteComboSource(ExtractCombos(bundles, shapes));
 }
 
 return 0;
@@ -448,6 +454,407 @@ static string SourceKey(JsonObject source)
     return string.IsNullOrEmpty(name) ? source.ToJsonString() : $"{className}|{name}";
 }
 
+static Dictionary<string, JsonObject> ExtractCombos(List<string> bundles, string[] shapes)
+{
+    var result = new Dictionary<string, JsonObject>(StringComparer.Ordinal);
+    var resolved = 0;
+    var unresolved = 0;
+    var files = bundles
+        .Where(bundle => Path.GetFileName(bundle).Contains("_combos", StringComparison.Ordinal))
+        .ToArray();
+
+    if (files.Length == 0)
+    {
+        Console.Error.WriteLine("comboSource: no combo bundles found");
+        return result;
+    }
+
+    var manager = new AssetsManager();
+
+    try
+    {
+        manager.LoadFilesAndFolders(files);
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"comboSource: failed to load bundles: {exception.Message}");
+        return result;
+    }
+
+    var clips = new Dictionary<(SerializedFile File, long PathId), ComboClipAsset>();
+    var groups = new List<MonoBehaviour>();
+
+    foreach (var file in manager.AssetsFileList)
+    {
+        var scripts = new Dictionary<long, string>();
+
+        foreach (var obj in file.Objects)
+            if (obj is MonoScript script && !string.IsNullOrEmpty(script.m_ClassName))
+                scripts[obj.m_PathID] = script.m_ClassName;
+
+        foreach (var obj in file.Objects)
+        {
+            if (obj is not MonoBehaviour mb) continue;
+
+            var className = GetClassName(mb, scripts);
+
+            if (className == "ComboClip")
+            {
+                var type = ReadType(mb);
+                if (type == null) continue;
+
+                clips[(file, mb.m_PathID)] = new ComboClipAsset(mb.m_Name, type);
+            }
+            else if (className == "ComboGroup")
+            {
+                groups.Add(mb);
+            }
+        }
+    }
+
+    foreach (var group in groups)
+    {
+        var type = ReadType(group);
+        if (type == null) continue;
+
+        var json = BuildComboGroup(group, type, clips, shapes, ref resolved, ref unresolved);
+        if (json == null) continue;
+
+        var key = group.m_Name;
+
+        if (result.ContainsKey(key))
+        {
+            key = $"{group.m_Name}#{group.m_PathID}";
+            Console.Error.WriteLine($"comboSource: duplicate {group.m_Name} in {Path.GetFileName(group.assetsFile.originalPath)} kept as {key}");
+        }
+
+        result[key] = json;
+    }
+
+    manager.Clear();
+
+    Console.WriteLine($"comboSource: {resolved} clip reference(s) resolved, {unresolved} unresolved");
+    return result;
+}
+
+static JsonObject? BuildComboGroup(
+    MonoBehaviour group,
+    OrderedDictionary type,
+    Dictionary<(SerializedFile File, long PathId), ComboClipAsset> clips,
+    string[] shapes,
+    ref int resolved,
+    ref int unresolved)
+{
+    var combos = new JsonArray();
+    var order = new List<(SerializedFile File, long PathId)>();
+
+    if (type.Contains("combos") && type["combos"] is IEnumerable comboList)
+    {
+        foreach (var item in comboList)
+        {
+            if (item is not OrderedDictionary combo) continue;
+
+            var entry = new JsonObject();
+            var actionTag = ReadString(combo, "actionTag");
+            if (!string.IsNullOrEmpty(actionTag)) entry["actionTag"] = actionTag;
+            if (ReadInt(combo, "comboClipMode") == 1) entry["loop"] = true;
+
+            var chain = new JsonArray();
+
+            if (combo.Contains("compositeComboClips") && combo["compositeComboClips"] is IEnumerable compositeList)
+            {
+                foreach (var element in compositeList)
+                {
+                    if (element is not OrderedDictionary composite) continue;
+
+                    if (IsEmptyPPtr(composite, "comboClip")) continue;
+
+                    if (!TryResolvePPtr<MonoBehaviour>(composite, "comboClip", group.assetsFile, out var clipObject) ||
+                        clipObject == null ||
+                        clipObject.assetsFile == null ||
+                        !clips.TryGetValue((clipObject.assetsFile, clipObject.m_PathID), out var clip))
+                    {
+                        unresolved++;
+                        continue;
+                    }
+
+                    resolved++;
+
+                    var key = (clipObject.assetsFile, clipObject.m_PathID);
+                    if (!order.Contains(key)) order.Add(key);
+
+                    var link = new JsonObject { ["name"] = clip.Name };
+                    var eventGroupTag = ReadString(composite, "eventGroupTag");
+                    if (!string.IsNullOrEmpty(eventGroupTag)) link["eventGroupTag"] = eventGroupTag;
+
+                    chain.Add(link);
+                }
+            }
+
+            if (chain.Count == 0) continue;
+
+            entry["clips"] = chain;
+            combos.Add(entry);
+        }
+    }
+
+    if (order.Count == 0) return null;
+
+    var clipMap = new JsonObject();
+
+    foreach (var key in order)
+    {
+        var clip = clips[key];
+        clipMap[clip.Name] = BuildComboClip(clip, key.File, shapes);
+    }
+
+    var result = new JsonObject();
+
+    if (combos.Count > 0) result["combos"] = combos;
+    result["clips"] = clipMap;
+
+    return result;
+}
+
+static JsonObject BuildComboClip(ComboClipAsset clip, SerializedFile? assetsFile, string[] shapes)
+{
+    var type = clip.Type;
+    var result = new JsonObject();
+
+    AddNumber(result, "animationLength", ReadFloat(type, "animationLength"));
+    AddNumber(result, "playSpeed", ReadFloat(type, "playSpeed"));
+    AddNumber(result, "transitionIn", ReadFloat(type, "transitionIn"), true);
+    AddNumber(result, "transitionOut", ReadFloat(type, "transitionOut"), true);
+    AddNumber(result, "skillTakeEffectNormalizedTime", ReadFloat(type, "skillTakeEffectNormalizedTime"));
+    AddNumber(result, "allowOtherSkillNormalizedTime", ReadFloat(type, "skillAllowOtherSkillExecuteNormalizedTime"));
+    AddNumber(result, "canExitNormalizedTime", ReadFloat(type, "canExitNormalizedTime"));
+
+    var phaseRange = ReadVector2(type, "comboPhaseRange");
+    if (phaseRange != null) result["comboPhaseRange"] = ToJson(phaseRange);
+
+    var skins = BuildSkinEvents(type, "comboEventSkins", assetsFile, shapes);
+    if (skins.Count > 0) result["skins"] = skins;
+
+    var eventGroups = new JsonArray();
+
+    if (type.Contains("EventGroups") && type["EventGroups"] is IEnumerable groupList)
+    {
+        foreach (var item in groupList)
+        {
+            if (item is not OrderedDictionary group) continue;
+
+            var inner = BuildSkinEvents(group, "ComboEventSkins", assetsFile, shapes);
+            if (inner.Count == 0) continue;
+
+            var entry = new JsonObject();
+            var tag = ReadString(group, "tag");
+            if (!string.IsNullOrEmpty(tag)) entry["tag"] = tag;
+            entry["skins"] = inner;
+
+            eventGroups.Add(entry);
+        }
+    }
+
+    if (eventGroups.Count > 0) result["eventGroups"] = eventGroups;
+
+    return result;
+}
+
+static JsonObject BuildSkinEvents(OrderedDictionary owner, string field, SerializedFile? assetsFile, string[] shapes)
+{
+    var skins = new JsonObject();
+
+    if (!owner.Contains(field) || owner[field] is not IEnumerable skinList) return skins;
+
+    foreach (var item in skinList)
+    {
+        if (item is not OrderedDictionary skin) continue;
+
+        var skinId = ReadInt(skin, "skinId");
+        if (!skinId.HasValue) continue;
+
+        var events = new JsonArray();
+
+        if (skin.Contains("comboEvents") && skin["comboEvents"] is IEnumerable eventList)
+        {
+            foreach (var element in eventList)
+            {
+                if (element is not OrderedDictionary data) continue;
+
+                var json = BuildComboEvent(data, assetsFile, shapes);
+                if (json != null) events.Add(json);
+            }
+        }
+
+        if (events.Count == 0) continue;
+
+        skins[skinId.Value.ToString(CultureInfo.InvariantCulture)] = events;
+    }
+
+    return skins;
+}
+
+static JsonObject? BuildComboEvent(OrderedDictionary type, SerializedFile? assetsFile, string[] shapes)
+{
+    var eventType = ReadInt(type, "type") ?? 0;
+
+    var name = eventType switch
+    {
+        0 => "Custom",
+        1 => "Hit",
+        2 => "Shoot",
+        3 => "AddBuff",
+        5 => "AreaEffect",
+        7 => "AddShield",
+        10 => "FrozenTime",
+        20 => "TriggerCharGamePlayLogicCommonEvent",
+        _ => null,
+    };
+
+    if (name == null) return null;
+
+    var result = new JsonObject { ["type"] = name };
+
+    var range = ReadVector2(type, "activeNormalizedTimeRange");
+    if (range != null)
+    {
+        result["start"] = range[0];
+        result["end"] = range[1];
+    }
+
+    if (eventType == 0) return result;
+
+    var hitDamageId = ReadInt(type, "hitDamageId");
+    if (hitDamageId.HasValue && hitDamageId.Value > 0) result["hitDamageId"] = hitDamageId.Value;
+
+    var shape = ReadInt(type, "hitBoxShape");
+
+    if (shape.HasValue && shape.Value >= 0 && shape.Value < shapes.Length)
+    {
+        result["shape"] = shapes[(int)shape.Value];
+
+        switch (shape.Value)
+        {
+            case 0:
+                AddNumber(result, "width", ReadFloat(type, "hitBoxWidth"));
+                AddNumber(result, "length", ReadFloat(type, "hitBoxLength"));
+                break;
+            case 1:
+                AddNumber(result, "radius", ReadFloat(type, "hitBoxRadius"));
+                AddNumber(result, "innerRadius", ReadFloat(type, "hitBoxInnerRadius"));
+                break;
+            case 2:
+                AddNumber(result, "radius", ReadFloat(type, "hitBoxRadius"));
+                AddNumber(result, "innerRadius", ReadFloat(type, "hitBoxInnerRadius"));
+                AddNumber(result, "angle", ReadFloat(type, "hitBoxAngle"));
+                break;
+        }
+    }
+
+    var gameDataHitBox = ReadInt(type, "hitBoxConfigureWithGameData");
+    if (gameDataHitBox.HasValue && gameDataHitBox.Value != 0)
+    {
+        result["hitBoxFromGameData"] = gameDataHitBox.Value switch
+        {
+            10 => "vision",
+            11 => "visionDistance",
+            12 => "visionAngle",
+            20 => "hear",
+            31 => "body",
+            _ => gameDataHitBox.Value.ToString(CultureInfo.InvariantCulture),
+        };
+    }
+
+    var hitBoxOffset = ReadVector2(type, "hitBoxOffset");
+    if (hitBoxOffset != null && (hitBoxOffset[0] != 0 || hitBoxOffset[1] != 0)) result["offset"] = ToJson(hitBoxOffset);
+
+    AddNumber(result, "offsetY", NonZero(ReadFloat(type, "hitBoxOffsetY")));
+    AddNumber(result, "rotation", NonZero(ReadFloat(type, "hitBoxRotation")));
+    AddNumber(result, "rotationOffset", NonZero(ReadFloat(type, "rotationAngleOffset")));
+
+    if (ReadBool(type, "offsetFollowActor") == true) result["followActor"] = true;
+
+    AddNumber(result, "distance", NonZero(ReadFloat(type, "distance")));
+    AddNumber(result, "spawnOffset", NonZero(ReadFloat(type, "offset")));
+
+    if (TryResolvePPtr<GameObject>(type, "bulletPrefab", assetsFile, out var bullet) && bullet != null)
+        result["bulletPrefab"] = bullet.m_Name;
+
+    var bulletCount = ReadInt(type, "bulletCount");
+    if (bulletCount.HasValue && bulletCount.Value > 1) result["bulletCount"] = bulletCount.Value;
+
+    AddNumber(result, "scatterRadius", NonZero(ReadFloat(type, "shootScatteringRadius")));
+    AddNumber(result, "scatterDirectionOffset", NonZero(ReadFloat(type, "multipleShootBulletDirectionOffset")));
+
+    if (TryResolvePPtr<GameObject>(type, "AreaEffectPrefab", assetsFile, out var area) && area != null)
+        result["areaEffectPrefab"] = area.m_Name;
+
+    var buffIds = ReadIntArray(type, "buffIds");
+    if (buffIds.Count > 0)
+    {
+        var buffs = new JsonArray();
+        foreach (var id in buffIds) buffs.Add(id);
+        result["buffIds"] = buffs;
+    }
+
+    var shieldId = ReadInt(type, "shiledID");
+    if (shieldId.HasValue && shieldId.Value > 0) result["shieldId"] = shieldId.Value;
+
+    return result;
+}
+
+static bool IsEmptyPPtr(OrderedDictionary type, string field)
+{
+    if (!type.Contains(field) || type[field] is not OrderedDictionary pptr) return true;
+
+    return ReadInt(pptr, "m_PathID") is 0;
+}
+
+static bool TryResolvePPtr<T>(OrderedDictionary type, string field, SerializedFile? assetsFile, out T? obj)
+    where T : AssetStudio.Object
+{
+    obj = null;
+
+    if (!type.Contains(field) || type[field] is not OrderedDictionary pptr) return false;
+
+    var fileId = ReadInt(pptr, "m_FileID");
+    var pathId = ReadInt(pptr, "m_PathID");
+
+    if (!fileId.HasValue || !pathId.HasValue || pathId.Value == 0) return false;
+
+    var reference = new PPtr<T> { m_FileID = (int)fileId.Value, m_PathID = pathId.Value };
+
+    if (!reference.TryGet(out obj, assetsFile) || obj == null) return false;
+
+    return true;
+}
+
+static void WriteComboSource(Dictionary<string, JsonObject> map)
+{
+    var root = new JsonObject();
+
+    foreach (var key in map.Keys.OrderBy(key => key, StringComparer.Ordinal))
+        root[key] = map[key];
+
+    if (root.Count == 0)
+    {
+        Console.Error.WriteLine("Combo source export failed: no combo groups found");
+        Environment.Exit(1);
+    }
+
+    WriteJson(ComboSourceOutput, root);
+    Console.WriteLine($"{root.Count} combo groups");
+}
+
+static JsonArray ToJson(double[] values)
+{
+    var array = new JsonArray();
+
+    foreach (var value in values) array.Add(value);
+
+    return array;
+}
+
 static Dictionary<int, List<HitSource>> MergeSources(params Dictionary<int, List<HitSource>>[] maps)
 {
     var result = new Dictionary<int, List<HitSource>>();
@@ -610,9 +1017,9 @@ static JsonObject BuildHoming(OrderedDictionary trace)
     return homing;
 }
 
-static void AddNumber(JsonObject target, string key, double? value)
+static void AddNumber(JsonObject target, string key, double? value, bool keepZero = false)
 {
-    if (value.HasValue && value.Value != 0) target[key] = value.Value;
+    if (value.HasValue && (keepZero || value.Value != 0)) target[key] = value.Value;
 }
 
 static double? NonZero(double? value)
@@ -861,6 +1268,25 @@ static bool? ReadBool(OrderedDictionary type, string field)
     return null;
 }
 
+static string? ReadString(OrderedDictionary type, string field)
+{
+    if (!type.Contains(field)) return null;
+
+    return type[field] as string;
+}
+
+static double[]? ReadVector2(OrderedDictionary type, string field)
+{
+    if (!type.Contains(field) || type[field] is not OrderedDictionary value) return null;
+
+    var x = ReadFloat(value, "x");
+    var y = ReadFloat(value, "y");
+
+    if (x == null && y == null) return null;
+
+    return new[] { x ?? 0, y ?? 0 };
+}
+
 static double Round(double value)
 {
     var result = Math.Floor(value * 1e6 + 0.5) / 1e6;
@@ -874,6 +1300,8 @@ static double RoundRatio(double value)
 }
 
 record Entity(bool Copy, double Duration, HitBox HitBox, string? Name);
+
+record ComboClipAsset(string Name, OrderedDictionary Type);
 
 record Attack(
     (long, long) GameObject,
