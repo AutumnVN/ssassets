@@ -834,6 +834,36 @@ static JsonObject BuildComboClip(ComboClipAsset clip, SerializedFile? assetsFile
     var phaseRange = ReadVector2(type, "comboPhaseRange");
     if (phaseRange != null) result["comboPhaseRange"] = ToJson(phaseRange);
 
+    AddNumber(result, "actionAnimType", ReadInt(type, "actionAnimType"), true);
+
+    if (TryGetPPtr(type, "animationClip", out var clipFileId, out var clipPathId))
+        result["animationClipRef"] = DescribePPtr(assetsFile, clipFileId, clipPathId);
+
+    if (ReadBool(type, "enableRootMotion") == true)
+    {
+        result["enableRootMotion"] = true;
+
+        AddCurve(result, "rootMotionSides", type, "rootMotionSides");
+        AddCurve(result, "rootMotionVertical", type, "rootMotionVertical");
+        AddCurve(result, "rootMotionForward", type, "rootMotionForward");
+
+        var multiplier = ReadVector3(type, "rootMotionMultiplier");
+        if (multiplier != null) result["rootMotionMultiplier"] = ToJson(multiplier);
+
+        AddNumber(result, "rootMotionCheckDistance", NonZero(ReadFloat(type, "rootMotionCheckDistance")));
+        AddNumber(result, "rootMotionCheckDistanceLimitUp", NonZero(ReadFloat(type, "rootMotionCheckDistanceLimitUp")));
+    }
+
+    if (ReadBool(type, "enableRootMotionRotate") == true)
+    {
+        result["enableRootMotionRotate"] = true;
+
+        AddCurve(result, "rootMotionRotateQuaternionX", type, "rootMotionRotateQuaternionX");
+        AddCurve(result, "rootMotionRotateQuaternionY", type, "rootMotionRotateQuaternionY");
+        AddCurve(result, "rootMotionRotateQuaternionZ", type, "rootMotionRotateQuaternionZ");
+        AddCurve(result, "rootMotionRotateQuaternionW", type, "rootMotionRotateQuaternionW");
+    }
+
     var skins = BuildSkinEvents(type, "comboEventSkins", assetsFile, shapes);
     if (skins.Count > 0) result["skins"] = skins;
 
@@ -1170,6 +1200,34 @@ static void AddMonoBehaviourPPtr(JsonObject target, string key, OrderedDictionar
     }
 
     target[$"{key}Unresolved"] = DescribePPtr(assetsFile, fileId, pathId);
+}
+
+static void AddCurve(JsonObject target, string key, OrderedDictionary owner, string field)
+{
+    if (!owner.Contains(field) || owner[field] is not OrderedDictionary curve) return;
+
+    var keys = new JsonArray();
+
+    if (curve.Contains("m_keys") && curve["m_keys"] is IEnumerable list)
+    {
+        foreach (var item in list)
+        {
+            if (item is not OrderedDictionary keyframe) continue;
+
+            keys.Add(new JsonArray(
+                ReadFloat(keyframe, "m_Time"),
+                ReadFloat(keyframe, "m_Value"),
+                ReadFloat(keyframe, "m_InTangent"),
+                ReadFloat(keyframe, "m_OutTangent")));
+        }
+    }
+
+    var result = new JsonObject { ["keys"] = keys };
+
+    AddNumber(result, "preWrap", ReadInt(curve, "m_preWrapMode"), true);
+    AddNumber(result, "postWrap", ReadInt(curve, "m_postWrapMode"), true);
+
+    target[key] = result;
 }
 
 static bool TryGetPPtr(OrderedDictionary type, string field, out int fileId, out long pathId)
@@ -1681,6 +1739,19 @@ static double[]? ReadVector2(OrderedDictionary type, string field)
     if (x == null && y == null) return null;
 
     return new[] { x ?? 0, y ?? 0 };
+}
+
+static double[]? ReadVector3(OrderedDictionary type, string field)
+{
+    if (!type.Contains(field) || type[field] is not OrderedDictionary value) return null;
+
+    var x = ReadFloat(value, "x");
+    var y = ReadFloat(value, "y");
+    var z = ReadFloat(value, "z");
+
+    if (x == null && y == null && z == null) return null;
+
+    return new[] { x ?? 0, y ?? 0, z ?? 0 };
 }
 
 static double Round(double value)
