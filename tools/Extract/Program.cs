@@ -1,6 +1,8 @@
+using System.Buffers.Binary;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Globalization;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -52,9 +54,11 @@ if (!Directory.Exists(source))
     return 1;
 }
 
-var bundles = Directory.GetFiles(source, "*.unity3d")
-    .Where(path => bundlePattern.IsMatch(Path.GetFileName(path)))
+var allBundles = Directory.GetFiles(source, "*.unity3d")
     .OrderBy(path => Path.GetFileName(path), StringComparer.Ordinal)
+    .ToList();
+var bundles = allBundles
+    .Where(path => bundlePattern.IsMatch(Path.GetFileName(path)))
     .ToList();
 
 if (bundles.Count == 0)
@@ -72,7 +76,7 @@ if (mode is "hitSource" or "all")
 
 if (mode is "comboSource" or "all")
 {
-    WriteComboSource(ExtractCombos(bundles, shapes));
+    WriteComboSource(ExtractCombos(bundles, allBundles, shapes));
 }
 
 return 0;
@@ -454,11 +458,8 @@ static string SourceKey(JsonObject source)
     return string.IsNullOrEmpty(name) ? source.ToJsonString() : $"{className}|{name}";
 }
 
-static Dictionary<string, JsonObject> ExtractCombos(List<string> bundles, string[] shapes)
+static Dictionary<string, JsonObject> ExtractCombos(List<string> bundles, List<string> allBundles, string[] shapes)
 {
-    var result = new Dictionary<string, JsonObject>(StringComparer.Ordinal);
-    var resolved = 0;
-    var unresolved = 0;
     var files = bundles
         .Where(bundle => Path.GetFileName(bundle).Contains("_combos", StringComparison.Ordinal))
         .ToArray();
@@ -466,9 +467,62 @@ static Dictionary<string, JsonObject> ExtractCombos(List<string> bundles, string
     if (files.Length == 0)
     {
         Console.Error.WriteLine("comboSource: no combo bundles found");
-        return result;
+        return new Dictionary<string, JsonObject>(StringComparer.Ordinal);
     }
 
+    var probe = LoadBundles(files);
+
+    if (probe == null) return new Dictionary<string, JsonObject>(StringComparer.Ordinal);
+
+    var draft = ParseComboGroups(probe, shapes, false, out _, out var draftUnresolved);
+    probe.Clear();
+
+    if (draftUnresolved > 0)
+        Console.Error.WriteLine($"comboSource: {draftUnresolved} clip reference(s) unresolved while collecting prefab references");
+
+    var externalFiles = new HashSet<string>(StringComparer.Ordinal);
+    var unresolved = 0;
+
+    foreach (var group in draft.Values) CollectUnresolvedFiles(group, externalFiles, ref unresolved);
+
+    var index = BuildCabIndex(allBundles);
+    var owners = new List<string>();
+    var mapped = 0;
+
+    foreach (var cab in externalFiles.OrderBy(cab => cab, StringComparer.Ordinal))
+    {
+        if (index.TryGetValue(cab, out var matches))
+        {
+            mapped++;
+            owners.AddRange(matches);
+        }
+        else
+        {
+            Console.Error.WriteLine($"comboSource: no bundle contains {cab}");
+        }
+    }
+
+    Console.WriteLine($"comboSource: {mapped}/{externalFiles.Count} external files mapped to bundles");
+
+    var manager = LoadBundles(files.Concat(owners).Distinct(StringComparer.Ordinal).ToArray());
+
+    if (manager == null) return new Dictionary<string, JsonObject>(StringComparer.Ordinal);
+
+    var result = ParseComboGroups(manager, shapes, true, out var resolved, out var missing);
+    manager.Clear();
+
+    var prefabs = 0;
+
+    foreach (var group in result.Values) CollectUnresolvedFiles(group, externalFiles, ref prefabs);
+
+    Console.WriteLine($"comboSource: {resolved} clip reference(s) resolved, {missing} unresolved");
+    Console.WriteLine($"comboSource: {prefabs} prefab reference(s) unresolved");
+
+    return result;
+}
+
+static AssetsManager? LoadBundles(string[] files)
+{
     var manager = new AssetsManager();
 
     try
@@ -478,11 +532,21 @@ static Dictionary<string, JsonObject> ExtractCombos(List<string> bundles, string
     catch (Exception exception)
     {
         Console.Error.WriteLine($"comboSource: failed to load bundles: {exception.Message}");
-        return result;
+        manager.Clear();
+        return null;
     }
 
+    return manager;
+}
+
+static Dictionary<string, JsonObject> ParseComboGroups(AssetsManager manager, string[] shapes, bool report, out int resolved, out int unresolved)
+{
+    var result = new Dictionary<string, JsonObject>(StringComparer.Ordinal);
     var clips = new Dictionary<(SerializedFile File, long PathId), ComboClipAsset>();
     var groups = new List<MonoBehaviour>();
+
+    resolved = 0;
+    unresolved = 0;
 
     foreach (var file in manager.AssetsFileList)
     {
@@ -525,16 +589,154 @@ static Dictionary<string, JsonObject> ExtractCombos(List<string> bundles, string
         if (result.ContainsKey(key))
         {
             key = $"{group.m_Name}#{group.m_PathID}";
-            Console.Error.WriteLine($"comboSource: duplicate {group.m_Name} in {Path.GetFileName(group.assetsFile.originalPath)} kept as {key}");
+            if (report) Console.Error.WriteLine($"comboSource: duplicate {group.m_Name} in {Path.GetFileName(group.assetsFile.originalPath)} kept as {key}");
         }
 
         result[key] = json;
     }
 
-    manager.Clear();
-
-    Console.WriteLine($"comboSource: {resolved} clip reference(s) resolved, {unresolved} unresolved");
     return result;
+}
+
+static Dictionary<string, List<string>> BuildCabIndex(List<string> bundles)
+{
+    var index = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+    var failures = new List<string>();
+
+    Parallel.ForEach(bundles, bundle =>
+    {
+        string[] nodes;
+
+        try
+        {
+            nodes = ReadBundleNodes(bundle);
+        }
+        catch (Exception exception)
+        {
+            lock (failures) failures.Add($"{Path.GetFileName(bundle)}: {exception.Message}");
+            return;
+        }
+
+        lock (index)
+        {
+            foreach (var node in nodes)
+            {
+                if (!index.TryGetValue(node, out var owners))
+                {
+                    owners = new List<string>();
+                    index[node] = owners;
+                }
+
+                owners.Add(bundle);
+            }
+        }
+    });
+
+    if (failures.Count > 0)
+        Console.Error.WriteLine($"comboSource: {failures.Count} bundle(s) could not be indexed, first: {failures[0]}");
+
+    return index;
+}
+
+static string[] ReadBundleNodes(string path)
+{
+    using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read, 1 << 16, FileOptions.RandomAccess);
+    using var reader = new BinaryReader(stream, Encoding.UTF8);
+
+    var signature = ReadNullString(reader);
+
+    if (signature != "UnityFS") throw new InvalidDataException($"signature {signature}");
+
+    var version = BinaryPrimitives.ReadUInt32BigEndian(reader.ReadBytes(4));
+
+    if (version is < 6 or > 9) throw new InvalidDataException($"version {version}");
+
+    ReadNullString(reader);
+    ReadNullString(reader);
+    reader.ReadBytes(8);
+
+    var compressedSize = BinaryPrimitives.ReadUInt32BigEndian(reader.ReadBytes(4));
+    var uncompressedSize = BinaryPrimitives.ReadUInt32BigEndian(reader.ReadBytes(4));
+    var flags = BinaryPrimitives.ReadUInt32BigEndian(reader.ReadBytes(4));
+
+    if (version >= 7 || (flags & 0x200) != 0) stream.Position = (stream.Position + 15) & ~15L;
+    if ((flags & 0x80) != 0) stream.Position = stream.Length - compressedSize;
+
+    var compressed = reader.ReadBytes((int)compressedSize);
+    var compression = (CompressionType)(flags & 0x3F);
+    byte[] blocksInfo;
+
+    if (compression == CompressionType.None)
+    {
+        blocksInfo = compressed;
+    }
+    else
+    {
+        blocksInfo = new byte[uncompressedSize];
+        var error = string.Empty;
+        var written = BundleDecompressionHelper.DecompressBlock(compression, compressed, blocksInfo, ref error);
+
+        if (written != uncompressedSize) throw new InvalidDataException($"blocks info {written} of {uncompressedSize} bytes: {error}");
+    }
+
+    using var infoReader = new BinaryReader(new MemoryStream(blocksInfo), Encoding.UTF8);
+    infoReader.ReadBytes(16);
+
+    var blockCount = BinaryPrimitives.ReadInt32BigEndian(infoReader.ReadBytes(4));
+
+    if (blockCount < 0) throw new InvalidDataException($"block count {blockCount}");
+
+    infoReader.ReadBytes(blockCount * 10);
+
+    var nodeCount = BinaryPrimitives.ReadInt32BigEndian(infoReader.ReadBytes(4));
+
+    if (nodeCount < 0) throw new InvalidDataException($"node count {nodeCount}");
+
+    var nodes = new string[nodeCount];
+
+    for (var i = 0; i < nodeCount; i++)
+    {
+        infoReader.ReadBytes(version >= 6 ? 16 : 8);
+        infoReader.ReadBytes(4);
+        nodes[i] = ReadNullString(infoReader);
+    }
+
+    return nodes;
+}
+
+static string ReadNullString(BinaryReader reader)
+{
+    var bytes = new List<byte>();
+    byte value;
+
+    while ((value = reader.ReadByte()) != 0) bytes.Add(value);
+
+    return Encoding.UTF8.GetString(bytes.ToArray());
+}
+
+static void CollectUnresolvedFiles(JsonNode? node, HashSet<string> files, ref int count)
+{
+    switch (node)
+    {
+        case JsonObject obj:
+            foreach (var (key, value) in obj)
+            {
+                if (key.EndsWith("Unresolved", StringComparison.Ordinal) && value is JsonValue jsonValue && jsonValue.TryGetValue<string>(out var text))
+                {
+                    files.Add(text[..text.LastIndexOf(':')]);
+                    count++;
+                }
+                else
+                {
+                    CollectUnresolvedFiles(value, files, ref count);
+                }
+            }
+
+            break;
+        case JsonArray array:
+            foreach (var item in array) CollectUnresolvedFiles(item, files, ref count);
+            break;
+    }
 }
 
 static JsonObject? BuildComboGroup(
@@ -724,70 +926,207 @@ static JsonObject? BuildComboEvent(OrderedDictionary type, SerializedFile? asset
 
     if (eventType == 0) return result;
 
-    var hitDamageId = ReadInt(type, "hitDamageId");
-    if (hitDamageId.HasValue && hitDamageId.Value > 0) result["hitDamageId"] = hitDamageId.Value;
+    var isHit = eventType == 1;
+    var isShoot = eventType == 2;
+    var isAreaEffect = eventType == 5;
 
-    var shape = ReadInt(type, "hitBoxShape");
+    if (ReadBool(type, "playOnceInLoopMode") == true) result["playOnceInLoop"] = true;
 
-    if (shape.HasValue && shape.Value >= 0 && shape.Value < shapes.Length)
+    var precondition = ReadInt(type, "clipPreconditionType");
+    if (precondition is 1 or 2)
     {
-        result["shape"] = shapes[(int)shape.Value];
+        result["precondition"] = precondition == 1 ? "only" : "except";
+        AddMonoBehaviourPPtr(result, "preconditionClip", type, "preconditionClip", assetsFile);
+    }
 
-        switch (shape.Value)
+    if (isHit)
+    {
+        var hitDamageId = ReadInt(type, "hitDamageId");
+        if (hitDamageId.HasValue && hitDamageId.Value > 0) result["hitDamageId"] = hitDamageId.Value;
+
+        var hitFlags = ReadInt(type, "hitFlags");
+        if (hitFlags.HasValue && hitFlags.Value != 0)
         {
-            case 0:
-                AddNumber(result, "width", ReadFloat(type, "hitBoxWidth"));
-                AddNumber(result, "length", ReadFloat(type, "hitBoxLength"));
-                break;
-            case 1:
-                AddNumber(result, "radius", ReadFloat(type, "hitBoxRadius"));
-                AddNumber(result, "innerRadius", ReadFloat(type, "hitBoxInnerRadius"));
-                break;
-            case 2:
-                AddNumber(result, "radius", ReadFloat(type, "hitBoxRadius"));
-                AddNumber(result, "innerRadius", ReadFloat(type, "hitBoxInnerRadius"));
-                AddNumber(result, "angle", ReadFloat(type, "hitBoxAngle"));
-                break;
+            var flags = new JsonArray();
+
+            foreach (var (value, flagName) in new (long Value, string Name)[]
+            {
+                (0x1, "knockBack"),
+                (0x2, "airBorne"),
+                (0x8, "changeArea"),
+                (0x10, "addBuffForSelf"),
+                (0x20, "addBuffForTarget"),
+                (0x40, "removeBuffForSelf"),
+                (0x80, "removeBuffForTarget"),
+                (0x1000, "stiff"),
+                (0x10000, "kill"),
+                (0x20000, "noDiffDamage"),
+                (0x80000, "killDestructible"),
+                (0x10000000, "damageFreezeFrame"),
+            })
+            {
+                if ((hitFlags.Value & value) != 0) flags.Add(flagName);
+            }
+
+            result["hitFlags"] = flags;
         }
     }
 
-    var gameDataHitBox = ReadInt(type, "hitBoxConfigureWithGameData");
-    if (gameDataHitBox.HasValue && gameDataHitBox.Value != 0)
+    if (isHit || isShoot)
     {
-        result["hitBoxFromGameData"] = gameDataHitBox.Value switch
+        var shape = ReadInt(type, "hitBoxShape");
+
+        if (shape.HasValue && shape.Value >= 0 && shape.Value < shapes.Length)
         {
-            10 => "vision",
-            11 => "visionDistance",
-            12 => "visionAngle",
-            20 => "hear",
-            31 => "body",
-            _ => gameDataHitBox.Value.ToString(CultureInfo.InvariantCulture),
-        };
+            result["shape"] = shapes[(int)shape.Value];
+
+            switch (shape.Value)
+            {
+                case 0:
+                    AddNumber(result, "width", ReadFloat(type, "hitBoxWidth"));
+                    AddNumber(result, "length", ReadFloat(type, "hitBoxLength"));
+                    break;
+                case 1:
+                    AddNumber(result, "radius", ReadFloat(type, "hitBoxRadius"));
+                    AddNumber(result, "innerRadius", ReadFloat(type, "hitBoxInnerRadius"));
+                    break;
+                case 2:
+                    AddNumber(result, "radius", ReadFloat(type, "hitBoxRadius"));
+                    AddNumber(result, "innerRadius", ReadFloat(type, "hitBoxInnerRadius"));
+                    AddNumber(result, "angle", ReadFloat(type, "hitBoxAngle"));
+                    break;
+            }
+        }
+
+        var gameDataHitBox = ReadInt(type, "hitBoxConfigureWithGameData");
+        if (gameDataHitBox.HasValue && gameDataHitBox.Value != 0)
+        {
+            result["hitBoxFromGameData"] = gameDataHitBox.Value switch
+            {
+                10 => "vision",
+                11 => "visionDistance",
+                12 => "visionAngle",
+                20 => "hear",
+                31 => "body",
+                _ => gameDataHitBox.Value.ToString(CultureInfo.InvariantCulture),
+            };
+        }
+
+        var hitBoxOffset = ReadVector2(type, "hitBoxOffset");
+        if (hitBoxOffset != null && (hitBoxOffset[0] != 0 || hitBoxOffset[1] != 0)) result["offset"] = ToJson(hitBoxOffset);
+
+        AddNumber(result, "offsetY", NonZero(ReadFloat(type, "hitBoxOffsetY")));
+        AddNumber(result, "rotation", NonZero(ReadFloat(type, "hitBoxRotation")));
+
+        if (ReadBool(type, "offsetFollowActor") == true) result["followActor"] = true;
+        if (ReadBool(type, "areaWithActorScale") == false) result["areaWithActorScale"] = false;
+        if (ReadBool(type, "lockHitBoxTransformOnEnd") == false) result["lockHitBoxOnEnd"] = false;
+
+        AddNumber(result, "rotationOnEnd", NonZero(ReadFloat(type, "hitBoxRotationOnEnd")));
+
+        var offsetOnEnd = ReadVector2(type, "hitBoxOffsetOnEnd");
+        if (offsetOnEnd != null && (offsetOnEnd[0] != 0 || offsetOnEnd[1] != 0)) result["offsetOnEnd"] = ToJson(offsetOnEnd);
+
+        if (ReadBool(type, "enableHitBoxCurveMotion") == true)
+        {
+            var controlPoints = new JsonArray();
+            var point1 = ReadVector2(type, "hitBoxCurveMotionControlPoint1");
+            var point2 = ReadVector2(type, "hitBoxCurveMotionControlPoint2");
+
+            controlPoints.Add(point1 == null ? new JsonArray() : ToJson(point1));
+            controlPoints.Add(point2 == null ? new JsonArray() : ToJson(point2));
+            result["curveControlPoints"] = controlPoints;
+        }
     }
 
-    var hitBoxOffset = ReadVector2(type, "hitBoxOffset");
-    if (hitBoxOffset != null && (hitBoxOffset[0] != 0 || hitBoxOffset[1] != 0)) result["offset"] = ToJson(hitBoxOffset);
+    if (isHit)
+    {
+        var immuneDuration = ReadFloat(type, "damageImmuneDuration");
+        if (immuneDuration.HasValue && immuneDuration.Value != -1) result["damageImmuneDuration"] = immuneDuration.Value;
 
-    AddNumber(result, "offsetY", NonZero(ReadFloat(type, "hitBoxOffsetY")));
-    AddNumber(result, "rotation", NonZero(ReadFloat(type, "hitBoxRotation")));
-    AddNumber(result, "rotationOffset", NonZero(ReadFloat(type, "rotationAngleOffset")));
+        AddNumber(result, "damageDetectInterval", NonZero(ReadFloat(type, "damageDetectInterval")));
 
-    if (ReadBool(type, "offsetFollowActor") == true) result["followActor"] = true;
+        if (ReadBool(type, "blockBullet") == true) result["blockBullet"] = true;
+    }
 
-    AddNumber(result, "distance", NonZero(ReadFloat(type, "distance")));
-    AddNumber(result, "spawnOffset", NonZero(ReadFloat(type, "offset")));
+    if (isShoot)
+    {
+        AddGameObjectPPtr(result, "bulletPrefab", type, "bulletPrefab", assetsFile);
 
-    if (TryResolvePPtr<GameObject>(type, "bulletPrefab", assetsFile, out var bullet) && bullet != null)
-        result["bulletPrefab"] = bullet.m_Name;
+        var bulletCount = ReadInt(type, "bulletCount");
+        if (bulletCount.HasValue && bulletCount.Value > 1) result["bulletCount"] = bulletCount.Value;
 
-    var bulletCount = ReadInt(type, "bulletCount");
-    if (bulletCount.HasValue && bulletCount.Value > 1) result["bulletCount"] = bulletCount.Value;
+        var reduceAmmo = ReadInt(type, "reduceAmmoCount");
+        if (reduceAmmo.HasValue && reduceAmmo.Value > 0) result["reduceAmmoCount"] = reduceAmmo.Value;
 
-    AddNumber(result, "scatterRadius", NonZero(ReadFloat(type, "shootScatteringRadius")));
-    AddNumber(result, "scatterDirectionOffset", NonZero(ReadFloat(type, "multipleShootBulletDirectionOffset")));
+        var shootStyle = ReadInt(type, "multipleShootStyle");
+        if (shootStyle.HasValue && shootStyle.Value != 0)
+        {
+            result["multipleShootStyle"] = shootStyle.Value switch
+            {
+                1 => "fromCenterToSide",
+                2 => "fromSideToCenter",
+                3 => "fromLeftToRight",
+                4 => "fromRightToLeft",
+                5 => "randomDirection",
+                _ => null,
+            };
+        }
 
-    if (TryResolvePPtr<GameObject>(type, "AreaEffectPrefab", assetsFile, out var area) && area != null)
-        result["areaEffectPrefab"] = area.m_Name;
+        if (ReadBool(type, "useShootDeviationCalcScatteringRadius") == true) result["scatterFromDeviation"] = true;
+
+        AddNumber(result, "scatterRadius", NonZero(ReadFloat(type, "shootScatteringRadius")));
+        AddNumber(result, "scatterDirectionOffset", NonZero(ReadFloat(type, "multipleShootBulletDirectionOffset")));
+
+        if (ReadBool(type, "alignShoot") == true)
+        {
+            result["alignShoot"] = true;
+            AddNumber(result, "alignShootDelay", NonZero(ReadFloat(type, "alignShootDelay")));
+        }
+
+        AddNumber(result, "range", ReadFloat(type, "range"));
+        AddNumber(result, "shootInnerRadius", NonZero(ReadFloat(type, "innerRadius")));
+
+        var aimType = ReadInt(type, "aimType");
+        if (aimType.HasValue && aimType.Value != 0)
+        {
+            result["aimType"] = aimType.Value switch
+            {
+                1 => "forward",
+                2 => "position",
+                3 => "target",
+                _ => null,
+            };
+        }
+
+        var bulletDirection = ReadInt(type, "bulletDirectionType");
+        if (bulletDirection.HasValue && bulletDirection.Value != 1)
+        {
+            result["bulletDirection"] = bulletDirection.Value switch
+            {
+                0 => "bulletToTarget",
+                1 => "actorToBullet",
+                _ => null,
+            };
+        }
+
+        var controlIndex = ReadInt(type, "ControlIndex");
+        if (controlIndex.HasValue && controlIndex.Value > 0) result["controlIndex"] = controlIndex.Value;
+    }
+
+    if (isAreaEffect)
+    {
+        AddGameObjectPPtr(result, "areaEffectPrefab", type, "AreaEffectPrefab", assetsFile);
+
+        AddNumber(result, "distance", NonZero(ReadFloat(type, "distance")));
+        AddNumber(result, "spawnOffset", NonZero(ReadFloat(type, "offset")));
+        AddNumber(result, "rotationOffset", NonZero(ReadFloat(type, "rotationAngleOffset")));
+
+        if (ReadBool(type, "useOwnerDirection") == true) result["useOwnerDirection"] = true;
+        if (ReadBool(type, "lockTarget") == false) result["lockTarget"] = false;
+    }
+
+    if (ReadBool(type, "triggerFateCardTheme") == true) result["triggerFateCardTheme"] = true;
 
     var buffIds = ReadIntArray(type, "buffIds");
     if (buffIds.Count > 0)
@@ -801,6 +1140,63 @@ static JsonObject? BuildComboEvent(OrderedDictionary type, SerializedFile? asset
     if (shieldId.HasValue && shieldId.Value > 0) result["shieldId"] = shieldId.Value;
 
     return result;
+}
+
+static void AddGameObjectPPtr(JsonObject target, string key, OrderedDictionary type, string field, SerializedFile? assetsFile)
+{
+    if (!TryGetPPtr(type, field, out var fileId, out var pathId)) return;
+
+    var reference = new PPtr<GameObject> { m_FileID = fileId, m_PathID = pathId };
+
+    if (reference.TryGet(out var gameObject, assetsFile) && gameObject != null)
+    {
+        target[key] = gameObject.m_Name;
+        return;
+    }
+
+    target[$"{key}Unresolved"] = DescribePPtr(assetsFile, fileId, pathId);
+}
+
+static void AddMonoBehaviourPPtr(JsonObject target, string key, OrderedDictionary type, string field, SerializedFile? assetsFile)
+{
+    if (!TryGetPPtr(type, field, out var fileId, out var pathId)) return;
+
+    var reference = new PPtr<MonoBehaviour> { m_FileID = fileId, m_PathID = pathId };
+
+    if (reference.TryGet(out var behaviour, assetsFile) && behaviour != null)
+    {
+        target[key] = behaviour.m_Name;
+        return;
+    }
+
+    target[$"{key}Unresolved"] = DescribePPtr(assetsFile, fileId, pathId);
+}
+
+static bool TryGetPPtr(OrderedDictionary type, string field, out int fileId, out long pathId)
+{
+    fileId = 0;
+    pathId = 0;
+
+    if (!type.Contains(field) || type[field] is not OrderedDictionary pptr) return false;
+
+    var file = ReadInt(pptr, "m_FileID");
+    var path = ReadInt(pptr, "m_PathID");
+
+    if (!file.HasValue || !path.HasValue || path.Value == 0) return false;
+
+    fileId = (int)file.Value;
+    pathId = path.Value;
+
+    return true;
+}
+
+static string DescribePPtr(SerializedFile? assetsFile, int fileId, long pathId)
+{
+    var file = assetsFile != null && fileId > 0 && fileId <= assetsFile.m_Externals.Count
+        ? assetsFile.m_Externals[fileId - 1].fileName
+        : Path.GetFileName(assetsFile?.originalPath);
+
+    return $"{file}:{pathId}";
 }
 
 static bool IsEmptyPPtr(OrderedDictionary type, string field)
