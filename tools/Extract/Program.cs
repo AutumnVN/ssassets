@@ -69,8 +69,23 @@ if (bundles.Count == 0)
 
 if (mode is "hitSource" or "all")
 {
-    var areaSources = ExtractAreaEffects(bundles, shapes);
-    var weaponSources = ExtractWeapons(bundles, weaponClasses, bulletClasses, featureClasses, shapes);
+    var typeTrees = new Dictionary<string, TypeTree>();
+    var areaDeferred = new List<string>();
+    var weaponDeferred = new List<string>();
+
+    var areaSources = ExtractAreaEffects(bundles, shapes, typeTrees, areaDeferred);
+    var weaponSources = ExtractWeapons(bundles, weaponClasses, bulletClasses, featureClasses, shapes, typeTrees, weaponDeferred);
+
+    if (areaDeferred.Count > 0)
+    {
+        areaSources = MergeSources(areaSources, ExtractAreaEffects(Deferred(areaDeferred), shapes, typeTrees, null, false));
+    }
+
+    if (weaponDeferred.Count > 0)
+    {
+        weaponSources = MergeSources(weaponSources, ExtractWeapons(Deferred(weaponDeferred), weaponClasses, bulletClasses, featureClasses, shapes, typeTrees, null, false));
+    }
+
     WriteHitSource(MergeSources(areaSources, weaponSources));
 }
 
@@ -81,7 +96,15 @@ if (mode is "comboSource" or "all")
 
 return 0;
 
-static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles, string[] shapes)
+static List<string> Deferred(List<string> bundles)
+{
+    return bundles
+        .Distinct(StringComparer.Ordinal)
+        .OrderBy(path => Path.GetFileName(path), StringComparer.Ordinal)
+        .ToList();
+}
+
+static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles, string[] shapes, Dictionary<string, TypeTree> typeTrees, List<string>? deferred, bool report = true)
 {
     var map = new Dictionary<int, List<HitSource>>();
     var resolved = 0;
@@ -124,12 +147,15 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
                 var className = GetClassName(mb, scripts);
                 if (className == null) continue;
 
-                var type = ReadType(mb);
+                if (className is not ("AreaEffectEntity" or "LineAreaWeaponEntity" or "SpikeweedEneity")
+                    && !className.StartsWith("AreaEffect_AttackComponent", StringComparison.Ordinal)) continue;
+
+                var type = ReadCachedType(mb, typeTrees);
 
                 if (type == null)
                 {
-                    if (className is "AreaEffectEntity" or "LineAreaWeaponEntity" or "SpikeweedEneity"
-                        || className.StartsWith("AreaEffect_AttackComponent", StringComparison.Ordinal)) unreadable.Add(className);
+                    unreadable.Add(className);
+                    deferred?.Add(bundle);
                     continue;
                 }
 
@@ -276,19 +302,19 @@ static Dictionary<int, List<HitSource>> ExtractAreaEffects(List<string> bundles,
             }
         }
 
-        manager.Clear();
+        Release(manager);
 
-        if (unreadable.Count > 0)
+        if (unreadable.Count > 0 && deferred == null)
         {
             Console.Error.WriteLine($"hitSource: cannot read {string.Join(", ", unreadable)} in {Path.GetFileName(bundle)}");
         }
     }
 
-    Console.WriteLine($"hitSource: {resolved} attack component(s) matched an AreaEffectEntity, {unresolved} unresolved");
+    if (report) Console.WriteLine($"hitSource: {resolved} attack component(s) matched an AreaEffectEntity, {unresolved} unresolved");
     return map;
 }
 
-static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, HashSet<string> weaponClasses, HashSet<string> bulletClasses, HashSet<string> featureClasses, string[] shapes)
+static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, HashSet<string> weaponClasses, HashSet<string> bulletClasses, HashSet<string> featureClasses, string[] shapes, Dictionary<string, TypeTree> typeTrees, List<string>? deferred, bool report = true)
 {
     var map = new Dictionary<int, List<HitSource>>();
     var resolved = 0;
@@ -339,11 +365,15 @@ static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, Has
                     continue;
                 }
 
-                var type = ReadType(mb);
+                var type = ReadCachedType(mb, typeTrees);
 
                 if (type == null)
                 {
-                    if (isWeapon) unreadable.Add(className);
+                    if (isWeapon)
+                    {
+                        unreadable.Add(className);
+                        deferred?.Add(bundle);
+                    }
                     continue;
                 }
 
@@ -379,15 +409,15 @@ static Dictionary<int, List<HitSource>> ExtractWeapons(List<string> bundles, Has
             foreach (var hit in prefab.Ids) AddSource(map, hit, prefab.Source);
         }
 
-        manager.Clear();
+        Release(manager);
 
-        if (unreadable.Count > 0)
+        if (unreadable.Count > 0 && deferred == null)
         {
             Console.Error.WriteLine($"hitSource: cannot read {string.Join(", ", unreadable)} in {Path.GetFileName(bundle)}");
         }
     }
 
-    Console.WriteLine($"hitSource: {resolved} weapon source(s) matched a GameObject, {unresolved} unresolved");
+    if (report) Console.WriteLine($"hitSource: {resolved} weapon source(s) matched a GameObject, {unresolved} unresolved");
     return map;
 }
 
@@ -1707,6 +1737,56 @@ static OrderedDictionary? ReadType(MonoBehaviour mb)
     {
         return null;
     }
+}
+
+static void Release(AssetsManager manager)
+{
+    manager.Clear();
+    GC.Collect();
+}
+
+static OrderedDictionary? ReadCachedType(MonoBehaviour mb, Dictionary<string, TypeTree> typeTrees)
+{
+    var serializedType = mb.serializedType;
+    var type = serializedType.m_Type;
+    var hash = Convert.ToHexString(serializedType.m_OldTypeHash);
+
+    if (type?.m_Nodes is { Count: > 0 })
+    {
+        typeTrees.TryAdd(hash, type);
+        return ParseType(mb, null);
+    }
+
+    if (!typeTrees.TryGetValue(hash, out var donor)) return null;
+
+    return ParseType(mb, donor);
+}
+
+static OrderedDictionary? ParseType(MonoBehaviour mb, TypeTree? donor)
+{
+    OrderedDictionary? type;
+
+    try
+    {
+        type = donor == null ? mb.ToType() : mb.ToType(donor);
+    }
+    catch
+    {
+        return null;
+    }
+
+    if (type == null || donor == null) return type;
+
+    var consumed = mb.reader.Position - mb.reader.byteStart;
+    var slack = mb.byteSize - consumed;
+
+    if (slack is < 0 or > 15)
+    {
+        Console.Error.WriteLine($"hitSource: type tree does not fit {mb.m_GameObject.m_PathID} in {mb.assetsFile.fileName} (slack {slack})");
+        return null;
+    }
+
+    return type;
 }
 
 static string? GetClassName(MonoBehaviour mb, Dictionary<long, string> scripts)

@@ -2,26 +2,6 @@
   "1000001": {
     "sources": [
       {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_117_Ultra",
-        "speed": 1,
-        "lifetime": 10.1,
-        "shape": "circle",
-        "radius": 30,
-        "pierce": true
-      },
-      {
-        "class": "AdventureBullet",
-        "snapshot": true,
-        "name": "Bullet_123_UltraPao",
-        "speed": 25,
-        "lifetime": 0.5,
-        "acceleration": -25,
-        "shape": "circle",
-        "radius": 5
-      },
-      {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_132_Support_P23",
@@ -38,22 +18,26 @@
         "pierce": true
       },
       {
-        "class": "AdventureProjectile",
+        "class": "AdventureBullet",
         "snapshot": true,
-        "name": "Bullet_15901_SkillSup_Rose",
-        "speed": 10,
+        "name": "Bullet_117_Ultra",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:8776662754950200837",
+        "speed": 1,
+        "lifetime": 10.1,
         "shape": "circle",
-        "radius": 2,
+        "radius": 30,
         "pierce": true
       },
       {
-        "class": "AdventureProjectile",
+        "class": "AdventureBullet",
         "snapshot": true,
-        "name": "Bullet_15901_SkillSup_Withered",
-        "speed": 10,
+        "name": "Bullet_123_UltraPao",
+        "ref": "CAB-62babb41c7ff9f282bcac71e02807746:5035981136589787309",
+        "speed": 25,
+        "lifetime": 0.5,
+        "acceleration": -25,
         "shape": "circle",
-        "radius": 2,
-        "pierce": true
+        "radius": 5
       },
       {
         "class": "AdventureBullet",
@@ -314,17 +298,31 @@
         "name": "Bullet_157_P3_DiaoShe4",
         "ref": "CAB-5d5cd90662634f8543a58bc6b4c87a97:9218031222185645056",
         "duration": 0.5
+      },
+      {
+        "class": "AdventureProjectile",
+        "snapshot": true,
+        "name": "Bullet_15901_SkillSup_Rose",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:7979645354936823535",
+        "speed": 10,
+        "shape": "circle",
+        "radius": 2,
+        "pierce": true
+      },
+      {
+        "class": "AdventureProjectile",
+        "snapshot": true,
+        "name": "Bullet_15901_SkillSup_Withered",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:-2059459164161977274",
+        "speed": 10,
+        "shape": "circle",
+        "radius": 2,
+        "pierce": true
       }
     ]
   },
   "1000002": {
     "sources": [
-      {
-        "class": "AdventureBezierBullet",
-        "snapshot": true,
-        "name": "Bullet_135_Skil_Main_Call_Bullt",
-        "duration": 0.4
-      },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
@@ -336,6 +334,13 @@
         "snapshot": true,
         "name": "Bullet_156_Sup_Skill_PenguinStatueCalling_Fly",
         "speed": 20
+      },
+      {
+        "class": "AdventureBezierBullet",
+        "snapshot": true,
+        "name": "Bullet_135_Skil_Main_Call_Bullt",
+        "ref": "CAB-fba751c2d85f3dabcb5fbd20f25ff377:6214870181679466404",
+        "duration": 0.4
       }
     ]
   },
@@ -3194,6 +3199,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_Attack_3",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:7697587720314833001",
         "speed": 55,
         "lifetime": 0.2,
         "acceleration": -55,
@@ -3205,6 +3211,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_Attack_1",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-3232500407059265308",
         "speed": 55,
         "lifetime": 0.12,
         "acceleration": -55,
@@ -3216,6 +3223,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_Attack_2",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-4346063897817950973",
         "speed": 55,
         "lifetime": 0.17,
         "acceleration": -55,
@@ -3231,6 +3239,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_B1P02_Skill_Attack_Far",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-6206322992872672693",
         "speed": 55,
         "lifetime": 0.2,
         "acceleration": -55,
@@ -3242,6 +3251,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_B1_Skill_Attack_Far",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-415294889378636545",
         "speed": 55,
         "lifetime": 0.2,
         "acceleration": -55,
@@ -3253,6 +3263,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_B1_Skill_Attack_Middling",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:2973999780160618226",
         "speed": 55,
         "lifetime": 0.16,
         "acceleration": -55,
@@ -3264,6 +3275,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_B1P02_Skill_Attack_Middling",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-2172154381297205049",
         "speed": 55,
         "lifetime": 0.16,
         "acceleration": -55,
@@ -3275,6 +3287,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_B1_Skill_Attack_Near",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:648950477149887021",
         "speed": 55,
         "lifetime": 0.12,
         "acceleration": -55,
@@ -3286,6 +3299,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_B1P02_Skill_Attack_Near",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:2304143325189162186",
         "speed": 55,
         "lifetime": 0.12,
         "acceleration": -55,
@@ -3301,6 +3315,7 @@
         "class": "AdventureBomb",
         "snapshot": true,
         "name": "Bullet_108_B2_Skill",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-2236928527494104052",
         "shape": "circle",
         "radius": 2,
         "hitDelay": 1
@@ -3313,6 +3328,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_ultra_2",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-764237001151443540",
         "speed": 100,
         "lifetime": 0.15,
         "acceleration": -40,
@@ -3323,6 +3339,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_ultra_1",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:-3819656959485509205",
         "speed": 100,
         "lifetime": 0.15,
         "acceleration": -40,
@@ -3337,6 +3354,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_ultra_Last",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:3012760828366287793",
         "speed": 50,
         "lifetime": 0.3,
         "acceleration": -40,
@@ -3347,6 +3365,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_ultra_P42_Last",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:7331287908251961935",
         "speed": 50,
         "lifetime": 0.3,
         "acceleration": -40,
@@ -3362,6 +3381,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_108_ultra_T2",
+        "ref": "CAB-63b569ac925b7e95f81804da805197af:7218680479817478765",
         "speed": 100,
         "lifetime": 0.15,
         "acceleration": -40,
@@ -3393,6 +3413,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_110_NrmAtk_4_Shot",
+        "ref": "CAB-6228992c7b8e1f5abd6d9b79af29cde0:-6264572002546621771",
         "speed": 30,
         "lifetime": 0.3,
         "shape": "circle",
@@ -3528,6 +3549,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_1_P05",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:4628998728151305265",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3537,6 +3559,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_1",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:7705798405233316976",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle"
@@ -3549,6 +3572,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_2",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-8984174483392117613",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle"
@@ -3557,6 +3581,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_2_P05",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:8675667705556033020",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3570,6 +3595,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_Perk8",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-8109351208435859380",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3579,12 +3605,14 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_H2_1",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-3996783920657269512",
         "duration": 0.5
       },
       {
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-1908432079273949738",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle"
@@ -3593,12 +3621,14 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_H2_2",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:714374096780474824",
         "duration": 0.5
       },
       {
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_P05",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:5227963240859959999",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3608,24 +3638,28 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_H2_3",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:8106755052830248660",
         "duration": 0.5
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_H2_5",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:2658293507230780432",
         "duration": 0.5
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_H2_4",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:8031260954988599675",
         "duration": 0.5
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_11101_Attack_3_H2_6",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:5296579786053807685",
         "duration": 0.5
       }
     ]
@@ -3636,6 +3670,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_B1P04_Skill_IceBolt",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-4540791275479970682",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3646,6 +3681,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_B1_Skill_IceBolt",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-43581979793758507",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3837,6 +3873,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_B1P01_Skill_IceBolt_Big",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:1312883672530999802",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3898,6 +3935,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_B1P03P05_Skill_IceBolt_Small",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-6724020488703988497",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -3907,6 +3945,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_11101_B1P03_Skill_IceBolt_Small",
+        "ref": "CAB-0d7d956580df2c12ec62b3478366ca28:-2354402838435016327",
         "speed": 60,
         "lifetime": 1,
         "shape": "circle",
@@ -4052,6 +4091,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_Ultra_SwordQi_T2",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:8416863169820162308",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4084,6 +4124,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_Attack_P4_JianQi_R",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:1813371794840496521",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4095,6 +4136,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_Attack_P4_JianQi_L",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:2342281504448636442",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4110,6 +4152,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_P5_JianQi_Ping",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:3883898240077187569",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4125,6 +4168,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_P6_JianQi",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-3037895026052255081",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4140,6 +4184,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_L",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:8308957514728535395",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4151,6 +4196,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_L_P23",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-5468644783925054391",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4163,6 +4209,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_R_P23",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-6685169059955560250",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4175,6 +4222,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_R",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:5334278766710719175",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4190,6 +4238,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_Big_P26",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:1905791911854717897",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4201,6 +4250,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_Big",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:5873289219527821787",
         "speed": 20,
         "lifetime": 1,
         "shape": "rectangle",
@@ -4212,6 +4262,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_Big_P22",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-5453078912677449641",
         "speed": 20,
         "lifetime": 1.8,
         "shape": "rectangle",
@@ -4223,6 +4274,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_Big_P22P26",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-5494254342407666732",
         "speed": 20,
         "lifetime": 1.8,
         "shape": "rectangle",
@@ -4238,6 +4290,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_Big_P22_Empty",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-999920477365553401",
         "speed": 20,
         "lifetime": 1.8,
         "shape": "rectangle",
@@ -4249,6 +4302,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_JianQi_Big_P22P26_Empty",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:2967935936316100790",
         "speed": 20,
         "lifetime": 1.8,
         "shape": "rectangle",
@@ -4264,6 +4318,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_112_SkillSup_P23_FenLie_JianQi",
+        "ref": "CAB-31e606c46226eaf2a8daec06152e77a0:-4070935088664727954",
         "speed": 10,
         "lifetime": 0.5,
         "shape": "rectangle",
@@ -5946,6 +6001,22 @@
         "ref": "CAB-2411ba1e0aadad81841c888436551db6:-8868805364611804605",
         "shape": "circle",
         "radius": 2
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1_Skill_Thunder_AoE_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-9055958644343317763",
+        "shape": "circle",
+        "radius": 2
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1_Skill_Thunder_AoE_1",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:1555226229799956453",
+        "shape": "circle",
+        "radius": 2
       }
     ]
   },
@@ -5955,6 +6026,7 @@
         "class": "AdventureTimeBomb",
         "snapshot": true,
         "name": "Bullet_11701_B2P24_Skill_Boom",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-417841088781770172",
         "shape": "circle",
         "duration": 10
       }
@@ -5967,6 +6039,14 @@
         "snapshot": true,
         "name": "Bullet_11701_B2P21P24_Skill_LargeBoom",
         "ref": "CAB-2411ba1e0aadad81841c888436551db6:1838471339595568890",
+        "shape": "circle",
+        "duration": 10
+      },
+      {
+        "class": "AdventureTimeBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B2P21P24_Skill_LargeBoom",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-5337082437152960221",
         "shape": "circle",
         "duration": 10
       }
@@ -6108,6 +6188,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-6884769962334600425",
         "speed": 2,
         "lifetime": 10.1,
         "shape": "circle",
@@ -6118,6 +6199,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6_42",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-2321261599351495769",
         "speed": 2,
         "lifetime": 10.1,
         "shape": "circle",
@@ -6132,6 +6214,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-550944314896013863",
         "speed": 2,
         "lifetime": 10.1,
         "shape": "circle",
@@ -6142,6 +6225,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_117_Ultra_H6_42_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-8496059015167160070",
         "speed": 2,
         "lifetime": 10.1,
         "shape": "circle",
@@ -6156,6 +6240,7 @@
         "class": "AdventureBomb",
         "snapshot": true,
         "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv1_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-5329306285110135243",
         "shape": "circle",
         "radius": 1
       },
@@ -6163,6 +6248,7 @@
         "class": "AdventureBomb",
         "snapshot": true,
         "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv1_1",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-346901036750641790",
         "shape": "circle",
         "radius": 1
       }
@@ -6185,6 +6271,22 @@
         "ref": "CAB-2411ba1e0aadad81841c888436551db6:-325189401474191366",
         "shape": "circle",
         "radius": 1.5
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv2_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:6899269215470648165",
+        "shape": "circle",
+        "radius": 1.5
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv2_1",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-1354078672181773801",
+        "shape": "circle",
+        "radius": 1.5
       }
     ]
   },
@@ -6203,6 +6305,22 @@
         "snapshot": true,
         "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv3_2",
         "ref": "CAB-2411ba1e0aadad81841c888436551db6:7716884154324639743",
+        "shape": "circle",
+        "radius": 2
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv3_1",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-7805201227951461607",
+        "shape": "circle",
+        "radius": 2
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv3_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-7536760439852435234",
         "shape": "circle",
         "radius": 2
       }
@@ -6225,6 +6343,22 @@
         "ref": "CAB-2411ba1e0aadad81841c888436551db6:4662434143076880166",
         "shape": "circle",
         "radius": 2.5
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv4_1",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:-7963686322349024474",
+        "shape": "circle",
+        "radius": 2.5
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_B1P02_Skill_Thunder_AoE_Lv4_2",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:4640076060878049466",
+        "shape": "circle",
+        "radius": 2.5
       }
     ]
   },
@@ -6235,6 +6369,14 @@
         "snapshot": true,
         "name": "Bullet_11701_Main_Skill_Thunder_P05_AOE",
         "ref": "CAB-2411ba1e0aadad81841c888436551db6:2011421775009135947",
+        "shape": "circle",
+        "radius": 1
+      },
+      {
+        "class": "AdventureBomb",
+        "snapshot": true,
+        "name": "Bullet_11701_Main_Skill_Thunder_P05_AOE",
+        "ref": "CAB-06d38074eab65101b805c9551062bc35:7505563996699053738",
         "shape": "circle",
         "radius": 1
       }
@@ -7091,6 +7233,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_123_FengTun_Atk1",
+        "ref": "CAB-62babb41c7ff9f282bcac71e02807746:7205543006579036642",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7355,6 +7498,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Attack_1_Perk10",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-5310961982706837171",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7365,6 +7509,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Attack_1",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-74280395490173905",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7378,6 +7523,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Attack_2",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:8109912078483503442",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7387,6 +7533,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Attack_2_Perk10",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-3133098066687974922",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7401,6 +7548,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Attack_3",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-5072938978721703728",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7410,6 +7558,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Attack_3_Perk10",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:5543570934030717760",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7424,6 +7573,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Fen_Attack_1",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:522512624713995717",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7433,6 +7583,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Fen_Attack_1_Perk10",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-4586325162132701068",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7447,6 +7598,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Fen_Attack_2_Perk10",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-477861743331680769",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7457,6 +7609,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Fen_Attack_2",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:4011201436546416448",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7470,6 +7623,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Fen_Attack_3_Perk10",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:22586299408048624",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7480,6 +7634,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Fen_Attack_3",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-166121407491128695",
         "speed": 20,
         "lifetime": 1,
         "shape": "circle",
@@ -7493,6 +7648,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill1P02_MagicHat_Return",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:9157312380735651730",
         "speed": 14,
         "lifetime": 8,
         "shape": "circle",
@@ -7508,6 +7664,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill1_MagicHat",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-7675172998022682386",
         "speed": 2,
         "lifetime": 5,
         "shape": "circle",
@@ -7522,6 +7679,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_3",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:2616986896441327902",
         "pierce": true,
         "duration": 0.55
       },
@@ -7529,6 +7687,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_1",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-8195750732826951401",
         "pierce": true,
         "duration": 0.55
       },
@@ -7536,6 +7695,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:573013834293800607",
         "speed": 12,
         "lifetime": 1.5,
         "shape": "circle",
@@ -7552,6 +7712,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_5",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-9120770258314405818",
         "pierce": true,
         "duration": 0.55
       },
@@ -7559,6 +7720,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_4",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-439484554223880237",
         "pierce": true,
         "duration": 0.55
       },
@@ -7566,6 +7728,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_2",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:4693017204352176931",
         "pierce": true,
         "duration": 0.55
       }
@@ -7577,6 +7740,7 @@
         "class": "AdventureBomb",
         "snapshot": true,
         "name": "Bullet_12601_Ultra_Phoenix_Perk43",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:5854182245908287897",
         "shape": "circle",
         "radius": 5,
         "hitDelay": 0.25
@@ -7585,6 +7749,7 @@
         "class": "AdventureBomb",
         "snapshot": true,
         "name": "Bullet_12601_Ultra_Phoenix",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:3620879232707446869",
         "shape": "circle",
         "radius": 5,
         "hitDelay": 0.25
@@ -7687,6 +7852,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill1P01P02_MagicHat_Return",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-331773644486441354",
         "speed": 14,
         "lifetime": 8,
         "shape": "circle",
@@ -7702,6 +7868,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill1P01_MagicHat",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:8931625574179017169",
         "speed": 2,
         "lifetime": 5,
         "shape": "circle",
@@ -7716,6 +7883,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk22_Self",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:5625825568316162235",
         "speed": 12,
         "lifetime": 1.5,
         "shape": "circle",
@@ -7732,6 +7900,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk22",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:744922980508358500",
         "speed": 12,
         "lifetime": 1.5,
         "shape": "circle",
@@ -7752,6 +7921,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk24_1",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-6278955246059717361",
         "pierce": true,
         "duration": 0.55
       },
@@ -7759,6 +7929,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk24_2",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-190990229606981020",
         "pierce": true,
         "duration": 0.55
       }
@@ -7770,6 +7941,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk27_2",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-2211760789385056666",
         "pierce": true,
         "duration": 0.55
       },
@@ -7777,6 +7949,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk27_1",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-7451596874458060176",
         "pierce": true,
         "duration": 0.55
       }
@@ -7788,6 +7961,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk30_1",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:1744580974679087419",
         "pierce": true,
         "duration": 0.55
       },
@@ -7795,6 +7969,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk30_4",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:8017933070479045795",
         "pierce": true,
         "duration": 0.55
       },
@@ -7802,6 +7977,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk30_5",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-25552667754409109",
         "pierce": true,
         "duration": 0.55
       },
@@ -7809,6 +7985,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk30_3",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-5250829136479373913",
         "pierce": true,
         "duration": 0.55
       },
@@ -7816,6 +7993,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_12601_Skill2_ButterflyFire_Perk30_2",
+        "ref": "CAB-e0f5f81b6ae5d50c96db955cf86e436a:-3959157968497382958",
         "pierce": true,
         "duration": 0.55
       }
@@ -8063,6 +8241,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_Attack",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:5227935630867129969",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8077,6 +8256,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B1_Attack",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-5712146189689707048",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8091,6 +8271,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2_Attack_1",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:6482876412211097479",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -8105,6 +8286,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2_Attack_2",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-8548620971006136069",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -8119,6 +8301,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2_Attack_3",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-5325233836901122588",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -8146,6 +8329,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2_Attack_4",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-5964671783051067194",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -8225,24 +8409,28 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B1P02_Attack_1",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-6895888323212845673",
         "duration": 0.4
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B1P02_Attack_4",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-6872788744704737677",
         "duration": 0.4
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B1P02_Attack_2",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:4776153253544494422",
         "duration": 0.4
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B1P02_Attack_3",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:531367367371370231",
         "duration": 0.4
       }
     ]
@@ -8283,6 +8471,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B1_Attack_P05",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-5040114332866515754",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8327,6 +8516,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B1_Attack_Perk11",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-5103051284895898669",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8341,6 +8531,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P21_Attack_1",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:4618284176473429594",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8351,6 +8542,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P21_Attack_2",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:316569642067410988",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8361,6 +8553,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P21_Attack",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:7698960196626118158",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -8375,6 +8568,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P21_Attack_3",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-7204326287390158549",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -8403,6 +8597,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P23_Attack",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:6217927610154429625",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -8445,12 +8640,14 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_5",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:607715674021413014",
         "duration": 0.4
       },
       {
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_4",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-1780063738271625396",
         "duration": 0.4
       }
     ]
@@ -8487,6 +8684,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_2_Big",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:8762427473609810105",
         "shape": "circle",
         "radius": 5,
         "duration": 0.6
@@ -8495,6 +8693,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_3",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-4722376102822107600",
         "shape": "circle",
         "radius": 3,
         "duration": 0.6
@@ -8503,6 +8702,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_2",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:6320782226521360427",
         "shape": "circle",
         "radius": 3,
         "duration": 0.6
@@ -8511,6 +8711,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_1",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-8163215001186406433",
         "shape": "circle",
         "radius": 3,
         "duration": 0.6
@@ -8519,6 +8720,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_3_Big",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:-666361010854293227",
         "shape": "circle",
         "radius": 5,
         "duration": 0.6
@@ -8527,6 +8729,7 @@
         "class": "AdventureBezierBullet",
         "snapshot": true,
         "name": "Bullet_130_B2P30_Attack_1_Big",
+        "ref": "CAB-110bf93c54b031abda345a4420692996:7365728327370472320",
         "shape": "circle",
         "radius": 5,
         "duration": 0.6
@@ -9179,6 +9382,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_13401_Ultra",
+        "ref": "CAB-64318267689f78cae5d7cd1b49caea7e:-6381895348876131442",
         "speed": 50,
         "lifetime": 1,
         "shape": "circle",
@@ -9227,6 +9431,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_13401_Ultra_T2",
+        "ref": "CAB-64318267689f78cae5d7cd1b49caea7e:5917622741081742412",
         "speed": 100,
         "lifetime": 1,
         "shape": "circle",
@@ -11197,6 +11402,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_143_Atk_Normal",
+        "ref": "CAB-cdefcb76d29ef447b13883bdc017b04b:-2335086847782920582",
         "speed": 25,
         "lifetime": 1,
         "shape": "circle",
@@ -11228,6 +11434,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_143_Atk_Jian6",
+        "ref": "CAB-cdefcb76d29ef447b13883bdc017b04b:-2953870215683870280",
         "speed": 60,
         "lifetime": 0.25,
         "acceleration": -30,
@@ -11257,6 +11464,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_143_SkillMain_Base",
+        "ref": "CAB-cdefcb76d29ef447b13883bdc017b04b:-6793963683468843801",
         "speed": 25,
         "lifetime": 1,
         "shape": "circle",
@@ -12385,6 +12593,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_14901_Ultra",
+        "ref": "CAB-52d5592d146df75e16aae3838fd9f9ca:-3587126465763272401",
         "speed": 14,
         "lifetime": 0.9,
         "shape": "rectangle",
@@ -12400,6 +12609,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_14901_Ultra_P41",
+        "ref": "CAB-52d5592d146df75e16aae3838fd9f9ca:930402028261251701",
         "speed": 14,
         "lifetime": 0.9,
         "shape": "rectangle",
@@ -13452,6 +13662,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk05_Grade2",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:-3284851128111835484",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13462,6 +13673,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:7745972455662567701",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13471,6 +13683,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk05_Grade3",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:-3949016620778567873",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13481,6 +13694,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk05Perk03_Grade3",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:4719254136107390348",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13491,6 +13705,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk05_Grade1",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:-2744862945316308505",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13501,6 +13716,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk05Perk03_Grade1",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:1387562715284216579",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13511,6 +13727,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk05Perk03_Grade2",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:-750317235361035418",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
@@ -13521,6 +13738,7 @@
         "class": "AdventureBullet",
         "snapshot": true,
         "name": "Bullet_15901_NormalAttack_Perk03",
+        "ref": "CAB-5c322e63bb0ea6c39d82fd583bbe5ba6:-3897876330111976334",
         "speed": 40,
         "lifetime": 1,
         "shape": "circle",
